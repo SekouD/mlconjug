@@ -11,5 +11,5 @@ PyYAML==3.11
 pytest==2.9.2
 pytest-runner==2.11.1
 scikit-learn==0.19.0
-numpy==1.13.1
+numpy
 scipy==0.19.1
