@@ -36,8 +36,8 @@ class Verbiste:
 
         """
         verbs_dic = {}
-        with codecs.open(verbs_path, "r", encoding="utf-8") as fichier:
-            xml = ET.parse(fichier)
+        with codecs.open(verbs_path, "r", encoding='utf-8') as file:
+            xml = ET.parse(file)
             for verb in xml.findall("v"):
                 verb_name = verb.find("i").text
                 template = verb.find("t").text
@@ -52,8 +52,8 @@ class Verbiste:
 
         """
         conjugations_dic = {}
-        with codecs.open(conjugations_path, "r", encoding="utf-8") as fichier:
-            xml = ET.parse(fichier)
+        with codecs.open(conjugations_path, "r", encoding='utf-8') as file:
+            xml = ET.parse(file)
             for template in xml.findall("template"):
                 template_name = template.get("name")
                 conjugations_dic[template_name] = OrderedDict()
