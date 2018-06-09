@@ -41,7 +41,7 @@ test_script:
   - "%PYTHON%\\python.exe -m pip install pytest-cov"
   - "%PYTHON%\\python.exe -m pip install codecov"
   - "%PYTHON%\\python.exe -m pip install docutils"
-  - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
+  - "%PYTHON%\\python.exe -m pip install -r requirements_dev.txt"
   - "%PYTHON%\\Scripts\\py.test --cov=./lyricsmaster/"
   - "%PYTHON%\\Scripts\\codecov -f .coverage"
   - "%PYTHON%\\python.exe setup.py check --restructuredtext -s"
