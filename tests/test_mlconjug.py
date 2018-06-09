@@ -4,6 +4,7 @@
 """Tests for `mlconjug` package."""
 
 import pytest
+import os
 
 from click.testing import CliRunner
 
@@ -40,8 +41,9 @@ conjug_aller = OrderedDict([
                                          ('fs :', 'allée'), ('fp :', 'allées')]))]))])
 
 class TestPyVerbiste:
-    verbs_path = "./mlconjug/data/verbs-fr.xml"
-    conjugations_path = "./mlconjug/data/conjugation-fr.xml"
+    directory = os.path.dirname(os.getcwd())
+    verbs_path = os.path.join(directory, 'mlconjug\data', 'verbs-fr.xml')
+    conjugations_path = os.path.join(directory, 'mlconjug\data', 'conjugation-fr.xml')
     verbiste = PyVerbiste.Verbiste(verbs_path, conjugations_path)
     def test_init_verbiste(self):
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
