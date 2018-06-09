@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	verbs-it.xml - List of Italian verbs with their conjugation template
+	Copyright (C) 2010 Christophe Durville <http://polyglotte.tuxfamily.org>
+        Copyright (C) 2015 Philippe Cora
+	Copyright (C) 2010 Pierre Sarrazin <http://sarrazip.com/>
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+	02110-1301, USA.
+-->
+
+<!DOCTYPE verbs-it [
+	<!ELEMENT verbs-it (v+)>
+	<!ELEMENT v (i, t, aspirate-h?)>
+	<!ELEMENT i (#PCDATA)>  <!-- infinitive -->
+	<!ELEMENT t (#PCDATA)>	<!-- template (radical:termination) -->
+	<!ELEMENT aspirate-h EMPTY>  <!-- useful for verbs starting with h -->
+]>
+
+<verbs-it>
+<!-- 1er groupe -->
+<v><i>abitare</i>			<t>am:are</t></v>
+<v><i>accetare</i>			<t>am:are</t></v>
+<v><i>accogliere</i>		<t>co:gliere</t></v>
+<v><i>accostare</i>		<t>am:are</t></v>
+<v><i>addormentare</i>	<t>am:are</t></v>
+<v><i>aggirare</i>			<t>am:are</t></v>
+<v><i>aiutare</i>			<t>am:are</t></v>
+<v><i>alzare</i>			<t>am:are</t></v>
+<v><i>amare</i>			<t>am:are</t></v>
+<v><i>annoiare</i>		<t>am:are</t></v>
+<v><i>apprendere</i>		<t>pre:ndere</t></v>
+<v><i>aprire</i>			<t>ap:rire</t></v>
+<v><i>arare</i>			<t>am:are</t></v>
+<v><i>aspettare</i>		<t>am:are</t></v>
+<v><i>arrivare</i>			<t>am:are</t></v>
+<v><i>ascoltare</i>		<t>am:are</t></v>
+<v><i>avvenire</i>		<t>v:enire</t></v>
+
+<!--  b -->
+<v><i>ballare</i>			<t>am:are</t></v>
+<v><i>balbettare</i>		<t>am:are</t></v>
+<v><i>barrare</i>			<t>am:are</t></v>
+<v><i>bere</i>			<t>b:ere</t></v>
+<v><i>bevere</i>			<t>:bevere</t></v>
+
+<!--  c -->
+<v><i>camminare</i>		<t>am:are</t></v>
+<v><i>cancellare</i>		<t>am:are</t></v>
+<v><i>calmare</i>			<t>am:are</t></v>
+<v><i>calpestare</i>		<t>am:are</t></v>
+<v><i>calzare</i>			<t>am:are</t></v>
+<v><i>cavalcare</i>		<t>am:are</t></v>
+<v><i>costare</i>			<t>am:are</t></v>
+<v><i>cenare</i>			<t>am:are</t></v>
+<v><i>chiamare</i>		<t>am:are</t></v>
+<v><i>cogliere</i>			<t>co:gliere</t></v>
+<v><i>colmare</i>			<t>am:are</t></v>
+<v><i>comprare</i>		<t>am:are</t></v>
+<v><i>convenire</i>		<t>v:enire</t></v>
+<v><i>contravenire</i>		<t>v:enire</t></v>
+<v><i>continuare</i>		<t>am:are</t></v>
+<v><i>coprire</i>			<t>ap:rire</t></v>
+<v><i>comprendere</i>		<t>pre:ndere</t></v>
+<v><i>cucinare</i>		<t>am:are</t></v>
+
+<!--  d -->
+<v><i>desiderare</i>		<t>am:are</t></v>
+<v><i>devenire</i>		<t>v:enire</t></v>
+<v><i>divenire</i>		<t>v:enire</t></v>
+<v><i>diventare</i>		<t>am:are</t></v>
+<v><i>diramare</i>		<t>am:are</t></v>
+<v><i>disegnare</i>		<t>am:are</t></v>
+<v><i>disturbare</i>		<t>am:are</t></v>
+<v><i>domandare</i>		<t>am:are</t></v>
+
+<!--  e -->
+<v><i>entrare</i>			<t>am:are</t></v>
+
+<!--  f -->
+<v><i>fermare</i>			<t>am:are</t></v>
+<v><i>firmare</i>			<t>am:are</t></v>
+<!-- g -->
+<v><i>girare</i>			<t>am:are</t></v>
+<v><i>giurare</i>			<t>am:are</t></v>
+<v><i>guadagnare</i>		<t>am:are</t></v>
+<v><i>guardare</i>		<t>am:are</t></v>
+<v><i>guidare</i>			<t>am:are</t></v>
+
+<!--  i -->
+<v><i>imparare</i>		<t>am:are</t></v>
+<v><i>incontrare</i>		<t>am:are</t></v>
+<v><i>inoculare</i>		<t>am:are</t></v>
+<v><i>intraprendere</i>		<t>pre:ndere</t></v>
+<v><i>insegnare</i>		<t>am:are</t></v>
+<v><i>inviare</i>			<t>am:are</t></v>
+<v><i>invitare</i>			<t>am:are</t></v>
+
+<!--  l -->
+<v><i>lavare</i>			<t>am:are</t></v>
+<v><i>lavorare</i>		<t>am:are</t></v>
+<v><i>levare</i>			<t>am:are</t></v>
+<v><i>lodare</i>			<t>am:are</t></v>
+
+<!--  m -->
+<v><i>mandare</i>		<t>am:are</t></v>
+<v><i>masticare</i>		<t>am:are</t></v>
+
+<!--  n -->
+<v><i>nuotare</i>			<t>am:are</t></v>
+
+<!--  o -->
+<v><i>odiare</i>			<t>odi:are</t></v>
+<v><i>offendere</i>		<t>pre:ndere</t></v>
+<!--  p -->
+<v><i>parlare</i>			<t>am:are</t></v>
+<v><i>passare</i>			<t>am:are</t></v>
+<v><i>pensare</i>			<t>am:are</t></v>
+<v><i>pettinare</i>		<t>am:are</t></v>
+<v><i>portare</i>			<t>am:are</t></v>
+<v><i>pranzare</i>		<t>am:are</t></v>
+<v><i>pendere</i>		<t>cred:ere</t></v>
+<v><i>prendere</i>		<t>pre:ndere</t></v>
+<v><i>preparare</i>		<t>am:are</t></v>
+<v><i>presentare</i>		<t>am:are</t></v>
+<v><i>prevedere</i>		<t>v:edere</t></v>
+<v><i>prevenire</i>		<t>v:enire</t></v>
+<v><i>provare</i>			<t>am:are</t></v>
+<v><i>provenire</i>		<t>v:enire</t></v>
+<!--  q -->
+
+<!--  r -->
+<v><i>raccogliere</i>		<t>co:gliere</t></v>
+<v><i>raccontare</i>		<t>am:are</t></v>
+<v><i>raccordare</i>		<t>am:are</t></v>
+<v><i>rammendare</i>		<t>am:are</t></v>
+<v><i>restare</i>			<t>am:are</t></v>
+<v><i>ricordare</i>		<t>am:are</t></v>
+<v><i>riposare</i>			<t>am:are</t></v>
+<v><i>riprendere</i>		<t>pre:ndere</t></v>
+<v><i>ritornare</i>		<t>am:are</t></v>
+
+<!--  s -->
+<v><i>saldare</i>			<t>am:are</t></v>
+<v><i>salpare</i>			<t>am:are</t></v>
+<v><i>saltare</i>			<t>am:are</t></v>
+<v><i>salutare</i>			<t>am:are</t></v>
+<v><i>scegliere</i>		<t>co:gliere</t></v>
+<v><i>segnare</i>			<t>am:are</t></v>
+<v><i>seminare</i>		<t>am:are</t></v>
+<v><i>scaldare</i>		<t>am:are</t></v>
+<v><i>scoprire</i>			<t>ap:rire</t></v>
+<v><i>sembrare</i>		<t>am:are</t></v>
+<v><i>sognare</i>			<t>am:are</t></v>
+<v><i>sorprendere</i>		<t>pre:ndere</t></v>
+<v><i>sparare</i>			<t>am:are</t></v>
+<v><i>spazzare</i>		<t>am:are</t></v>
+<v><i>sperare</i>			<t>am:are</t></v>
+<v><i>sposare</i>			<t>am:are</t></v>
+<v><i>sospendere</i>		<t>cred:ere</t></v>
+<v><i>suonare</i>			<t>am:are</t></v>
+<v><i>svenire</i>			<t>v:enire</t></v>
+
+<!--  t -->
+<v><i>telefonare</i>		<t>am:are</t></v>
+<v><i>tornare</i>			<t>am:are</t></v>
+<v><i>trovare</i>			<t>am:are</t></v>
+
+<!--  u -->
+<v><i>usare</i>			<t>am:are</t></v>
+
+<!--  v -->
+<v><i>venire</i>			<t>v:enire</t></v>
+<v><i>vivere</i>			<t>vi:vere</t></v>
+<v><i>visitare</i>			<t>am:are</t></v>
+<v><i>volare</i>			<t>am:are</t></v>
+
+<!--  z -->
+<!--  b -->
+<!--  b -->
+<!-- _________ PhC _______________  -->
+
+<v><i>accendere</i>		<t>appe:ndere</t></v>
+<v><i>rispondere</i>  <t>rispo:ndere</t></v>
+<v><i>appendere</i>		<t>appe:ndere</t></v>
+
+<v><i>accludere</i>		<t>acclu:dere</t></v>
+<v><i>escludere</i>		<t>acclu:dere</t></v>
+<v><i>includere</i>		<t>acclu:dere</t></v>
+<v><i>chiudere</i>		<t>acclu:dere</t></v>
+<v><i>chiedere</i>		<t>acclu:dere</t></v>
+<v><i>richiedere</i>		<t>acclu:dere</t></v>
+
+
+<v><i>accorgere</i>		<t>accor:gere</t></v>
+
+<v><i>assolvere</i>		<t>assol:vere</t></v>
+<v><i>dissolvere</i>		<t>assol:vere</t></v>
+<v><i>risolvere</i>		<t>assol:vere</t></v>
+
+<v><i>assumere</i>		<t>assu:mere</t></v>
+<v><i>presumere</i>		<t>assu:mere</t></v>
+<v><i>riassumere</i>		<t>assu:mere</t></v>
+
+<v><i>cadere</i>			<t>cad:ere</t></v>
+<v><i>accadere</i>		<t>cad:ere</t></v>
+<v><i>scadere</i>			<t>cad:ere</t></v>
+
+<v><i>cascare</i>			<t>casc:are</t></v>
+
+<v><i>concedere</i>		<t>conce:dere</t></v>
+
+<v><i>conoscere</i>		<t>cono:scere</t></v>
+<v><i>riconoscere</i>		<t>cono:scere</t></v>
+
+<v><i>coprire</i>		<t>part:ire</t></v>
+<v><i>ricoprire</i>		<t>part:ire</t></v>
+<v><i>scoprire</i>		<t>part:ire</t></v>
+
+<v><i>condurre</i>		<t>cond:urre</t></v>
+<v><i>introdurre</i>		<t>cond:urre</t></v>
+<v><i>produrre</i>		<t>cond:urre</t></v>
+<v><i>ridurre</i>			<t>cond:urre</t></v>
+<v><i>sedurre</i>			<t>cond:urre</t></v>
+<v><i>tradurre</i>		<t>cond:urre</t></v>
+
+<v><i>cuocere</i>			<t>c:uocere</t></v>
+
+<v><i>iscrivere</i>		<t>scri:vere</t></v>
+<v><i>scrivere</i>			<t>scri:vere</t></v>
+<v><i>soscrivere</i>		<t>scri:vere</t></v>
+
+<v><i>appartenere</i>		<t>t:enere</t></v>
+<v><i>contenere</i>		<t>t:enere</t></v>
+<v><i>intrattenere</i>		<t>t:enere</t></v>
+<v><i>mantenere</i>		<t>t:enere</t></v>
+<v><i>ottenere</i>		<t>t:enere</t></v>
+<v><i>ritenere</i>			<t>t:enere</t></v>
+<v><i>sostenere</i>		<t>t:enere</t></v>
+<v><i>tenere</i>			<t>t:enere</t></v>
+<v><i>trattenere</i>		<t>t:enere</t></v>
+
+<v><i>attrarre</i>			<t>tra:rre</t></v>
+<v><i>coitrarre</i>		<t>tra:rre</t></v>
+<v><i>distrarre</i>		<t>tra:rre</t></v>
+<v><i>trarre</i>			<t>tra:rre</t></v>
+<v><i>sottrarre</i>		<t>tra:rre</t></v>
+
+<v><i>correre</i>			<t>cor:rere</t></v>
+
+<v><i>togliere</i>		<t>co:gliere</t></v>
+<v><i>sciogliere</i>		<t>co:gliere</t></v>
+
+<v><i>sedere</i>			<t>s:edere</t></v>
+
+<!-- __________fin PhC_______________ -->
+
+	<!-- exceptions -->
+<v><i>dare</i>			<t>d:are</t></v><!-- plusieurs possiblités dont une ~= stare -->
+<v><i>stare</i>			<t>st:are</t></v>
+<v><i>fare</i>			<t>f:are</t></v>
+<v><i>andare</i>			<t>:andare</t></v>
+
+
+	<!-- 1er groupe en iare -->
+<v><i>annoiare</i>		<t>stud:iare</t></v>
+<v><i>arrabbiare</i>		<t>stud:iare</t></v>
+<v><i>cambiare</i>		<t>stud:iare</t></v>
+<v><i>ingoiare</i>		<t>stud:iare</t></v>
+<v><i>iniziare</i>			<t>stud:iare</t></v>
+<v><i>sbagliare</i>		<t>stud:iare</t></v>
+<v><i>studiare</i>			<t>stud:iare</t></v>
+<v><i>svegliare</i>		<t>stud:iare</t></v>
+
+
+	<!-- 1er groupe en (cg)iare -->
+<v><i>baciare</i>			<t>mang:iare</t></v>
+<v><i>bestemmiare</i>		<t>mang:iare</t></v>
+<v><i>bilanciare</i>		<t>mang:iare</t></v>
+<v><i>cominciare</i>		<t>mang:iare</t></v>
+<v><i>lasciare</i>			<t>mang:iare</t></v>
+<v><i>lanciare</i>			<t>mang:iare</t></v>
+<v><i>mangiare</i>		<t>mang:iare</t></v>
+<v><i>viaggiare</i>		<t>mang:iare</t></v>
+
+	<!-- 1er groupe en (cg)are -->
+<v><i>attraccare</i>		<t>gioc:are</t></v>
+<v><i>cagare</i>			<t>gioc:are</t></v>
+<v><i>cercare</i>			<t>gioc:are</t></v>
+<v><i>dimenticare</i>		<t>gioc:are</t></v>
+<v><i>giocare</i>			<t>gioc:are</t></v>
+<v><i>impiegare</i>  <t>gioc:are</t></v>
+<v><i>mancare</i>		<t>gioc:are</t></v>
+<v><i>negare</i>			<t>gioc:are</t></v>
+<v><i>pagare</i>			<t>gioc:are</t></v>
+<v><i>pianificare</i> <t>gioc:are</t></v>
+<v><i>piegare</i>			<t>gioc:are</t></v>
+<v><i>placare</i>			<t>gioc:are</t></v>
+<v><i>spiegare</i>		<t>gioc:are</t></v>
+<v><i>segare</i>			<t>gioc:are</t></v>
+
+<!-- mega exceptions -->
+
+
+
+<!--2e groupe -->
+<v><i>credere</i>			<t>cred:ere</t></v>
+<v><i>temere</i>			<t>cred:ere</t></v>
+<v><i>vendere</i>		<t>cred:ere</t></v>
+
+
+
+<v><i>piacere</i>			<t>piac:ere</t></v>
+
+<v><i>apparire</i>		<t>pa:rire</t></v>
+<v><i>comparire</i>		<t>pa:rire</t></v>
+<v><i>scomparire</i>		<t>pa:rire</t></v>
+
+<v><i>ammettere</i>		<t>m:ettere</t></v>
+<v><i>commettere</i>		<t>m:ettere</t></v>
+<v><i>compromettere</i>	<t>m:ettere</t></v>
+<v><i>mettere</i>			<t>m:ettere</t></v>
+<v><i>permettere</i>		<t>m:ettere</t></v>
+<v><i>scomettere</i>		<t>m:ettere</t></v>
+<v><i>smettere</i>		<t>m:ettere</t></v>
+<v><i>sommettere</i>		<t>m:ettere</t></v>
+<v><i>sottomettere</i>		<t>m:ettere</t></v>
+
+	<!-- exceptions -->
+<v><i>sapere</i>			<t>s:apere</t></v><!-- modal-->
+<v><i>potere</i>			<t>p:otere</t></v><!-- modal-->
+<v><i>volere</i>			<t>v:olere</t></v><!-- modal-->
+<v><i>dovere</i>			<t>d:overe</t></v><!-- modal-->
+<v><i>leggere</i>			<t>le:ggere</t></v>
+<v><i>friggere</i>			<t>le:ggere</t></v>
+<v><i>vedere</i>			<t>v:edere</t></v>
+
+
+
+
+<!-- 3e groupe (a)-->
+
+<v><i>partire</i>		<t>part:ire</t></v>
+<v><i>dormire</i>			<t>part:ire</t></v>
+<v><i>divertire</i>		<t>part:ire</t></v>
+<v><i>fuggire</i>			<t>part:ire</t></v>
+<v><i>seguire</i>			<t>part:ire</t></v>
+<v><i>sentire</i>			<t>part:ire</t></v>
+<v><i>servire</i>			<t>part:ire</t></v>
+<v><i>soffrire</i>			<t>part:ire</t></v>
+<v><i>vestire</i>			<t>part:ire</t></v>
+
+
+	<!-- exceptions -->
+<v><i>uscire</i>		<t>:uscire</t></v>
+<v><i>riuscire</i>		<t>:uscire</t></v>
+<v><i>dire</i>		<t>:dire</t></v>
+<!---->
+	<!-- 3e groupe en (cg)ire -->
+<!--<v><i>cucire</i>		<t>cuc:ire</t></v>-->
+
+<!-- 3e groupe (b)-->
+<v><i>finire</i>			<t>fin:ire</t></v>
+<v><i>capire</i>			<t>fin:ire</t></v>
+<v><i>preferire</i>		<t>fin:ire</t></v>
+<v><i>pulire</i>			<t>fin:ire</t></v>
+<v><i>spedire</i>			<t>fin:ire</t></v>
+<v><i>stupire</i>			<t>fin:ire</t></v>
+
+<!-- (andarsene)-->
+<v><i>partire</i>	      	  	<t>fin:ire</t></v>
+<!--(addirsi)-->
+<v><i>addire</i>	       	 	<t>part:ire</t></v>
+
+<!-- auxiliaires -->
+<v><i>avere</i>			<t>:avere</t></v>
+<v><i>essere</i>			<t>:essere</t></v>
+
+<!-- ___________ en attente __________________ -->
+
+
+<v><i>---scrivere</i>		<t>cred:ere</t></v>
+<!-- __________________________________________________ -->
+<!--
+<v><i>scrivere</i>		<t>part:ire</t></v>
+<v><i>cuocere</i>		<t>part:ire</t></v>
+<v><i>rimanere</i>		<t>part:ire</t></v>
+<v><i>conoscere</i>		<t>part:ire</t></v>
+<v><i>vivere</i>		<t>part:ire</t></v>
+<v><i>chiedere</i>		<t>part:ire</t></v>
+<v><i>correre</i>		<t>part:ire</t></v>
+<v><i>tenere</i>		<t>part:ire</t></v>
+<v><i>chiudere</i>		<t>fin:ire</t></v>
+<v><i>nascere</i>		<t>fin:ire</t></v>
+<v><i>perdere</i>		<t>part:ire</t></v>
+<v><i>cadere</i>		<t>fin:ire</t></v>
+<v><i>decidere</i>		<t>f:are</t></v>
+<v><i>scegliere</i>		<t>part:ire</t></v>
+<v><i>sedere</i>		<t>part:ire</t></v>
+<v><i>ricevere</i>		<t>part:ire</t></v>
+<v><i>risponderere</i>		<t>part:ire</t></v>
+<v><i>ridere</i>		<t>part:ire</t></v>
+<v><i>scendere</i>		<t>part:ire</t></v>
+<v><i>crescere</i>		<t>part:ire</t></v>
+
+<v><i>sborrare</i>		<t>am:are</t></v>
+<v><i>scopare</i>		<t>am:are</t></v>
+<v><i>bisognare</i>		<t>am:are</t></v>
+
+<v><i>spegnere</i>		<t>part:ire</t></v>
+<v><i>tacere</i>		<t>part:ire</t></v>
+<v><i>soccombere</i>		<t>part:ire</t></v>
+<v><i>rompere</i>		<t>part:ire</t></v>
+<v><i>cogliere</i>		<t>s:apere</t></v>
+<v><i>succedere</i>		<t>fin:ire</t></v>
+<v><i>accendere</i>		<t>part:ire</t></v>
+<v><i>piangere</i>		<t>fin:ire</t></v>
+<v><i>rendere</i>		<t>part:ire</t></v>
+<v><i>accorgere</i>		<t>part:ire</t></v>
+<v><i>spendere</i>		<t>part:ire</t></v>
+<v><i>esigere</i>		<t>part:ire</t></v>
+<v><i>giungere</i>		<t>part:ire</t></v>
+<v><i>facere</i>		<t>part:ire</t></v>
+<v><i>dipringere</i>		<t>part:ire</t></v>
+<v><i>correggere</i>		<t>part:ire</t></v>
+<v><i>ripetere</i>		<t>part:ire</t></v>
+<v><i>muovere</i>		<t>part:ire</t></v>
+<v><i>permettere</i>		<t>s:apere</t></v>
+<v><i>discutere</i>		<t>fin:ire</t></v>
+<v><i>aggiungere</i>		<t>fin:ire</t></v>
+<v><i>giacere</i>		<t>f:are</t></v>
+<v><i>valere</i>		<t>f:are</t></v>
+<v><i>smettere</i>		<t>part:ire</t></v>
+<v><i>bevere</i>		<t>part:ire</t></v>
+<v><i>uccidere</i>		<t>part:ire</t></v>
+<v><i>godere</i>		<t>part:ire</t></v>
+
+<v><i>redigere</i>		<t>part:ire</t></v>
+<v><i>piovere</i>		<t>:andare</t></v>
+<v><i>togliere</i>		<t>part:ire</t></v>
+<v><i>parere</i>		<t>part:ire</t></v>
+<v><i>dividere</i>		<t>part:ire</t></v>
+<v><i>ottonere</i>		<t>part:ire</t></v>
+<v><i>fottere</i>		<t>part:ire</t></v>-->
+
+<!--  verbi irregolari  
+
+<v><i>accorgere</i>		<t>accor:gere</t></v>
+-->
+	<!-- exceptions -->
+<!--<v><i>salire</i>		<t>sal:ire</t></v>
+<v><i>morire</i>		<t>m:orire</t></v>
+<v><i>riuscire</i>		<t>part:ire</t></v>
+<v><i>offrire</i>		<t>part:ire</t></v>
+<v><i>apparire</i>		<t>part:ire</t></v>
+<v><i>udire</i>			<t>part:ire</t></v>
+-->
+
+<!--<v><i>proporre</i>		<t>part:ire</t></v>
+<v><i>porre</i>			<t>part:ire</t></v>
+<v><i>tradurre</i>		<t>fin:ire</t></v>
+<v><i>condurre</i>		<t>part:ire</t></v>
+<v><i>produrre</i>		<t>part:ire</t></v>
+<v><i>costruire</i>		<t>part:ire</t></v>
+<v><i>trarre</i>		<t>am:are</t></v>-->
+
+
+</verbs-it>
