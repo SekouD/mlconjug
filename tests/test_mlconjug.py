@@ -41,6 +41,7 @@ conjug_aller = OrderedDict([
                                          ('fs :', 'allée'), ('fp :', 'allées')]))]))])
 
 class TestPyVerbiste:
+    #directory = os.getcwd()
     directory = os.path.dirname(os.getcwd())
     verbs_path = os.path.join(directory, 'mlconjug', 'data', 'verbs-fr.xml')
     conjugations_path = os.path.join(directory, 'mlconjug', 'data', 'conjugation-fr.xml')
