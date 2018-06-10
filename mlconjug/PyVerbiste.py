@@ -11,6 +11,12 @@ Verbiste can be downloaded at https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
 import xml.etree.ElementTree as ET
 import codecs
 from collections import OrderedDict
+import pkg_resources
+from _io import BufferedReader
+
+resource_package = __name__
+verbs_resource_path = '/'.join(('data', 'verbs-fr.xml'))
+conjugations_resource_path = '/'.join(('data', 'conjugation-fr.xml'))
 
 
 class Verbiste:
@@ -26,11 +32,18 @@ class Verbiste:
 
     """
 
-    def __init__(self, verbs_path, conjugations_path, subject='default'):
+    default_verbs_path = pkg_resources.resource_stream(resource_package, verbs_resource_path)
+    default_conjugations_path = pkg_resources.resource_stream(resource_package, conjugations_resource_path)
+
+    def __init__(self, verbs_path=None, conjugations_path=None, subject='default'):
         self.subject = subject
         self.verbs = {}
         self.conjugations = OrderedDict()
+        if not verbs_path:
+            verbs_path = self.default_verbs_path
         self._load_verbs(verbs_path)
+        if not conjugations_path:
+            conjugations_path = self.default_conjugations_path
         self._load_conjugations(conjugations_path)
         self.templates = sorted(self.conjugations.keys())
         self.model = None
@@ -43,15 +56,30 @@ class Verbiste:
             Path to the verbs xml file.
         """
         verbs_dic = {}
-        with codecs.open(verbs_path, "r", encoding='utf-8') as file:
-            xml = ET.parse(file)
-            for verb in xml.findall("v"):
-                verb_name = verb.find("i").text
-                template = verb.find("t").text
-                index = - len(template[template.index(":") + 1:])
-                root = verb_name[:index]
-                verbs_dic[verb_name] = {"template": template, "root": root}
+        if isinstance(verbs_path, BufferedReader):
+            verbs_dic = self._parse_verbs(verbs_path)
+        else:
+            with codecs.open(verbs_path, "r", encoding='utf-8') as file:
+                verbs_dic = self._parse_verbs(file)
         self.verbs = verbs_dic
+
+    def _parse_verbs(self, file):
+        """
+        Parses XML file
+
+        :param file: XML file containing the verbs.
+        :return: OrderedDict.
+        """
+        verbs_dic = {}
+        xml = ET.parse(file)
+        for verb in xml.findall("v"):
+            verb_name = verb.find("i").text
+            template = verb.find("t").text
+            index = - len(template[template.index(":") + 1:])
+            root = verb_name[:index]
+            verbs_dic[verb_name] = {"template": template, "root": root}
+        return verbs_dic
+
 
     def _load_conjugations(self, conjugations_path):
         """
@@ -60,17 +88,31 @@ class Verbiste:
         :param conjugations_path: string or path object.
             Path to the conjugation xml file.
         """
-        conjugations_dic = {}
-        with codecs.open(conjugations_path, "r", encoding='utf-8') as file:
-            xml = ET.parse(file)
-            for template in xml.findall("template"):
-                template_name = template.get("name")
-                conjugations_dic[template_name] = OrderedDict()
-                for mood in list(template):
-                    conjugations_dic[template_name][mood.tag] = OrderedDict()
-                    for tense in list(mood):
-                        conjugations_dic[template_name][mood.tag][tense.tag] = self._load_tense(mood, tense)
+        if isinstance(conjugations_path, BufferedReader):
+            conjugations_dic = self._parse_conjugations(conjugations_path)
+        else:
+            with codecs.open(conjugations_path, "r", encoding='utf-8') as file:
+                conjugations_dic = self._parse_conjugations(file)
         self.conjugations = conjugations_dic
+
+    def _parse_conjugations(self, file):
+        """
+        Parses XML file
+
+        :param file: XML file containing the conjugation templates
+        :return: OrderedDict
+        """
+        conjugations_dic = {}
+        xml = ET.parse(file)
+        for template in xml.findall("template"):
+            template_name = template.get("name")
+            conjugations_dic[template_name] = OrderedDict()
+            for mood in list(template):
+                conjugations_dic[template_name][mood.tag] = OrderedDict()
+                for tense in list(mood):
+                    conjugations_dic[template_name][mood.tag][tense.tag] = self._load_tense(mood, tense)
+        return conjugations_dic
+
 
     def _load_tense(self, mood, tense):
         """
@@ -111,7 +153,7 @@ class Verbiste:
                                  zip(pronouns, persons))
         return conjug
 
-    def _get_verb_info(self, verb):
+    def get_verb_info(self, verb):
         """
         Gets verb information and returns a VerbInfo instance.
 
@@ -128,7 +170,7 @@ class Verbiste:
             verb_info = VerbInfo(infinitive, root, template)
             return verb_info
 
-    def _get_conjug_info(self, template):
+    def get_conjug_info(self, template):
         """
         Gets conjugation information corresponding to the given template.
 
@@ -140,48 +182,6 @@ class Verbiste:
             return None
         else:
             return self.conjugations[template]
-
-    def conjugate(self, verb):
-        """
-        This is the main method of this class.
-        It first checks to see if the verb is in Verbiste. If it is not, and a pre-trained scikit-learn model has been supplied,
-        the method then calls the model to predict the conjugation class of the provided verb.
-        Returns a Verb object.
-
-        :param verb: string.
-            Verb to conjugate.
-        :return verb_object: Verb object or None.
-        """
-        infinitive = None
-        if verb not in self.verbs.keys():
-            if self.model is None:
-                return None
-            predicted = self.model.predict([verb])[0]
-            template = self.templates[predicted]
-            index = - len(template[template.index(":") + 1:])
-            root = verb[:index]
-            verb_info = VerbInfo(verb, root, template)
-            conjug_info = self._get_conjug_info(verb_info.template)
-        else:
-            infinitive = verb
-            verb_info = self._get_verb_info(infinitive)
-            if verb_info is None:
-                return None
-            conjug_info = self._get_conjug_info(verb_info.template)
-            if conjug_info is None:
-                return None
-        verb_object = Verb(verb_info, conjug_info)
-        return verb_object
-
-    def set_model(self, model):
-        """
-        Assigns the provided pre-trained scikit-learn model to be able to conjugate unknown verbs.
-
-        :param model: scikit-learn Classifier or Pipeline.
-        :return:
-        """
-        self.model = model
-        return
 
 
 class VerbInfo(object):
