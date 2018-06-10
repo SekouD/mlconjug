@@ -67,8 +67,8 @@ Features
 Credits
 ---------
 
-This package was created with the help of Verbiste and scikit-learn.
+This package was created with the help of Verbiste_ and scikit-learn_.
 
-.. _Verbiste: https://github.com/audreyr/cookiecutter
+.. _Verbiste: https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
 .. _scikit-learn: http://scikit-learn.org/stable/index.html
 
