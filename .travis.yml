@@ -3,6 +3,11 @@ deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: SekouD
+  on:
+    python: 3.6
+    repo: SekouD/mlconjug
+    tags: true
+    branch: master
   password:
     secure: !!binary |
       cGF4VDBsWnp0YW1kdjdyVnVidk55bkFUNXRpbml2Z2VKRkUyNEFSWGF0emNyK0xXTUlYNzB1ME5s
@@ -17,10 +22,7 @@ deploy:
       cWN1aWhocGhBQUF2bS9vc2V0NHQ2a0hyUnRtVm9oMk1KNCsvSWllV0VoaWZvd0tpei9seDdvTFpt
       ZCtDb3YwMHpmbjlMTlRnMjVqRkdrOEtpUUprYWpVWkUrTnN3YWFhUFJkcDZueDcvSHNMTTNnVm9p
       dnpHOThsY0lpWUo2TmRtZUhhTGs4emRXb1dDNG9xdmVYYkNJRVhEbldPSGxnemRyT1RyRk00dkU9
-  true:
-    python: 3.6
-    repo: SekouD/mlconjug
-    tags: true
+
 install: pip install -U tox-travis
 language: python
 python:
