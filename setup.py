@@ -35,7 +35,7 @@ test_requirements = [
 
 setup(
     name='mlconjug',
-    version='1.0.0',
+    version='1.0.1',
     description="A Python library to conjugate verbs using Machine Learning techiques.",
     long_description=readme + '\n\n' + history,
     author="SekouD",
