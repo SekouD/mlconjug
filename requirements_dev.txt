@@ -10,8 +10,7 @@ cryptography==2.2
 PyYAML==3.12
 pytest==3.6.1
 pytest-runner>=4.2
-scikit-learn>=0.19.0
 numpy==1.14.3
+scikit-learn>=0.19.0
 scipy==1.1.0
-pandas>=0.22
 click==6.7
