@@ -13,7 +13,9 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'Click>=6.0',
-    # TODO: put package requirements here
+    'numpy==1.14.3',
+    'scipy==1.1.0',
+    'scikit-learn==0.19.',
 ]
 
 setup_requirements = [
@@ -23,7 +25,12 @@ setup_requirements = [
 
 test_requirements = [
     'pytest',
-    # TODO: put package test requirements here
+    'Sphinx',
+    'docutils',
+    'pytest',
+    'pytest-cov',
+    'Click>=6.0',
+    'lxml',
 ]
 
 setup(
@@ -46,17 +53,21 @@ setup(
     zip_safe=False,
     keywords='mlconjug',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
+        'Topic :: Software Development :: Libraries :: Python Modules',
         'Intended Audience :: Developers',
+        'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
+        'Natural Language :: French',
         "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     test_suite='tests',
     tests_require=test_requirements,
