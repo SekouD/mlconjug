@@ -55,14 +55,14 @@ class TestPyVerbiste:
         assert self.verbiste.verbs['abaisser'] == {'template': 'aim:er', 'root': 'abaiss'}
 
     def test_get_verb_info(self):
-        verb_info = self.verbiste.get_verb_info('aller')
+        verb_info = self.verbiste._get_verb_info('aller')
         assert verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
-        assert self.verbiste.get_verb_info('cacater') is None
+        assert self.verbiste._get_verb_info('cacater') is None
 
     def test_get_conjug_info(self):
-        conjug_info = self.verbiste.get_conjug_info(':aller')
+        conjug_info = self.verbiste._get_conjug_info(':aller')
         assert conjug_info == self.verbiste.conjugations[':aller']
-        assert self.verbiste.get_conjug_info(':cacater') is None
+        assert self.verbiste._get_conjug_info(':cacater') is None
 
     def test_conjugate(self):
         conjug = self.verbiste.conjugate('aller')
