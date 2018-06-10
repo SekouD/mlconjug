@@ -5,6 +5,7 @@
 
 import pytest
 import os
+import sys
 
 from click.testing import CliRunner
 
@@ -49,6 +50,8 @@ class TestPyVerbiste:
     def test_init_verbiste(self):
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
         assert self.verbiste.templates[0] == ':aller'
+        if '2.7' in sys.version:
+            assert self.verbiste.templates[-1].decode('utf-8') == 'écri:re'
         assert self.verbiste.templates[-1] == 'écri:re'
         assert self.verbiste.conjugations[':aller'] == conjug_aller
         assert len(self.verbiste.verbs) == 7015
