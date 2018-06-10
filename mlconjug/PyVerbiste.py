@@ -9,6 +9,7 @@ https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
 
 
 import xml.etree.ElementTree as ET
+import codecs
 from collections import OrderedDict
 
 
@@ -35,7 +36,7 @@ class Verbiste:
 
         """
         verbs_dic = {}
-        with open(verbs_path, "r", encoding='utf-8') as file:
+        with codecs.open(verbs_path, "r") as file:
             xml = ET.parse(file)
             for verb in xml.findall("v"):
                 verb_name = verb.find("i").text
@@ -51,7 +52,7 @@ class Verbiste:
 
         """
         conjugations_dic = {}
-        with open(conjugations_path, "r", encoding='utf-8') as file:
+        with codecs.open(conjugations_path, "r") as file:
             xml = ET.parse(file)
             for template in xml.findall("template"):
                 template_name = template.get("name")
