@@ -47,6 +47,7 @@ setup(
             'mlconjug=mlconjug.cli:main'
         ]
     },
+    package_data={'data_ressources': ['mlconjug/data/*']},
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
