@@ -2,10 +2,12 @@
 
 """Main module."""
 
+from sklearn.feature_selection import SelectFromModel
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.metrics import precision_recall_fscore_support
 
 
 import random
@@ -52,8 +54,8 @@ class DataSet:
     """
     def __init__(self, VerbisteObj):
         self.verbiste = VerbisteObj
-        self.verbes = self.verbiste.verbes.keys()
-        self.templates = sorted(self.verbiste.conjugaisons.keys())
+        self.verbes = self.verbiste.verbs.keys()
+        self.templates = sorted(self.verbiste.conjugations.keys())
         self.liste_verbes = []
         self.liste_templates = []
         self.dict_conjug = []
@@ -69,7 +71,7 @@ class DataSet:
         :return:
         """
         conjug = defaultdict(list)
-        for verbe, info_verbe in self.verbiste.verbes.items():
+        for verbe, info_verbe in self.verbiste.verbs.items():
             self.liste_verbes.append(verbe)
             self.liste_templates.append(
                 self.templates.index(info_verbe["template"]))
@@ -128,7 +130,7 @@ class Model(object):
         if not vectorizer:
             vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
         if not feature_selector:
-            feature_selector = LinearSVC(penalty='l1', max_iter=3000, dual=False, verbose=2)
+            feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=3000, dual=False, verbose=2))
         if not classifier:
             classifier = SGDClassifier(loss='log', penalty='elasticnet', alpha=1e-5, random_state=42)
         self.model = Pipeline([('vectorizer', vectorizer),

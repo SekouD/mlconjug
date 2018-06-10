@@ -192,7 +192,7 @@ class VerbInfo(object):
         Infinitive form of the verb.
     :param root: string.
         Lexical root of the verb.
-    :param template.
+    :param template: string.
         Name of the verb ending pattern.
 
     """
