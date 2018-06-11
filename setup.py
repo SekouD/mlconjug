@@ -59,7 +59,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Education',
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
-        'Topic :: Utilities'
+        'Topic :: Utilities',
         'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
         'Intended Audience :: Education',
