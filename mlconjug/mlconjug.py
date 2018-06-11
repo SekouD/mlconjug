@@ -11,9 +11,14 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import precision_recall_fscore_support
 
-
 import random
-from collections import defaultdict, OrderedDict
+from collections import defaultdict
+import pickle
+
+import pkg_resources
+
+resource_package = __name__
+pre_trained_model_path = '/'.join(('data', 'models', 'trained_model-fr.pickle'))
 
 
 class Conjugator:
@@ -32,8 +37,7 @@ class Conjugator:
         self.data_set.construct_dict_conjug()
         self.data_set.split_data(proportion=0.9)
         if not model:
-            model = Model()
-            model = model.train(self.data_set.liste_verbes, self.data_set.liste_templates)
+            model = pickle.loads(pkg_resources.resource_stream(resource_package, pre_trained_model_path).read())
         self.model = model
 
     def conjugate(self, verb):
@@ -193,9 +197,9 @@ class Model(object):
         if not vectorizer:
             vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
         if not feature_selector:
-            feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=3000, dual=False, verbose=2))
+            feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=16000, dual=False, verbose=2))
         if not classifier:
-            classifier = SGDClassifier(loss='log', penalty='elasticnet', alpha=1e-5, random_state=42)
+            classifier = SGDClassifier(loss='log', penalty='elasticnet', max_iter=16000, alpha=1e-5, random_state=42, verbose=2)
         self.model = Pipeline([('vectorizer', vectorizer),
                                ('feature_selector', feature_selector),
                                ('classifier', classifier)])
@@ -210,6 +214,7 @@ class Model(object):
             List of verb templates.
         """
         self.model = self.model.fit(samples, labels)
+        return
 
     def predict(self, verbs):
         """
