@@ -32,23 +32,23 @@ class Verbiste:
 
     """
 
-    default_verbs_path = pkg_resources.resource_stream(resource_package, verbs_resource_path)
-    default_conjugations_path = pkg_resources.resource_stream(resource_package, conjugations_resource_path)
+    default_verbs_file = pkg_resources.resource_stream(resource_package, verbs_resource_path)
+    default_conjugations_file = pkg_resources.resource_stream(resource_package, conjugations_resource_path)
 
-    def __init__(self, verbs_path=None, conjugations_path=None, subject='default'):
+    def __init__(self, verbs_file=None, conjugations_file=None, subject='default'):
         self.subject = subject
         self.verbs = {}
         self.conjugations = OrderedDict()
-        if not verbs_path:
-            verbs_path = self.default_verbs_path
-        self._load_verbs(verbs_path)
-        if not conjugations_path:
-            conjugations_path = self.default_conjugations_path
-        self._load_conjugations(conjugations_path)
+        if not verbs_file:
+            verbs_file = self.default_verbs_file
+        self._load_verbs(verbs_file)
+        if not conjugations_file:
+            conjugations_file = self.default_conjugations_file
+        self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
         self.model = None
 
-    def _load_verbs(self, verbs_path):
+    def _load_verbs(self, verbs_file):
         """
         Load and parses the verbs from xml file.
 
@@ -56,10 +56,10 @@ class Verbiste:
             Path to the verbs xml file.
         """
         verbs_dic = {}
-        if isinstance(verbs_path, BufferedReader):
-            verbs_dic = self._parse_verbs(verbs_path)
+        if isinstance(verbs_file, BufferedReader):
+            verbs_dic = self._parse_verbs(verbs_file)
         else:
-            with codecs.open(verbs_path, "r", encoding='utf-8') as file:
+            with codecs.open(verbs_file, "r", encoding='utf-8') as file:
                 verbs_dic = self._parse_verbs(file)
         self.verbs = verbs_dic
 
@@ -81,17 +81,17 @@ class Verbiste:
         return verbs_dic
 
 
-    def _load_conjugations(self, conjugations_path):
+    def _load_conjugations(self, conjugations_file):
         """
         Load and parses the conjugations from xml file.
 
         :param conjugations_path: string or path object.
             Path to the conjugation xml file.
         """
-        if isinstance(conjugations_path, BufferedReader):
-            conjugations_dic = self._parse_conjugations(conjugations_path)
+        if isinstance(conjugations_file, BufferedReader):
+            conjugations_dic = self._parse_conjugations(conjugations_file)
         else:
-            with codecs.open(conjugations_path, "r", encoding='utf-8') as file:
+            with codecs.open(conjugations_file, "r", encoding='utf-8') as file:
                 conjugations_dic = self._parse_conjugations(file)
         self.conjugations = conjugations_dic
 
