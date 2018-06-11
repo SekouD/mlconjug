@@ -8,6 +8,7 @@ Verbiste can be downloaded at https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
 
 """
 
+import copy
 import xml.etree.ElementTree as ET
 import codecs
 from collections import OrderedDict
@@ -181,7 +182,8 @@ class Verbiste:
         if template not in self.conjugations.keys():
             return None
         else:
-            return self.conjugations[template]
+            info = copy.deepcopy(self.conjugations[template])
+            return info
 
 
 class VerbInfo(object):
