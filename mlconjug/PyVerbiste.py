@@ -15,8 +15,8 @@ import pkg_resources
 from _io import BufferedReader
 
 resource_package = __name__
-verbs_resource_path = '/'.join(('data', 'verbs-fr.xml'))
-conjugations_resource_path = '/'.join(('data', 'conjugation-fr.xml'))
+verbs_resource_path = '/'.join(('data', 'verbiste', 'verbs-fr.xml'))
+conjugations_resource_path = '/'.join(('data', 'verbiste', 'conjugation-fr.xml'))
 
 
 class Verbiste:
