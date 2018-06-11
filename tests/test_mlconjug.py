@@ -43,8 +43,8 @@ conjug_aller = OrderedDict([
 class TestPyVerbiste:
     directory = os.getcwd()
     #directory = os.path.dirname(os.getcwd())
-    verbs_path = os.path.join(directory, 'mlconjug', 'data', 'verbs-fr.xml')
-    conjugations_path = os.path.join(directory, 'mlconjug', 'data', 'conjugation-fr.xml')
+    verbs_path = os.path.join(directory, 'mlconjug', 'data', 'verbiste', 'verbs-fr.xml')
+    conjugations_path = os.path.join(directory, 'mlconjug', 'data', 'verbiste', 'conjugation-fr.xml')
     verbiste = PyVerbiste.Verbiste(verbs_path, conjugations_path)
     def test_init_verbiste(self):
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
@@ -55,20 +55,15 @@ class TestPyVerbiste:
         assert self.verbiste.verbs['abaisser'] == {'template': 'aim:er', 'root': 'abaiss'}
 
     def test_get_verb_info(self):
-        verb_info = self.verbiste._get_verb_info('aller')
+        verb_info = self.verbiste.get_verb_info('aller')
         assert verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
-        assert self.verbiste._get_verb_info('cacater') is None
+        assert self.verbiste.get_verb_info('cacater') is None
 
     def test_get_conjug_info(self):
-        conjug_info = self.verbiste._get_conjug_info(':aller')
+        conjug_info = self.verbiste.get_conjug_info(':aller')
         assert conjug_info == self.verbiste.conjugations[':aller']
-        assert self.verbiste._get_conjug_info(':cacater') is None
+        assert self.verbiste.get_conjug_info(':cacater') is None
 
-    def test_conjugate(self):
-        conjug = self.verbiste.conjugate('aller')
-        assert isinstance(conjug, PyVerbiste.Verb)
-        conjug = self.verbiste.conjugate('cacater')
-        assert conjug is None
 
 
 def test_command_line_interface():

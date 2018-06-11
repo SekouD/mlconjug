@@ -2,6 +2,8 @@
 
 """Main module."""
 
+from .PyVerbiste import Verbiste, Verb, VerbInfo
+
 from sklearn.feature_selection import SelectFromModel
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
@@ -9,9 +11,76 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import precision_recall_fscore_support
 
-
 import random
-from collections import defaultdict, OrderedDict
+from collections import defaultdict
+import pickle
+
+import pkg_resources
+
+resource_package = __name__
+pre_trained_model_path = '/'.join(('data', 'models', 'trained_model-fr.pickle'))
+
+
+class Conjugator:
+    def __init__(self, model=None, verbiste=None):
+        """
+        This is the main class of the project.
+        The class manages the Verbiste data set and provides an interface with the scikit-learn model.
+        If no parameters are provided
+        :param model:
+        :param verbiste:
+        """
+        if not verbiste:
+            verbiste = Verbiste()
+        self.verbiste = verbiste
+        self.data_set = DataSet(self.verbiste)
+        self.data_set.construct_dict_conjug()
+        self.data_set.split_data(proportion=0.9)
+        if not model:
+            model = pickle.loads(pkg_resources.resource_stream(resource_package, pre_trained_model_path).read())
+        self.model = model
+
+    def conjugate(self, verb):
+        """
+        This is the main method of this class.
+        It first checks to see if the verb is in Verbiste. If it is not, and a pre-trained scikit-learn model has been supplied,
+        the method then calls the model to predict the conjugation class of the provided verb.
+        Returns a Verb object.
+
+        :param verb: string.
+            Verb to conjugate.
+        :return verb_object: Verb object or None.
+        """
+        infinitive = None
+        if verb not in self.verbiste.verbs.keys():
+            if self.model is None:
+                return None
+            predicted = self.model.predict([verb])[0]
+            template = self.verbiste.templates[predicted]
+            index = - len(template[template.index(":") + 1:])
+            root = verb[:index]
+            verb_info = VerbInfo(verb, root, template)
+            conjug_info = self.verbiste.get_conjug_info(verb_info.template)
+        else:
+            infinitive = verb
+            verb_info = self.verbiste.get_verb_info(infinitive)
+            if verb_info is None:
+                return None
+            conjug_info = self.verbiste.get_conjug_info(verb_info.template)
+            if conjug_info is None:
+                return None
+        verb_object = Verb(verb_info, conjug_info)
+        return verb_object
+
+    def set_model(self, model):
+        """
+        Assigns the provided pre-trained scikit-learn model to be able to conjugate unknown verbs.
+
+        :param model: scikit-learn Classifier or Pipeline.
+        """
+        self.model = model
+        return
+
 
 
 class EndingCountVectorizer(CountVectorizer):
@@ -68,7 +137,6 @@ class DataSet:
         """
         Populates the dictionary containing the conjugation templates.
 
-        :return:
         """
         conjug = defaultdict(list)
         for verbe, info_verbe in self.verbiste.verbs.items():
@@ -87,7 +155,6 @@ class DataSet:
             Minimum size of conjugation class to be split.
         :param proportion: float.
             Proportion of samples in the training set. Must be between 0 and 1.
-        :return:
         """
         if proportion <= 0 or proportion >= 1:
             raise ValueError('The split proportion must be between 0 and 1')
@@ -130,9 +197,9 @@ class Model(object):
         if not vectorizer:
             vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
         if not feature_selector:
-            feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=3000, dual=False, verbose=2))
+            feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=16000, dual=False, verbose=2))
         if not classifier:
-            classifier = SGDClassifier(loss='log', penalty='elasticnet', alpha=1e-5, random_state=42)
+            classifier = SGDClassifier(loss='log', penalty='elasticnet', max_iter=16000, alpha=1e-5, random_state=42, verbose=2)
         self.model = Pipeline([('vectorizer', vectorizer),
                                ('feature_selector', feature_selector),
                                ('classifier', classifier)])
@@ -147,6 +214,7 @@ class Model(object):
             List of verb templates.
         """
         self.model = self.model.fit(samples, labels)
+        return
 
     def predict(self, verbs):
         """
