@@ -22,14 +22,14 @@ pre_trained_model_path = '/'.join(('data', 'models', 'trained_model-fr.pickle'))
 
 
 class Conjugator:
+    """
+    This is the main class of the project.
+    The class manages the Verbiste data set and provides an interface with the scikit-learn model.
+    If no parameters are provided
+    :param model:
+    :param verbiste:
+    """
     def __init__(self, model=None, verbiste=None):
-        """
-        This is the main class of the project.
-        The class manages the Verbiste data set and provides an interface with the scikit-learn model.
-        If no parameters are provided
-        :param model:
-        :param verbiste:
-        """
         if not verbiste:
             verbiste = Verbiste()
         self.verbiste = verbiste
