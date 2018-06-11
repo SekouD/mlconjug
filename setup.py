@@ -35,7 +35,7 @@ test_requirements = [
 
 setup(
     name='mlconjug',
-    version='1.0.1',
+    version='1.1.0',
     description="A Python library to conjugate French (and many other Romance languages) verbs using Machine Learning techniques.",
     long_description=readme + '\n\n' + history,
     author="SekouD",
