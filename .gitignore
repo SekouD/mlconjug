@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Pypi remote connection credentials
+.pypirc
+
 # C extensions
 *.so
 
