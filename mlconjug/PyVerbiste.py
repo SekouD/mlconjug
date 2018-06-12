@@ -16,35 +16,32 @@ import pkg_resources
 from _io import BufferedReader
 
 resource_package = __name__
-verbs_resource_path = '/'.join(('data', 'verbiste', 'verbs-fr.xml'))
-conjugations_resource_path = '/'.join(('data', 'verbiste', 'conjugation-fr.xml'))
+verbs_resource_path = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
+                       'it': '/'.join(('data', 'verbiste', 'verbs-it.xml'))}
+conjugations_resource_path = {'fr': '/'.join(('data', 'verbiste', 'conjugation-fr.xml')),
+                              'it': '/'.join(('data', 'verbiste', 'conjugation-it.xml'))}
 
 
 class Verbiste:
     """
     This is the class handling the Verbiste xml files.
 
-    :param verbs_path: string or path object.
-        Path to the verbs xml file.
-    :param conjugations_path: string or path object.
-        Path to the conjugation xml file.
+    :param language: string.
+        The language of the conjugator. The default value is fr for French.
     :param subject: string.
         Value can be either 'default' or 'pronoun' depending on if you want to have full pronouns or abbreviated pronouns.
 
     """
 
-    default_verbs_file = pkg_resources.resource_stream(resource_package, verbs_resource_path)
-    default_conjugations_file = pkg_resources.resource_stream(resource_package, conjugations_resource_path)
-
-    def __init__(self, verbs_file=None, conjugations_file=None, subject='default'):
+    def __init__(self, language='fr', subject='default'):
         self.subject = subject
         self.verbs = {}
         self.conjugations = OrderedDict()
-        if not verbs_file:
-            verbs_file = self.default_verbs_file
+        verbs_file = pkg_resources.resource_stream(
+        resource_package, verbs_resource_path[language])
         self._load_verbs(verbs_file)
-        if not conjugations_file:
-            conjugations_file = self.default_conjugations_file
+        conjugations_file = pkg_resources.resource_stream(
+        resource_package, conjugations_resource_path[language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
         self.model = None
@@ -123,6 +120,7 @@ class Verbiste:
         :param tense: xml.etree.ElementTree Tag object.
         :return: OrderedDict or None.
         """
+        # TODO: add pronouns for languages other than french.
         persons = list(tense)
         if tense.tag in ('infinitive-present', 'present-participle'):
             if persons[0].find("i") is not None:

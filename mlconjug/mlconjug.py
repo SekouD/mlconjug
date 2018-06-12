@@ -18,7 +18,8 @@ import pickle
 import pkg_resources
 
 resource_package = __name__
-pre_trained_model_path = '/'.join(('data', 'models', 'trained_model-fr.pickle'))
+pre_trained_model_path = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
+                          'it': '/'.join(('data', 'models', 'trained_model-it.pickle'))}
 
 
 class Conjugator:
@@ -26,18 +27,21 @@ class Conjugator:
     This is the main class of the project.
     The class manages the Verbiste data set and provides an interface with the scikit-learn model.
     If no parameters are provided
+
+    :param language:
+        Language of the conjugator. The default language is 'fr' for french.
     :param model:
-    :param verbiste:
+        A user provided model if the user has trained his own model.
+
     """
-    def __init__(self, model=None, verbiste=None):
-        if not verbiste:
-            verbiste = Verbiste()
-        self.verbiste = verbiste
+    def __init__(self, language='fr', model=None):
+        self.verbiste = Verbiste(language=language)
         self.data_set = DataSet(self.verbiste)
         self.data_set.construct_dict_conjug()
         self.data_set.split_data(proportion=0.9)
         if not model:
-            model = pickle.loads(pkg_resources.resource_stream(resource_package, pre_trained_model_path).read())
+            model = pickle.loads(pkg_resources.resource_stream(
+                resource_package, pre_trained_model_path[language]).read())
         self.model = model
 
     def conjugate(self, verb):
@@ -116,7 +120,6 @@ class DataSet:
     """
     This class holds and manages the data set.
     Defines helper functions for managing Machine Learning Tasks.
-
 
     :param VerbisteObj:
 
