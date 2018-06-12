@@ -51,11 +51,11 @@ To use MLConjug in a project and train a new model::
     print(scores['precision'])
 
     # Verify that the model works
-    test1 = default_conjugator.conjugate("manger").conjug_info['indicative']['simple-past']['1p']
-    test2 = default_conjugator.conjugate("partir").conjug_info['indicative']['simple-past']['1p']
-    test3 = default_conjugator.conjugate("facebooker").conjug_info['indicative']['simple-past']['1p']
-    test4 = default_conjugator.conjugate("astigratir").conjug_info['indicative']['simple-past']['1p']
-    test5 = default_conjugator.conjugate("mythoner").conjug_info['indicative']['simple-past']['1p']
+    test1 = conjugator.conjugate("manger").conjug_info['indicative']['simple-past']['1p']
+    test2 = conjugator.conjugate("partir").conjug_info['indicative']['simple-past']['1p']
+    test3 = conjugator.conjugate("facebooker").conjug_info['indicative']['simple-past']['1p']
+    test4 = conjugator.conjugate("astigratir").conjug_info['indicative']['simple-past']['1p']
+    test5 = conjugator.conjugate("mythoner").conjug_info['indicative']['simple-past']['1p']
     print(test1)
     print(test2)
     print(test3)
