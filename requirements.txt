@@ -1,6 +1,5 @@
 cython==0.28.3
-numpy==1.14.3
-scikit-learn==0.19.0
-numpy==1.14.3
+numpy==1.14.4
+scikit-learn==0.19.1
 scipy==1.1.0
 click==6.7

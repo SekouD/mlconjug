@@ -6,12 +6,12 @@ flake8==3.5.0
 tox==3.0.0
 coverage==4.5.1
 Sphinx==1.7.5
-cryptography==2.2
+cryptography==2.2.2
 PyYAML==3.12
 pytest==3.6.1
 pytest-runner>=4.2
 cython==0.28.3
-numpy==1.14.3
-scikit-learn>=0.19.0
+numpy==1.14.4
+scikit-learn>=0.19.1
 scipy==1.1.0
 click==6.7
