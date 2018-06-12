@@ -24,12 +24,7 @@ To use MLConjug in a project with the provided pre-trained conjugation model::
 
 To use MLConjug in a project and train a new model::
 
-    # Specify which data files to use.
-    path_verbs = "path/to/verbs-fr.xml"
-    path_conjugations = "path/to/conjugation-fr.xml"
-
-    # Create Verbiste instance
-    verbiste = mlconjug.Verbiste(path_verbs, path_conjugations, subject='pronoun')
+    import pickle
 
     # Set ngram range for the Feature Extractor
     ngrange = (2,7)
@@ -45,13 +40,14 @@ To use MLConjug in a project and train a new model::
 
     # Initialize Conjugator
     model = mlconjug.Model(vectorizer, feature_reductor, classifier)
-    conjugator = mlconjug.Conjugator(model, verbiste)
+    conjugator = mlconjug.Conjugator('fr', model)
 
     #Training and prediction
     conjugator.model.train(conjugator.data_set.train_input, conjugator.data_set.train_labels)
     predicted = conjugator.model.predict(conjugator.data_set.test_input)
     scores = {}
-    scores['precision'] = mlconjug.precision_recall_fscore_support(my_data_set.test_labels, predicted)[0]
+    scores['precision'] = mlconjug.precision_recall_fscore_support(
+        conjugator.data_set.test_labels, predicted)[0]
     print(scores['precision'])
 
     # Verify that the model works
