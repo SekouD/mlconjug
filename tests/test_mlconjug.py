@@ -41,11 +41,7 @@ conjug_aller = OrderedDict([
                                          ('fs :', 'allée'), ('fp :', 'allées')]))]))])
 
 class TestPyVerbiste:
-    directory = os.getcwd()
-    #directory = os.path.dirname(os.getcwd())
-    verbs_path = os.path.join(directory, 'mlconjug', 'data', 'verbiste', 'verbs-fr.xml')
-    conjugations_path = os.path.join(directory, 'mlconjug', 'data', 'verbiste', 'conjugation-fr.xml')
-    verbiste = PyVerbiste.Verbiste(verbs_path, conjugations_path)
+    verbiste = PyVerbiste.Verbiste(language='fr')
     def test_init_verbiste(self):
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
         assert self.verbiste.templates[0] == ':aller'
@@ -64,14 +60,82 @@ class TestPyVerbiste:
         assert conjug_info == self.verbiste.conjugations[':aller']
         assert self.verbiste.get_conjug_info(':cacater') is None
 
+class TestVerb:
+    verbiste = PyVerbiste.Verbiste(language='fr')
+    def test_verbinfo(self):
+        test_verb_info = self.verbiste.get_verb_info('aller')
+        test_conjug_info = self.verbiste.get_conjug_info(':aller')
+        test_verb = PyVerbiste.Verb(test_verb_info, test_conjug_info)
+        assert test_verb.conjug_info == conjug_aller
+
+
+class TestEndingCountVectorizer:
+    ngrange = (2, 7)
+    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True, ngram_range=ngrange)
+    def test_char_ngrams(self):
+        ngrams = self.vectorizer._char_ngrams('aller')
+        assert 'ller' in ngrams
+
+
+class TestConjugator:
+    conjugator = mlconjug.Conjugator()
+    def test_conjugate(self):
+        test_verb = self.conjugator.conjugate('aller')
+        assert isinstance(test_verb, PyVerbiste.Verb)
+        assert test_verb.conjug_info == conjug_aller
+        assert test_verb.verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
+
+    def test_set_model(self):
+        self.conjugator.set_model(mlconjug.Model())
+        assert isinstance(self.conjugator.model, mlconjug.Model)
+
+
+class TestDataSet:
+    data_set = mlconjug.DataSet(mlconjug.Verbiste())
+    def test_construct_dict_conjug(self):
+        self.data_set.construct_dict_conjug()
+        assert 'aller' in self.data_set.dict_conjug[':aller']
+
+    def test_split_data(self):
+        self.data_set.split_data()
+        assert self.data_set.test_input is not None
+        assert self.data_set.train_input is not None
+        assert self.data_set.test_labels is not None
+        assert self.data_set.train_labels is not None
+
+
+class TestModel:
+    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True,
+                                                ngram_range=(2, 7))
+    # Feature reduction
+    feature_reductor = mlconjug.SelectFromModel(
+        mlconjug.LinearSVC(penalty="l1", max_iter=3000, dual=False, verbose=2))
+    # Prediction Classifier
+    classifier = mlconjug.SGDClassifier(loss="log", penalty='elasticnet',
+                                        alpha=1e-5, random_state=42)
+    # Initialize Model
+    model = mlconjug.Model(vectorizer, feature_reductor, classifier)
+    dataset = mlconjug.DataSet(mlconjug.Verbiste())
+    dataset.construct_dict_conjug()
+    dataset.split_data(proportion=0.9)
+
+    def test_train(self):
+        self.model.train(self.dataset.test_input, self.dataset.test_labels)
+        assert isinstance(self.model, mlconjug.Model)
+
+    def test_predict(self):
+        result = self.model.predict(['aimer',])
+        assert self.dataset.templates[result[0]] == 'aim:er'
+
 
 
 def test_command_line_interface():
     """Test the CLI."""
+    verb = 'aller'
     runner = CliRunner()
-    result = runner.invoke(cli.main)
+    result = runner.invoke(cli.main, [verb])
     assert result.exit_code == 0
-    assert 'mlconjug.cli.main' in result.output
+    assert 'allassions' in result.output
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+    assert 'Console script for mlconjug.' in help_result.output
