@@ -14,9 +14,10 @@ from mlconjug import mlconjug, PyVerbiste
 from mlconjug import cli
 
 
-LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
-VERBS = {'fr': PyVerbiste.VerbFr,
+VERBS = {'default': PyVerbiste.Verb,
+         'fr': PyVerbiste.VerbFr,
          'en': PyVerbiste.VerbEn,
          'es': PyVerbiste.VerbEs,
          'it': PyVerbiste.VerbIt,
@@ -54,10 +55,10 @@ class TestVerb:
     def test_verbinfo(self):
         for lang in LANGUAGES:
             verbiste = PyVerbiste.Verbiste(language=lang)
-            test_verb_info = verbiste.get_verb_info(TEST_VERBS[lang][0])
-            test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[lang][1])
-            test_verb = VERBS[lang](test_verb_info, test_conjug_info)
-            assert isinstance(test_verb, VERBS[lang])
+            test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
+            test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
+            test_verb = VERBS[verbiste.language](test_verb_info, test_conjug_info)
+            assert isinstance(test_verb, VERBS[verbiste.language])
             assert isinstance(test_verb.conjug_info, OrderedDict)
 
 
@@ -75,6 +76,8 @@ class TestConjugator:
         test_verb = self.conjugator.conjugate('aller')
         assert isinstance(test_verb, PyVerbiste.Verb)
         assert test_verb.verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
+        test_verb = self.conjugator.conjugate('cacater')
+        assert isinstance(test_verb, PyVerbiste.Verb)
 
     def test_set_model(self):
         self.conjugator.set_model(mlconjug.Model())
