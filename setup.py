@@ -12,6 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
+    'cython==0.28.3',
     'Click>=6.0',
     'numpy==1.14.4',
     'scipy==1.1.0',
