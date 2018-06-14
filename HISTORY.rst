@@ -19,3 +19,12 @@ History
 * Refactored the API. Now a Single class Conjugator is needed to interface with the module.
 * Includes improved french conjugation model.
 * Added support for multiple languages.
+
+2.0.0 (2018-06-14)
+------------------
+
+* Includes English conjugation model.
+* Includes Spanish conjugation model.
+* Includes Italian conjugation model.
+* Includes Portuguese conjugation model.
+* Includes Romanian conjugation model.
