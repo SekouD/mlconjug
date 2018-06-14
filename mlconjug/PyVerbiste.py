@@ -105,7 +105,7 @@ class Verbiste:
         """
         Load and parses the verbs from xml file.
 
-        :param verbs_path: string or path object.
+        :param verbs_file: string or path object.
             Path to the verbs xml file.
         """
         verbs_dic = {}
@@ -137,7 +137,7 @@ class Verbiste:
         """
         Load and parses the conjugations from xml file.
 
-        :param conjugations_path: string or path object.
+        :param conjugations_file: string or path object.
             Path to the conjugation xml file.
         """
         if isinstance(conjugations_file, BufferedReader):
