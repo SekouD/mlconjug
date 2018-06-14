@@ -2,7 +2,7 @@
 
 """Main module."""
 
-from .PyVerbiste import Verbiste, Verb, VerbInfo
+from .PyVerbiste import Verbiste, Verb, VerbFr, VerbEn, VerbEs, VerbIt, VerbPt, VerbRo, VerbInfo
 
 from sklearn.feature_selection import SelectFromModel
 from sklearn.feature_extraction.text import CountVectorizer
@@ -17,8 +17,8 @@ import pickle
 
 import pkg_resources
 
-resource_package = __name__
-pre_trained_model_path = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
+RESOURCE_PACKAGE = __name__
+PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
                           'it': '/'.join(('data', 'models', 'trained_model-it.pickle')),
                           'es': '/'.join(('data', 'models', 'trained_model-es.pickle')),
                           'en': '/'.join(('data', 'models', 'trained_model-en.pickle')),
@@ -45,10 +45,10 @@ class Conjugator:
         self.data_set.split_data(proportion=0.9)
         if not model:
             model = pickle.loads(pkg_resources.resource_stream(
-                resource_package, pre_trained_model_path[language]).read())
+                RESOURCE_PACKAGE, PRE_TRAINED_MODEL_PATH[language]).read())
         self.model = model
 
-    def conjugate(self, verb):
+    def conjugate(self, verb, subject='abbrev'):
         """
         This is the main method of this class.
         It first checks to see if the verb is in Verbiste. If it is not, and a pre-trained scikit-learn model has been supplied,
@@ -57,6 +57,10 @@ class Conjugator:
 
         :param verb: string.
             Verb to conjugate.
+        :param subject: srting.
+            Toggles abbreviated or full pronouns.
+            The default value is 'abbrev'.
+            Select 'pronoun' for full pronouns.
         :return verb_object: Verb object or None.
         """
         infinitive = None
@@ -77,7 +81,20 @@ class Conjugator:
             conjug_info = self.verbiste.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
-        verb_object = Verb(verb_info, conjug_info)
+        if self.language == 'fr':
+            verb_object = VerbFr(verb_info, conjug_info, subject)
+        elif self.language == 'it':
+            verb_object = VerbIt(verb_info, conjug_info, subject)
+        elif self.language == 'es':
+            verb_object = VerbEs(verb_info, conjug_info, subject)
+        elif self.language == 'en':
+            verb_object = VerbEn(verb_info, conjug_info, subject)
+        elif self.language == 'pt':
+            verb_object = VerbPt(verb_info, conjug_info, subject)
+        elif self.language == 'ro':
+            verb_object = VerbRo(verb_info, conjug_info, subject)
+        else:
+            verb_object = Verb(verb_info, conjug_info, subject)
         return verb_object
 
     def set_model(self, model):
@@ -126,6 +143,7 @@ class DataSet:
     Defines helper functions for managing Machine Learning Tasks.
 
     :param VerbisteObj:
+        Instance of a Verbiste object.
 
     """
     def __init__(self, VerbisteObj):
