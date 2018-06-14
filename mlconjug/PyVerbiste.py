@@ -523,10 +523,4 @@ class VerbRo(Verb):
 
 
 if __name__ == "__main__":
-    verbiste_fr = Verbiste('fr')
-    verbiste_it = Verbiste('it')
-    verbiste_es = Verbiste('es')
-    verbiste_en = Verbiste('en')
-    verbiste_pt = Verbiste('pt')
-    verbiste_ro = Verbiste('ro')
     pass
