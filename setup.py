@@ -14,7 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'cython==0.28.3',
     'Click>=6.0',
-    'numpy==1.14.4',
+    'numpy==1.14.5',
     'scipy==1.1.0',
     'scikit-learn==0.19.1',
 ]
