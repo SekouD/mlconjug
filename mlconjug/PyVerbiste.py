@@ -25,7 +25,7 @@ from _io import BufferedReader
 
 RESOURCE_PACKAGE = __name__
 
-LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
 VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
@@ -92,15 +92,18 @@ class Verbiste:
 
     """
 
-    def __init__(self, language='fr'):
+    def __init__(self, language='default'):
         if language not in LANGUAGES:
             raise ValueError('Unsupported language.\nThe allowed languages are fr, en, es, it, pt, ro')
-        self.language = language
+        if language == 'default':
+            self.language = 'fr'
+        else:
+            self.language = language
         self.verbs = {}
         self.conjugations = OrderedDict()
-        verbs_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[language])
+        verbs_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[self.language])
         self._load_verbs(verbs_file)
-        conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[language])
+        conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
         self.model = None
@@ -270,7 +273,7 @@ class Verb(object):
         self.conjug_info = conjug_info
         self.subject = subject
         self._load_conjug()
-        self.language = ''
+        self.language = 'default'
 
     def _load_conjug(self):
         """
