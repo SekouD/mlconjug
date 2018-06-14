@@ -18,6 +18,16 @@ import pickle
 import pkg_resources
 
 RESOURCE_PACKAGE = __name__
+
+LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+
+VERBS = {'fr': VerbFr,
+         'en': VerbEn,
+         'es': VerbEs,
+         'it': VerbIt,
+         'pt': VerbPt,
+         'ro': VerbRo}
+
 PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
                           'it': '/'.join(('data', 'models', 'trained_model-it.pickle')),
                           'es': '/'.join(('data', 'models', 'trained_model-es.pickle')),
@@ -30,7 +40,8 @@ class Conjugator:
     """
     This is the main class of the project.
     The class manages the Verbiste data set and provides an interface with the scikit-learn model.
-    If no parameters are provided
+    If no parameters are provided The default language is set to french and the pre trained french conjugation model is used.
+    It defines the method conjugate(verb, language) which is the main method of the module.
 
     :param language:
         Language of the conjugator. The default language is 'fr' for french.
@@ -53,7 +64,7 @@ class Conjugator:
         This is the main method of this class.
         It first checks to see if the verb is in Verbiste. If it is not, and a pre-trained scikit-learn model has been supplied,
         the method then calls the model to predict the conjugation class of the provided verb.
-        Returns a Verb object.
+        Returns a Verb object or None.
 
         :param verb: string.
             Verb to conjugate.
@@ -63,7 +74,6 @@ class Conjugator:
             Select 'pronoun' for full pronouns.
         :return verb_object: Verb object or None.
         """
-        infinitive = None
         if verb not in self.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -81,20 +91,7 @@ class Conjugator:
             conjug_info = self.verbiste.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
-        if self.language == 'fr':
-            verb_object = VerbFr(verb_info, conjug_info, subject)
-        elif self.language == 'it':
-            verb_object = VerbIt(verb_info, conjug_info, subject)
-        elif self.language == 'es':
-            verb_object = VerbEs(verb_info, conjug_info, subject)
-        elif self.language == 'en':
-            verb_object = VerbEn(verb_info, conjug_info, subject)
-        elif self.language == 'pt':
-            verb_object = VerbPt(verb_info, conjug_info, subject)
-        elif self.language == 'ro':
-            verb_object = VerbRo(verb_info, conjug_info, subject)
-        else:
-            verb_object = Verb(verb_info, conjug_info, subject)
+        verb_object = VERBS[self.language](verb_info, conjug_info, subject)
         return verb_object
 
     def set_model(self, model):
@@ -112,7 +109,7 @@ class EndingCountVectorizer(CountVectorizer):
     """
     Custom Vectorizer optimized for extracting verbs features.
     The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer
-    As in Romance languages verbs are inflected by adding a morphological suffix,
+    As in Indo-European languages verbs are inflected by adding a morphological suffix,
     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
     The features are the verb ending ngrams. (ngram_range is set at class initialization).
 
@@ -140,7 +137,7 @@ class EndingCountVectorizer(CountVectorizer):
 class DataSet:
     """
     This class holds and manages the data set.
-    Defines helper functions for managing Machine Learning Tasks.
+    Defines helper functions for managing Machine Learning Tasks like constructing a training and testing set.
 
     :param VerbisteObj:
         Instance of a Verbiste object.
@@ -201,8 +198,7 @@ class DataSet:
         random.shuffle(train_set)
         random.shuffle(test_set)
         self.train_input = [elmt[0] for elmt in train_set]
-        self.train_labels = [self.templates.index(elmt[1]) for elmt in
-                             train_set]
+        self.train_labels = [self.templates.index(elmt[1]) for elmt in train_set]
         self.test_input = [elmt[0] for elmt in test_set]
         self.test_labels = [self.templates.index(elmt[1]) for elmt in test_set]
         return
@@ -213,7 +209,7 @@ class Model(object):
     This class manages the scikit-learn model.
     The Pipeline includes a feature vectorizer, a feature selector and a classifier.
     If any of the vectorizer, feature selector or classifier is not supplied at instance declaration,
-    the __init__ method will provide good default value that gets more than 98% prediction accuracy.
+    the __init__ method will provide good default values that get more than 92% prediction accuracy.
 
     :param vectorizer: scikit-learn Vectorizer.
     :param feature_selector: scikit-learn Classifier with a fit_transform() method
