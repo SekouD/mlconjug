@@ -2,7 +2,10 @@
 Usage
 =====
 
-To use MLConjug in a project with the provided pre-trained conjugation model::
+.. NOTE:: The default language is French.
+    When called without specifying a language, the library will try to conjugate the verb in French.
+
+To use MLConjug in a project with the provided pre-trained conjugation models::
 
     import mlconjug
 
@@ -69,5 +72,9 @@ To use MLConjug in a project and train a new model::
 
 To use MLConjug from the command line::
 
-    $ mlconjug <verb> options
+    $ mlconjug manger
+
+    $ mlconjug bring -l en
+
+    $ mlconjug gallofar --language es
 

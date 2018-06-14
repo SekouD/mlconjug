@@ -28,7 +28,7 @@ MLConjug
         :alt: Coverage Status
 
 
-A Python library to conjugate verbs of Many languages using Machine Learning techniques.
+A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (mores soon) using Machine Learning techniques.
 Any verb in one of the supported language can be conjugated as the module contains a Machine Learning model of how the verbs behave.
 Even completely new or made-up verbs can be successfully conjugated in this manner.
 The supplied pre-trained models are composed of:

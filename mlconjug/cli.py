@@ -11,7 +11,7 @@ from pprint import pprint
 @click.argument('verb')
 @click.option('-l', '--language',
               default='fr',
-              help='The language for the conjugation model.',
+              help="The language for the conjugation model. The values can be fr, en, es, it, pt or ro. The default value is fr",
               type=click.STRING)
 def main(verb, language):
     """Console script for mlconjug."""
