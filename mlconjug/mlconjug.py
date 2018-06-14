@@ -19,7 +19,11 @@ import pkg_resources
 
 resource_package = __name__
 pre_trained_model_path = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
-                          'it': '/'.join(('data', 'models', 'trained_model-it.pickle'))}
+                          'it': '/'.join(('data', 'models', 'trained_model-it.pickle')),
+                          'es': '/'.join(('data', 'models', 'trained_model-es.pickle')),
+                          'en': '/'.join(('data', 'models', 'trained_model-en.pickle')),
+                          'pt': '/'.join(('data', 'models', 'trained_model-pt.pickle')),
+                          'ro': '/'.join(('data', 'models', 'trained_model-ro.pickle'))}
 
 
 class Conjugator:
@@ -35,9 +39,9 @@ class Conjugator:
 
     """
     def __init__(self, language='fr', model=None):
+        self.language = language
         self.verbiste = Verbiste(language=language)
         self.data_set = DataSet(self.verbiste)
-        self.data_set.construct_dict_conjug()
         self.data_set.split_data(proportion=0.9)
         if not model:
             model = pickle.loads(pkg_resources.resource_stream(
@@ -135,6 +139,7 @@ class DataSet:
         self.train_labels = []
         self.test_input = []
         self.test_labels = []
+        self.construct_dict_conjug()
 
     def construct_dict_conjug(self):
         """
