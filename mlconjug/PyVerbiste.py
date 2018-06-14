@@ -24,19 +24,22 @@ import pkg_resources
 from _io import BufferedReader
 
 RESOURCE_PACKAGE = __name__
+
+LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+
 VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
                        'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
                        'en': '/'.join(('data', 'verbiste', 'verbs-en.xml')),
                        'pt': '/'.join(('data', 'verbiste', 'verbs-pt.xml')),
-                       'ro': '/'.join(('data', 'verbiste', 'verbs-ro.xml')), }
+                       'ro': '/'.join(('data', 'verbiste', 'verbs-ro.xml')),}
 
 CONJUGATIONS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'conjugation-fr.xml')),
                               'it': '/'.join(('data', 'verbiste', 'conjugation-it.xml')),
                               'es': '/'.join(('data', 'verbiste', 'conjugation-es.xml')),
                               'en': '/'.join(('data', 'verbiste', 'conjugation-en.xml')),
                               'pt': '/'.join(('data', 'verbiste', 'conjugation-pt.xml')),
-                              'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')), }
+                              'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')),}
 
 ABBREVS = ("1s", "2s", "3s", "1p", "2p", "3p")
 
@@ -60,16 +63,16 @@ IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ('tú', 'él', 'nosotros', 'vosotros', 'ellos')},
                        'en': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ("", "let's", "")},
-                       'pt': 'não',
-                       'ro': 'nu'}
+                       'pt': None,
+                       'ro': None}
 
 GENDER = {'fr': {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
                  'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")},
           'it': None,
           'es': None,
           'en': None,
-          'pt': 'não',
-          'ro': 'nu'}
+          'pt': None,
+          'ro': None}
 
 NEGATION = {'fr': 'ne',
             'it': 'non',
@@ -85,18 +88,19 @@ class Verbiste:
 
     :param language: string.
         The language of the conjugator. The default value is fr for French.
+        The allowed values are: fr, en, es, it, pt, ro
 
     """
 
     def __init__(self, language='fr'):
+        if language not in LANGUAGES:
+            raise ValueError('Unsupported language.\nThe allowed languages are fr, en, es, it, pt, ro')
         self.language = language
         self.verbs = {}
         self.conjugations = OrderedDict()
-        verbs_file = pkg_resources.resource_stream(
-            RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[language])
+        verbs_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[language])
         self._load_verbs(verbs_file)
-        conjugations_file = pkg_resources.resource_stream(
-            RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[language])
+        conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
         self.model = None
@@ -108,7 +112,6 @@ class Verbiste:
         :param verbs_file: string or path object.
             Path to the verbs xml file.
         """
-        verbs_dic = {}
         if isinstance(verbs_file, BufferedReader):
             verbs_dic = self._parse_verbs(verbs_file)
         else:
@@ -120,8 +123,10 @@ class Verbiste:
         """
         Parses XML file
 
-        :param file: XML file containing the verbs.
+        :param file: FileObject.
+            XML file containing the verbs.
         :return: OrderedDict.
+            An OrderedDict containing the verb and its template for all verbs in the file.
         """
         verbs_dic = {}
         xml = ET.parse(file)
@@ -151,8 +156,10 @@ class Verbiste:
         """
         Parses XML file
 
-        :param file: XML file containing the conjugation templates
+        :param file: FileObject.
+            XML file containing the conjugation templates
         :return: OrderedDict
+            An OrderedDict containing all the conjugation templates in the file.
         """
         conjugations_dic = {}
         xml = ET.parse(file)
@@ -168,7 +175,8 @@ class Verbiste:
     def _load_tense(self, tense):
         """
 
-        :param tense:
+        :param tense: string.
+            The current tense being processed.
         :return: list.
             List of conjugated suffixes.
         """
@@ -237,9 +245,7 @@ class VerbInfo(object):
         self.template = template
 
     def __eq__(self, other):
-        if self.infinitive == other.infinitive \
-            and self.root == other.root \
-            and self.root == other.root:
+        if self.infinitive == other.infinitive and self.root == other.root and self.root == other.root:
             return True
         else:
             return False
@@ -269,6 +275,8 @@ class Verb(object):
     def _load_conjug(self):
         """
         Populates the inflected forms of the verb.
+        This is the generic version of this method.
+        It does not add personal pronouns to the conjugated forms.
 
         """
         for mood, tense in self.conjug_info.items():
@@ -277,9 +285,7 @@ class Verb(object):
                     persons_dict = OrderedDict()
                     for pers, term in persons:
                         if len(persons) == 6:
-                            key = PRONOUNS[self.language][self.subject][pers]
-                        elif len(persons) == 3:
-                            key = IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
+                            key = ABBREVS[pers]
                         else:
                             key = pers
                         if term is not None:
@@ -295,8 +301,6 @@ class Verb(object):
 class VerbFr(Verb):
     """
     This class defines the French Verb Object.
-
-
 
     """
 
@@ -332,9 +336,7 @@ class VerbFr(Verb):
 
 class VerbEn(Verb):
     """
-    This class defines the French Verb Object.
-
-
+    This class defines the English Verb Object.
 
     """
 
@@ -376,8 +378,6 @@ class VerbEs(Verb):
     """
     This class defines the Spanish Verb Object.
 
-
-
     """
 
     language = 'es'
@@ -413,8 +413,6 @@ class VerbEs(Verb):
 class VerbIt(Verb):
     """
     This class defines the Italian Verb Object.
-
-
 
     """
 
@@ -452,8 +450,6 @@ class VerbPt(Verb):
     """
     This class defines the Portuguese Verb Object.
 
-
-
     """
 
     language = 'pt'
@@ -489,8 +485,6 @@ class VerbPt(Verb):
 class VerbRo(Verb):
     """
     This class defines the Romanian Verb Object.
-
-
 
     """
 
@@ -535,5 +529,4 @@ if __name__ == "__main__":
     verbiste_en = Verbiste('en')
     verbiste_pt = Verbiste('pt')
     verbiste_ro = Verbiste('ro')
-    print('done')
     pass
