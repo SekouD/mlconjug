@@ -28,8 +28,8 @@ MLConjug
         :alt: Coverage Status
 
 
-A Python library to conjugate verbs of Romance languages using Machine Learning techniques.
-Any verb in one of the supported language can be conjugated as the module contains a Machine Learning model of how romance verbs behave.
+A Python library to conjugate verbs of Many languages using Machine Learning techniques.
+Any verb in one of the supported language can be conjugated as the module contains a Machine Learning model of how the verbs behave.
 Even completely new or made-up verbs can be successfully conjugated in this manner.
 The supplied pre-trained models are composed of:
 
@@ -50,17 +50,19 @@ Supported Languages
 -------------------
 
 - French
-- Spanish (coming in next update)
-- Italian (coming in next update)
-- Portuguese (coming in next update)
+- English
+- Spanish
+- Italian
+- Portuguese
+- Romanian
 
 
 Features
 --------
 
 - Easy to use API.
-- Includes a pre-trained model with 99.53% accuracy in predicting conjugation class of unknown verbs.
-- Easily train new models or add new romance language.
+- Includes pre-trained models with 99% + accuracy in predicting conjugation class of unknown verbs.
+- Easily train new models or add new languages.
 - Easily integrate MLConjug in your own projects.
 - Can be used as a command line tool.
 
