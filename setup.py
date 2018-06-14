@@ -11,6 +11,9 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
+with open('INSTALLATION.rst') as installation_file:
+    installation = installation_file.read()
+
 requirements = [
     'cython==0.28.3',
     'Click>=6.0',
@@ -21,7 +24,6 @@ requirements = [
 
 setup_requirements = [
     'pytest-runner',
-    # TODO(SekouD): put setup requirements (distutils extensions, etc.) here
 ]
 
 test_requirements = [
@@ -38,7 +40,7 @@ setup(
     name='mlconjug',
     version='2.0.0',
     description="A Python library to conjugate French, English, Spanish, Italian, Portuguese and Romanian verbs using Machine Learning techniques.",
-    long_description=readme + '\n\n' + history,
+    long_description=readme + '\n\n' + installation + '\n\n' + history,
     author="SekouD",
     author_email='sekoud.python@gmail.com',
     url='https://github.com/SekouD/mlconjug',
@@ -54,7 +56,7 @@ setup(
     install_requires=requirements,
     license="MIT license",
     zip_safe=False,
-    keywords='mlconjug conjugation conjugaison verbs verbes ML machine learning NLP verbiste sklearn',
+    keywords='mlconjug conjugation conjugaison conjugación coniugazione conjugação conjugare verbs verbes verbos ML machine-learning NLP linguistics linguistique linguistica verbiste sklearn',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Topic :: Software Development :: Libraries :: Python Modules',
