@@ -14,31 +14,21 @@ from mlconjug import mlconjug, PyVerbiste
 from mlconjug import cli
 
 
-conjug_aller = OrderedDict([
-    ('infinitive', OrderedDict([('infinitive-present', 'aller')])),
-    ('indicative', OrderedDict([
-        ('present', OrderedDict([('1s', 'vais'), ('2s', 'vas'), ('3s', 'va'),
-                                 ('1p', 'allons'), ('2p', 'allez'), ('3p', 'vont')])),
-        ('imperfect', OrderedDict([('1s', 'allais'), ('2s', 'allais'), ('3s', 'allait'),
-                                   ('1p', 'allions'), ('2p', 'alliez'), ('3p', 'allaient')])),
-        ('future', OrderedDict([('1s', 'irai'), ('2s', 'iras'), ('3s', 'ira'),
-                                ('1p', 'irons'), ('2p', 'irez'), ('3p', 'iront')])),
-        ('simple-past', OrderedDict([('1s', 'allai'), ('2s', 'allas'), ('3s', 'alla'),
-                                     ('1p', 'allâmes'), ('2p', 'allâtes'), ('3p', 'allèrent')]))])),
-    ('conditional', OrderedDict([
-        ('present', OrderedDict([('1s', 'irais'), ('2s', 'irais'), ('3s', 'irait'),
-                                 ('1p', 'irions'), ('2p', 'iriez'), ('3p', 'iraient')]))])),
-    ('subjunctive', OrderedDict([
-        ('present', OrderedDict([('1s', 'aille'), ('2s', 'ailles'), ('3s', 'aille'),
-                                 ('1p', 'allions'), ('2p', 'alliez'), ('3p', 'aillent')])),
-        ('imperfect', OrderedDict([('1s', 'allasse'), ('2s', 'allasses'), ('3s', 'allât'),
-                                   ('1p', 'allassions'), ('2p', 'allassiez'), ('3p', 'allassent')]))])),
-    ('imperative', OrderedDict([
-        ('imperative-present', OrderedDict([('2s :', 'va'), ('1p :', 'allons'), ('2p :', 'allez')]))])),
-    ('participle', OrderedDict([
-        ('present-participle', 'allant'),
-        ('past-participle', OrderedDict([('ms :', 'allé'), ('mp :', 'allés'),
-                                         ('fs :', 'allée'), ('fp :', 'allées')]))]))])
+LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+
+VERBS = {'fr': PyVerbiste.VerbFr,
+         'en': PyVerbiste.VerbEn,
+         'es': PyVerbiste.VerbEs,
+         'it': PyVerbiste.VerbIt,
+         'pt': PyVerbiste.VerbPt,
+         'ro': PyVerbiste.VerbRo}
+
+TEST_VERBS = {'fr': ('manger', 'man:ger'),
+         'en': ('bring', 'br:ing'),
+         'es': ('gallofar', 'cort:ar'),
+         'it': ('lavare', 'lav:are'),
+         'pt': ('anunciar', 'compr:ar'),
+         'ro': ('cambra', 'dans:a')}
 
 class TestPyVerbiste:
     verbiste = PyVerbiste.Verbiste(language='fr')
@@ -46,7 +36,7 @@ class TestPyVerbiste:
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
         assert self.verbiste.templates[0] == ':aller'
         assert self.verbiste.templates[-1] == 'écri:re'
-        assert self.verbiste.conjugations[':aller'] == conjug_aller
+        assert isinstance(self.verbiste.conjugations[':aller'], OrderedDict)
         assert len(self.verbiste.verbs) == 7015
         assert self.verbiste.verbs['abaisser'] == {'template': 'aim:er', 'root': 'abaiss'}
 
@@ -61,12 +51,14 @@ class TestPyVerbiste:
         assert self.verbiste.get_conjug_info(':cacater') is None
 
 class TestVerb:
-    verbiste = PyVerbiste.Verbiste(language='fr')
     def test_verbinfo(self):
-        test_verb_info = self.verbiste.get_verb_info('aller')
-        test_conjug_info = self.verbiste.get_conjug_info(':aller')
-        test_verb = PyVerbiste.Verb(test_verb_info, test_conjug_info)
-        assert test_verb.conjug_info == conjug_aller
+        for lang in LANGUAGES:
+            verbiste = PyVerbiste.Verbiste(language=lang)
+            test_verb_info = verbiste.get_verb_info(TEST_VERBS[lang][0])
+            test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[lang][1])
+            test_verb = VERBS[lang](test_verb_info, test_conjug_info)
+            assert isinstance(test_verb, VERBS[lang])
+            assert isinstance(test_verb.conjug_info, OrderedDict)
 
 
 class TestEndingCountVectorizer:
@@ -82,7 +74,6 @@ class TestConjugator:
     def test_conjugate(self):
         test_verb = self.conjugator.conjugate('aller')
         assert isinstance(test_verb, PyVerbiste.Verb)
-        assert test_verb.conjug_info == conjug_aller
         assert test_verb.verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
 
     def test_set_model(self):
