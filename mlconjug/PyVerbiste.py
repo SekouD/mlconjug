@@ -30,13 +30,13 @@ conjugations_resource_path = {'fr': '/'.join(('data', 'verbiste', 'conjugation-f
                               'pt': '/'.join(('data', 'verbiste', 'conjugation-pt.xml')),
                               'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')),}
 
-pronouns = {'fr': ("je", "tu", "il (elle, on)", "nous", "vous", "ils (elles)"),
+pronouns_dict = {'fr': ("je", "tu", "il (elle, on)", "nous", "vous", "ils (elles)"),
             'it': ('io', 'tu', 'egli/ella', 'noi', 'voi', 'essi/esse'),
             'es': ('yo', 'tú', 'él', 'nosotros', 'vosotros', 'ellos'),
             'en': ('I', 'you', 'he/she/it', 'you', 'we', 'they'),
             'pt': ('eu', 'tu', 'ele', 'nós', 'vós', 'eles'),
             'ro': ('eu','tu', 'el/ea', 'noi', 'voi', 'ei/ele')}
-persons = ("1s", "2s", "3s", "1p", "2p", "3p")
+persons_ = ("1s", "2s", "3s", "1p", "2p", "3p")
 
 negation = {'fr': 'ne',
             'it': 'non',
@@ -45,9 +45,9 @@ negation = {'fr': 'ne',
             'pt': 'não',
             'ro': 'nu'}
 
-for key, values in pronouns.items():
-    pronouns[key] = OrderedDict(zip(persons, values))
-    pass
+# for key, values in pronouns.items():
+#     pronouns[key] = OrderedDict(zip(persons, values))
+#     pass
 
 class Verbiste:
     """
@@ -60,9 +60,8 @@ class Verbiste:
 
     """
 
-    def __init__(self, language='fr', subject='default'):
+    def __init__(self, language='fr'):
         self.language = language
-        self.subject = subject
         self.verbs = {}
         self.conjugations = OrderedDict()
         verbs_file = pkg_resources.resource_stream(
@@ -149,54 +148,9 @@ class Verbiste:
                 conjug = persons[0].find("i").text
             else:
                 conjug = None
-        # elif len(persons) == 6 and not mood.tag.startswith('Imperativ'):
-        #     conjug = OrderedDict((pers, term.find("i").text if term.find("i") is not None else None) for pers, term in enumerate(persons))
         else:
             conjug = OrderedDict((pers, term.find("i").text if term.find("i") is not None else None) for pers, term in enumerate(persons))
         return conjug
-
-
-
-
-    # def _load_tense(self, mood, tense):
-    #     """
-    #     Parses XML objects and extract mood and tense information to create a dict containing all inflected forms of the verb.
-    #
-    #     :param mood: xml.etree.ElementTree Tag object.
-    #     :param tense: xml.etree.ElementTree Tag object.
-    #     :return: OrderedDict or None.
-    #     """
-    #     # TODO: add pronouns for languages other than french.
-    #     persons = list(tense)
-    #     if tense.tag in ('infinitive-present', 'present-participle'):
-    #         if persons[0].find("i") is not None:
-    #             conjug = persons[0].find("i").text
-    #         else:
-    #             conjug = None
-    #     elif tense.tag == 'imperative-present':
-    #         pronouns = ["2s :", "1p :", "2p :"]
-    #         conjug = OrderedDict((pers, term.find("i").text if term.find("i") is
-    #                                                            not None else None) for pers, term in
-    #                              zip(pronouns, persons))
-    #     elif tense.tag == 'past-participle':
-    #         pronouns = ["ms :", "mp :", "fs :", "fp :"]
-    #         conjug = OrderedDict((pers, term.find("i").text if term.find("i") is
-    #                                                            not None else None) for pers, term in
-    #                              zip(pronouns, persons))
-    #     elif len(persons) == 6:
-    #         if self.subject == 'pronoun':
-    #             pronouns = ["je", "tu", "il (elle, on)", "nous", "vous", "ils (elles)"]
-    #             if mood.tag == 'subjunctive':
-    #                 prefix1 = "que "
-    #                 prefix2 = "qu' "
-    #                 exceptions = ("il (elle, on)", "ils (elles)")
-    #                 pronouns = [prefix1 + elmt if elmt not in exceptions else prefix2 + elmt for elmt in pronouns]
-    #         else:
-    #             pronouns = ["1s", "2s", "3s", "1p", "2p", "3p"]
-    #         conjug = OrderedDict((pers, term.find("i").text if term.find("i") is
-    #                                                            not None else None) for pers, term in
-    #                              zip(pronouns, persons))
-    #     return conjug
 
     def get_verb_info(self, verb):
         """
@@ -266,13 +220,17 @@ class Verb(object):
     :param conjug_info: OrderedDict.
 
     """
-    __slots__ = ('name', 'verb_info', 'conjug_info')
+    # __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'pronouns', 'negation', 'gender')
 
-    def __init__(self, verb_info, conjug_info):
+    def __init__(self, verb_info, conjug_info, subject='abbrev'):
         self.name = verb_info.infinitive
         self.verb_info = verb_info
         self.conjug_info = conjug_info
+        self.subject = subject
         self._load_conjug()
+        self.pronouns = None
+        self.negation = None
+        self.gender = None
 
     def _load_conjug(self):
         """
@@ -292,5 +250,58 @@ class Verb(object):
                     pass
 
 
+class VerbFr(Verb):
+    """
+    This class defines the French Verb Object.
+
+
+
+    """
+
+    # __slots__ = ('cache',)
+
+    pronouns = {'abbrev': ("1s", "2s", "3s", "1p", "2p", "3p"),
+                'pronoun': ("je", "tu", "il (elle, on)", "nous", "vous", "ils (elles)")}
+    imperative_pronouns = {'abbrev': ("2s :", "1p :", "2p :"),
+                           'pronoun': ("tu", "nous", "vous")}
+    gender = {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
+              'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")}
+    negation = 'ne'
+
+    def _load_conjug(self):
+        """
+        Populates the inflected forms of the verb.
+
+        """
+
+        for mood, tense in self.conjug_info.items():
+            for tense, persons in tense.items():
+                if isinstance(persons, dict):
+                    for pers, term in persons.items():
+                        if len(persons) == 6:
+                            key = self.pronouns[self.subject][pers]
+                            pass
+                            # remove persons[pers]
+                        elif tense == 'past-participle':
+                            key = self.gender[self.subject][pers]
+                        elif tense == 'imperative-present':
+                            key = self.imperative_pronouns[self.subject][pers]
+                        if term is not None:
+                            persons[pers] = (key, self.verb_info.root + term)
+                        else:
+                            persons[pers] = None
+                elif isinstance(persons, str):
+                    self.conjug_info[mood][tense] = self.verb_info.root + persons
+                    pass
+        return
+
+
 if __name__ == "__main__":
+    verbiste_fr = Verbiste('fr')
+    verbiste_it = Verbiste('it')
+    verbiste_es = Verbiste('es')
+    verbiste_en = Verbiste('en')
+    verbiste_pt = Verbiste('pt')
+    verbiste_ro = Verbiste('ro')
+    print('done')
     pass
