@@ -142,33 +142,17 @@ class Verbiste:
 
     def _load_tense(self, mood, tense):
         persons = list(tense)
-        if len(persons) == 1:
+        if not persons:
+            conjug = None
+        elif len(persons) == 1:
             if persons[0].find("i") is not None:
                 conjug = persons[0].find("i").text
             else:
                 conjug = None
-        elif len(persons) == 6 and not mood.tag.startswith('Imperativ'):
-            conjug = OrderedDict((pers, term.find("i").text if term.find("i") is
-                                                               not None else None) for pers, term in
-                                 zip(pronouns[self.language], persons))
-        elif len(persons) == 6 and mood.tag.startswith('Imperativ'):
-            if 'Negativo' in tense.tag or 'non' in tense.tag:
-                conjug = OrderedDict(((negation[self.language], term.find("i").text) if term.find("i") is not None else None for term in persons))
-            else:
-                conjug = OrderedDict(((i, term.find("i").text) if term.find("i") is not None else None for i, term in
-                                      enumerate(persons)))
-        elif len(persons) == 5 and mood.tag.startswith('Imperativ'):
-            if 'Negativo' in tense.tag or 'non' in tense.tag:
-                conjug = OrderedDict(
-                    ((negation[self.language], term.find("i").text) if term.find("i") is not None else None for term in
-                     persons))
-            else:
-                conjug = OrderedDict(((i, term.find("i").text) if term.find("i") is not None else None for i, term in enumerate(persons)))
+        # elif len(persons) == 6 and not mood.tag.startswith('Imperativ'):
+        #     conjug = OrderedDict((pers, term.find("i").text if term.find("i") is not None else None) for pers, term in enumerate(persons))
         else:
-            try:
-                conjug = OrderedDict(((i, term.find("i").text) if term.text is not None and term.find("i") is not None else None for i, term in enumerate(persons)))
-            except TypeError:
-                conjug = [(i, term.find("i").text) if term.text is not None and term.find("i") is not None else None for i, term in enumerate(persons)]
+            conjug = OrderedDict((pers, term.find("i").text if term.find("i") is not None else None) for pers, term in enumerate(persons))
         return conjug
 
 
@@ -309,10 +293,4 @@ class Verb(object):
 
 
 if __name__ == "__main__":
-    # verbiste_fr = Verbiste('fr')
-    # verbiste_it = Verbiste('it')
-    # verbiste_es = Verbiste('es')
-    # verbiste_en = Verbiste('en')
-    # verbiste_pt = Verbiste('pt')
-    # verbiste_ro = Verbiste('ro')
     pass
