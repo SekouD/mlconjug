@@ -18,10 +18,8 @@ __author_email__ = 'sekoud.python@gmail.com'
 
 import copy
 import xml.etree.ElementTree as ET
-import codecs
 from collections import OrderedDict
 import pkg_resources
-from _io import BufferedReader
 
 RESOURCE_PACKAGE = __name__
 
@@ -126,11 +124,7 @@ class Verbiste:
         :param verbs_file: string or path object.
             Path to the verbs xml file.
         """
-        if isinstance(verbs_file, BufferedReader):
-            verbs_dic = self._parse_verbs(verbs_file)
-        else:
-            with codecs.open(verbs_file, "r", encoding='utf-8') as file:
-                verbs_dic = self._parse_verbs(file)
+        verbs_dic = self._parse_verbs(verbs_file)
         self.verbs = verbs_dic
 
     def _parse_verbs(self, file):
@@ -194,11 +188,7 @@ class Verbiste:
         :param conjugations_file: string or path object.
             Path to the conjugation xml file.
         """
-        if isinstance(conjugations_file, BufferedReader):
-            conjugations_dic = self._parse_conjugations(conjugations_file)
-        else:
-            with codecs.open(conjugations_file, "r", encoding='utf-8') as file:
-                conjugations_dic = self._parse_conjugations(file)
+        conjugations_dic = self._parse_conjugations(conjugations_file)
         self.conjugations = conjugations_dic
 
     def _parse_conjugations(self, file):
