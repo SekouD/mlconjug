@@ -61,6 +61,8 @@ class TestPyVerbiste:
 
     def test_get_conjug_info(self):
         conjug_info = self.verbiste.get_conjug_info(':aller')
+        conjug_info2 = self.verbiste.get_conjug_info('man:ger')
+        assert conjug_info != conjug_info2
         assert conjug_info == self.verbiste.conjugations[':aller']
         assert self.verbiste.get_conjug_info(':cacater') is None
 
@@ -86,6 +88,13 @@ class TestVerb:
         test_verb = PyVerbiste.Verb(test_verb_info, test_conjug_info)
         assert isinstance(test_verb, PyVerbiste.Verb)
         assert isinstance(test_verb.conjug_info, OrderedDict)
+
+    def test_repr(self):
+        verbiste = PyVerbiste.Verbiste(language='fr')
+        test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
+        test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
+        test_verb = PyVerbiste.VerbFr(test_verb_info, test_conjug_info)
+        assert test_verb.__repr__() == 'mlconjug.PyVerbiste.VerbFr(manger)'
 
 
 class TestEndingCountVectorizer:
