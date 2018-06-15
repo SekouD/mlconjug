@@ -3,6 +3,12 @@ History
 =======
 
 
+2.1.0 (2018-06-15)
+------------------
+
+* Updated all language models for compatibility with scikit-learn 0.19.1.
+
+
 2.0.0 (2018-06-14)
 ------------------
 
