@@ -59,6 +59,9 @@ class Conjugator:
                 RESOURCE_PACKAGE, PRE_TRAINED_MODEL_PATH[language]).read())
         self.model = model
 
+    def __repr__(self):
+        return '{0}.{1}(language={2})'.format(__name__, self.__class__.__name__, self.language)
+
     def conjugate(self, verb, subject='abbrev'):
         """
         This is the main method of this class.
@@ -156,6 +159,9 @@ class DataSet:
         self.test_labels = []
         self.construct_dict_conjug()
 
+    def __repr__(self):
+        return '{0}.{1}({2})'.format(__name__, self.__class__.__name__, self.verbiste.__repr__)
+
     def construct_dict_conjug(self):
         """
         Populates the dictionary containing the conjugation templates.
@@ -225,6 +231,9 @@ class Model(object):
         self.model = Pipeline([('vectorizer', vectorizer),
                                ('feature_selector', feature_selector),
                                ('classifier', classifier)])
+
+    def __repr__(self):
+        return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, *self.model.named_steps)
 
     def train(self, samples, labels):
         """
