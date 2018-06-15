@@ -56,7 +56,8 @@ setup(
     install_requires=requirements,
     license="MIT license",
     zip_safe=False,
-    keywords='mlconjug conjugation conjugaison conjugación coniugazione conjugação conjugare verbs verbes verbos ML machine-learning NLP linguistics linguistique linguistica verbiste sklearn',
+    keywords='mlconjug conjugation conjugaison conjugación coniugazione conjugação conjugare verbs verbes verbos'
+             ' ML machine-learning NLP linguistics linguistique linguistica verbiste sklearn scikit-learn',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Topic :: Software Development :: Libraries :: Python Modules',
