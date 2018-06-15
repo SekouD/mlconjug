@@ -240,7 +240,7 @@ class Model(object):
                                ('classifier', classifier)])
 
     def __repr__(self):
-        return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, *self.model.named_steps)
+        return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, *sorted(self.model.named_steps))
 
     def train(self, samples, labels):
         """
