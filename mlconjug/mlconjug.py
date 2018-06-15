@@ -83,7 +83,7 @@ class Conjugator:
         :return verb_object: Verb object or None.
         """
         if not self.verbiste.is_valid_verb(verb):
-            raise ValueError('The supplied verb is not a valid verb in {0}.'.format(LANGUAGE_FULL[self.language]))
+            raise ValueError('The supplied word: {0} is not a valid verb in {1}.'.format(verb, LANGUAGE_FULL[self.language]))
         if verb not in self.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -135,11 +135,8 @@ class EndingCountVectorizer(CountVectorizer):
         """
         verb = self._white_spaces.sub(" ", verb)
         verb_len = len(verb)
-        ngrams = []
         min_n, max_n = self.ngram_range
-        for n in range(min_n, min(max_n + 1, verb_len + 1)):
-            ngram = verb[-n:]
-            ngrams.append(ngram)
+        ngrams = [verb[-n:] for n in range(min_n, min(max_n + 1, verb_len + 1))]
         return ngrams
 
 
@@ -172,13 +169,13 @@ class DataSet:
     def construct_dict_conjug(self):
         """
         Populates the dictionary containing the conjugation templates.
+        Populates the lists containing the verbs and their templates.
 
         """
         conjug = defaultdict(list)
         for verbe, info_verbe in self.verbiste.verbs.items():
             self.liste_verbes.append(verbe)
-            self.liste_templates.append(
-                self.templates.index(info_verbe["template"]))
+            self.liste_templates.append(self.templates.index(info_verbe["template"]))
             conjug[info_verbe["template"]].append(verbe)
         self.dict_conjug = conjug
         return

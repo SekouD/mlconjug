@@ -112,7 +112,6 @@ class Verbiste:
         conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
-        self.model = None
 
     def __repr__(self):
         return '{0}.{1}(language={2})'.format(__name__, self.__class__.__name__, self.language)
@@ -124,8 +123,8 @@ class Verbiste:
         :param verbs_file: string or path object.
             Path to the verbs xml file.
         """
-        verbs_dic = self._parse_verbs(verbs_file)
-        self.verbs = verbs_dic
+        self.verbs = self._parse_verbs(verbs_file)
+        return
 
     def _parse_verbs(self, file):
         """
@@ -157,10 +156,7 @@ class Verbiste:
         """
         if self.language == 'en':
             return True
-        results = set()
-        for verb in self.verbs:
-            if 2 <= len(verb):
-                results.add(verb.split(' ')[0][-2:])
+        results = {verb.split(' ')[0][-2:] for verb in self.verbs if 2 <= len(verb)}
         return results
 
     def is_valid_verb(self, verb):
@@ -188,8 +184,8 @@ class Verbiste:
         :param conjugations_file: string or path object.
             Path to the conjugation xml file.
         """
-        conjugations_dic = self._parse_conjugations(conjugations_file)
-        self.conjugations = conjugations_dic
+        self.conjugations = self._parse_conjugations(conjugations_file)
+        return
 
     def _parse_conjugations(self, file):
         """
@@ -228,8 +224,8 @@ class Verbiste:
             else:
                 conjug = None
         else:
-            conjug = [(pers, term.find("i").text if term.find("i") is not None else None) for pers, term in
-                      enumerate(persons)]
+            conjug = [(pers, term.find("i").text if term.find("i") is not None else None)
+                      for pers, term in enumerate(persons)]
         return conjug
 
     def get_verb_info(self, verb):
@@ -287,7 +283,7 @@ class VerbInfo(object):
         return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, self.infinitive, self.root, self.template)
 
     def __eq__(self, other):
-        if self.infinitive == other.infinitive and self.root == other.root and self.root == other.root:
+        if self.infinitive == other.infinitive and self.root == other.root and self.template == other.template:
             return True
         else:
             return False
@@ -403,8 +399,6 @@ class VerbEn(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'infinitive-present':
-                            key = 'to'
                         elif tense_name == 'imperative-present':
                             key = IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
                         else:
