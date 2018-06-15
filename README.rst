@@ -28,17 +28,18 @@ MLConjug
         :alt: Coverage Status
 
 
-A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon) using Machine Learning techniques.
-Any verb in one of the supported language can be conjugated as the module contains a Machine Learning model of how the verbs behave.
-Even completely new or made-up verbs can be successfully conjugated in this manner.
-The supplied pre-trained models are composed of:
+| A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon)
+    using Machine Learning techniques.
+| Any verb in one of the supported language can be conjugated, as the module contains a Machine Learning model of how the verbs behave.
+| Even completely new or made-up verbs can be successfully conjugated in this manner.
+| The supplied pre-trained models are composed of:
 
 - a binary feature extractor,
 - a feature selector using Linear Support Vector Classification,
 - a classifier using Stochastic Gradient Descent.
 
-MLConjug uses scikit-learn to implement the Machine Learning algorithms.
-Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model.
+| MLConjug uses scikit-learn to implement the Machine Learning algorithms.
+| Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model.
 
 The training data is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html .
 
