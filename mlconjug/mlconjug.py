@@ -19,7 +19,12 @@ import pkg_resources
 
 RESOURCE_PACKAGE = __name__
 
-LANGUAGES = ('fr', 'en', 'es', 'it', 'pt', 'ro')
+LANGUAGE_FULL = {'fr': 'French',
+                 'en': 'English',
+                 'es': 'Spanish',
+                 'it': 'Italian',
+                 'pt': 'Portuguese',
+                 'ro': 'Romanian'}
 
 VERBS = {'fr': VerbFr,
          'en': VerbEn,
@@ -77,6 +82,8 @@ class Conjugator:
             Select 'pronoun' for full pronouns.
         :return verb_object: Verb object or None.
         """
+        if not self.verbiste.is_valid_verb(verb):
+            raise ValueError('The supplied verb is not a valid verb in {0}.'.format(LANGUAGE_FULL[self.language]))
         if verb not in self.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -152,7 +159,7 @@ class DataSet:
         self.templates = sorted(self.verbiste.conjugations.keys())
         self.liste_verbes = []
         self.liste_templates = []
-        self.dict_conjug = []
+        self.dict_conjug = {}
         self.train_input = []
         self.train_labels = []
         self.test_input = []

@@ -27,6 +27,13 @@ RESOURCE_PACKAGE = __name__
 
 LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
+LANGUAGE_FULL = {'fr': 'French',
+                 'en': 'English',
+                 'es': 'Spanish',
+                 'it': 'Italian',
+                 'pt': 'Portuguese',
+                 'ro': 'Romanian'}
+
 VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
                        'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
@@ -103,6 +110,7 @@ class Verbiste:
         self.conjugations = OrderedDict()
         verbs_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[self.language])
         self._load_verbs(verbs_file)
+        self._allowed_endings = self._detect_allowed_endings()
         conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
@@ -143,6 +151,41 @@ class Verbiste:
             root = verb_name[:index]
             verbs_dic[verb_name] = {"template": template, "root": root}
         return verbs_dic
+
+    def _detect_allowed_endings(self):
+        """
+        Detects the allowed endings for verbs in the supported languages.
+        All the supported languages except for English restrict the form a verb can take.
+        As English is much more productive and varied in the morphology of its verbs, any word is allowed as a verb.
+
+        :return: set
+            A set containing the allowed endings of verbs in the target language.
+        """
+        if self.language == 'en':
+            return True
+        results = set()
+        for verb in self.verbs:
+            if 2 <= len(verb):
+                results.add(verb.split(' ')[0][-2:])
+        return results
+
+    def is_valid_verb(self, verb):
+        """
+        Checks if the verb is a valid verb in the given language.
+        English words are always treated as possible verbs.
+        Verbs in other languages are filtered by their endings.
+
+        :param verb:
+        :return: bool
+            True if the verb is a valid verb in the language. False otherwise.
+        """
+        if self.language == 'en':
+            return True # LOL!
+        if verb[-2:] in self._allowed_endings:
+            return True
+        else:
+            return False
+
 
     def _load_conjugations(self, conjugations_file):
         """
