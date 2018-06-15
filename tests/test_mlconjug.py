@@ -6,8 +6,10 @@
 import pytest
 import os
 
+from sklearn.exceptions import ConvergenceWarning
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
 from click.testing import CliRunner
 
