@@ -6,6 +6,9 @@
 import pytest
 import os
 
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+
 from click.testing import CliRunner
 
 from collections import OrderedDict
