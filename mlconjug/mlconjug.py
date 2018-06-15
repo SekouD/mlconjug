@@ -118,7 +118,7 @@ class Conjugator:
 class EndingCountVectorizer(CountVectorizer):
     """
     Custom Vectorizer optimized for extracting verbs features.
-    The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer
+    The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
     As in Indo-European languages verbs are inflected by adding a morphological suffix,
     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
     The features are the verb ending ngrams. (ngram_range is set at class initialization).
