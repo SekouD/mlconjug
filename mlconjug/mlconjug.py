@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
-"""Main module."""
+"""
+MLConjug Main module.
+
+| This module declares the main classes the user interacts with.
+
+| The module defines the classes needed to interface with Machine Learning models.
+
+"""
 
 from .PyVerbiste import Verbiste, Verb, VerbFr, VerbEn, VerbEs, VerbIt, VerbPt, VerbRo, VerbInfo
 
@@ -9,7 +16,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import precision_recall_fscore_support
 
 import random
 from collections import defaultdict
@@ -43,15 +49,15 @@ PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pi
 
 class Conjugator:
     """
-    This is the main class of the project.
-    The class manages the Verbiste data set and provides an interface with the scikit-learn model.
-    If no parameters are provided The default language is set to french and the pre trained french conjugation model is used.
-    It defines the method conjugate(verb, language) which is the main method of the module.
+    | This is the main class of the project.
+    | The class manages the Verbiste data set and provides an interface with the scikit-learn model.
+    | If no parameters are provided, the default language is set to french and the pre-trained french conjugation model is used.
+    | The class defines the method conjugate(verb, language) which is the main method of the module.
 
     :param language:
-        Language of the conjugator. The default language is 'fr' for french.
+    | Language of the conjugator. The default language is 'fr' for french.
     :param model:
-        A user provided model if the user has trained his own model.
+    | A user provided model if the user has trained his own model.
 
     """
     def __init__(self, language='fr', model=None):
@@ -69,17 +75,18 @@ class Conjugator:
 
     def conjugate(self, verb, subject='abbrev'):
         """
-        This is the main method of this class.
-        It first checks to see if the verb is in Verbiste. If it is not, and a pre-trained scikit-learn model has been supplied,
-        the method then calls the model to predict the conjugation class of the provided verb.
-        Returns a Verb object or None.
+        | This is the main method of this class.
+        | It first checks to see if the verb is in Verbiste.
+        | If it is not, and a pre-trained scikit-learn model has been supplied, the method then calls the model
+        to predict the conjugation class of the provided verb.
+        | Returns a Verb object or None.
 
         :param verb: string.
-            Verb to conjugate.
-        :param subject: srting.
-            Toggles abbreviated or full pronouns.
-            The default value is 'abbrev'.
-            Select 'pronoun' for full pronouns.
+        | Verb to conjugate.
+        :param subject: string.
+        | Toggles abbreviated or full pronouns.
+        | The default value is 'abbrev'.
+        | Select 'pronoun' for full pronouns.
         :return verb_object: Verb object or None.
         """
         if not self.verbiste.is_valid_verb(verb):
@@ -117,11 +124,11 @@ class Conjugator:
 
 class EndingCountVectorizer(CountVectorizer):
     """
-    Custom Vectorizer optimized for extracting verbs features.
-    The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
-    As in Indo-European languages verbs are inflected by adding a morphological suffix,
+    | Custom Vectorizer optimized for extracting verbs features.
+    | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
+    | As in Indo-European languages verbs are inflected by adding a morphological suffix,
     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
-    The features are the verb ending ngrams. (ngram_range is set at class initialization).
+    | The features are the verb ending ngrams. (ngram_range is set at class instanciation).
 
     """
     def _char_ngrams(self, verb):
@@ -129,9 +136,9 @@ class EndingCountVectorizer(CountVectorizer):
         Parses a verb and returns the ending ngrams.
 
         :param verb: string.
-            Verb to vectorize.
+        | Verb to vectorize.
         :return: list.
-            Final ngrams of the verb.
+        | Final ngrams of the verb.
         """
         verb = self._white_spaces.sub(" ", verb)
         verb_len = len(verb)
@@ -143,11 +150,11 @@ class EndingCountVectorizer(CountVectorizer):
 
 class DataSet:
     """
-    This class holds and manages the data set.
-    Defines helper functions for managing Machine Learning Tasks like constructing a training and testing set.
+    | This class holds and manages the data set.
+    | Defines helper functions for managing Machine Learning tasks like constructing a training and testing set.
 
     :param VerbisteObj:
-        Instance of a Verbiste object.
+    | Instance of a Verbiste object.
 
     """
     def __init__(self, VerbisteObj):
@@ -168,8 +175,8 @@ class DataSet:
 
     def construct_dict_conjug(self):
         """
-        Populates the dictionary containing the conjugation templates.
-        Populates the lists containing the verbs and their templates.
+        | Populates the dictionary containing the conjugation templates.
+        | Populates the lists containing the verbs and their templates.
 
         """
         conjug = defaultdict(list)
@@ -185,9 +192,10 @@ class DataSet:
         Splits the data into a training and a testing set.
 
         :param threshold: int.
-            Minimum size of conjugation class to be split.
+        | Minimum size of conjugation class to be split.
         :param proportion: float.
-            Proportion of samples in the training set. Must be between 0 and 1.
+        | Proportion of samples in the training set.
+        | Must be between 0 and 1.
         """
         if proportion <= 0 or proportion >= 1:
             raise ValueError('The split proportion must be between 0 and 1')
@@ -216,9 +224,9 @@ class DataSet:
 
 class Model(object):
     """
-    This class manages the scikit-learn model.
-    The Pipeline includes a feature vectorizer, a feature selector and a classifier.
-    If any of the vectorizer, feature selector or classifier is not supplied at instance declaration,
+    | This class manages the scikit-learn model.
+    | The Pipeline includes a feature vectorizer, a feature selector and a classifier.
+    | If any of the vectorizer, feature selector or classifier is not supplied at instance declaration,
     the __init__ method will provide good default values that get more than 92% prediction accuracy.
 
     :param vectorizer: scikit-learn Vectorizer.
@@ -231,7 +239,8 @@ class Model(object):
         if not feature_selector:
             feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=12000, dual=False, verbose=2))
         if not classifier:
-            classifier = SGDClassifier(loss='log', penalty='elasticnet', l1_ratio=0.15, max_iter=4000, alpha=1e-5, random_state=42, verbose=2)
+            classifier = SGDClassifier(loss='log', penalty='elasticnet', l1_ratio=0.15,
+                                       max_iter=4000, alpha=1e-5, random_state=42, verbose=2)
         self.model = Pipeline([('vectorizer', vectorizer),
                                ('feature_selector', feature_selector),
                                ('classifier', classifier)])
@@ -244,9 +253,9 @@ class Model(object):
         Trains the model on the supplied samples and labels.
 
         :param samples: list.
-            List of verbs.
+        | List of verbs.
         :param labels: list.
-            List of verb templates.
+        | List of verb templates.
         """
         self.model = self.model.fit(samples, labels)
         return
@@ -256,9 +265,9 @@ class Model(object):
         Predicts the conjugation class of the provided list of verbs.
 
         :param verbs: list.
-            List of verbs.
+        | List of verbs.
         :return: list.
-            List of predicted conjugation groups.
+        | List of predicted conjugation groups.
         """
         prediction = self.model.predict(verbs)
         return prediction
