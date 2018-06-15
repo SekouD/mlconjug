@@ -25,7 +25,7 @@ Usage example:
 
 __author__ = """SekouD"""
 __email__ = 'sekoud.python@gmail.com'
-__version__ = '2.1.2'
+__version__ = '2.1.2c'
 
 from .mlconjug import EndingCountVectorizer, DataSet, Model, LinearSVC, SGDClassifier, SelectFromModel, precision_recall_fscore_support, Conjugator, Pipeline
 from .PyVerbiste import Verbiste
