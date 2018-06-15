@@ -54,6 +54,10 @@ class TestPyVerbiste:
         assert conjug_info == self.verbiste.conjugations[':aller']
         assert self.verbiste.get_conjug_info(':cacater') is None
 
+    def test_is_valid_verb(self):
+        assert self.verbiste.is_valid_verb('manger')
+        assert not self.verbiste.is_valid_verb('banane')
+
 class TestVerb:
     def test_verbinfo(self):
         for lang in LANGUAGES:
@@ -102,14 +106,12 @@ class TestDataSet:
 
 
 class TestModel:
-    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True,
-                                                ngram_range=(2, 7))
+    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
     # Feature reduction
     feature_reductor = mlconjug.SelectFromModel(
         mlconjug.LinearSVC(penalty="l1", max_iter=3000, dual=False, verbose=2))
     # Prediction Classifier
-    classifier = mlconjug.SGDClassifier(loss="log", penalty='elasticnet',
-                                        alpha=1e-5, random_state=42)
+    classifier = mlconjug.SGDClassifier(loss="log", penalty='elasticnet', alpha=1e-5, random_state=42)
     # Initialize Model
     model = mlconjug.Model(vectorizer, feature_reductor, classifier)
     dataset = mlconjug.DataSet(mlconjug.Verbiste())
