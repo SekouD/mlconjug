@@ -108,6 +108,9 @@ class Verbiste:
         self.templates = sorted(self.conjugations.keys())
         self.model = None
 
+    def __repr__(self):
+        return '{0}.{1}(language={2})'.format(__name__, self.__class__.__name__, self.language)
+
     def _load_verbs(self, verbs_file):
         """
         Load and parses the verbs from xml file.
@@ -247,6 +250,9 @@ class VerbInfo(object):
         self.root = root
         self.template = template
 
+    def __repr__(self):
+        return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, self.infinitive, self.root, self.template)
+
     def __eq__(self, other):
         if self.infinitive == other.infinitive and self.root == other.root and self.root == other.root:
             return True
@@ -266,6 +272,9 @@ class Verb(object):
         Select 'pronoun' for full pronouns.
 
     """
+    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject')
+
+    language = 'default'
 
     def __init__(self, verb_info, conjug_info, subject='abbrev'):
         self.name = verb_info.infinitive
@@ -273,7 +282,9 @@ class Verb(object):
         self.conjug_info = conjug_info
         self.subject = subject
         self._load_conjug()
-        self.language = 'default'
+
+    def __repr__(self):
+        return '{0}.{1}({2})'.format(__name__, self.__class__.__name__, self.name)
 
     def _load_conjug(self):
         """
@@ -306,6 +317,7 @@ class VerbFr(Verb):
     This class defines the French Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'fr'
 
@@ -342,6 +354,7 @@ class VerbEn(Verb):
     This class defines the English Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'en'
 
@@ -382,6 +395,7 @@ class VerbEs(Verb):
     This class defines the Spanish Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'es'
 
@@ -418,6 +432,7 @@ class VerbIt(Verb):
     This class defines the Italian Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'it'
 
@@ -454,6 +469,7 @@ class VerbPt(Verb):
     This class defines the Portuguese Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'pt'
 
@@ -490,6 +506,7 @@ class VerbRo(Verb):
     This class defines the Romanian Verb Object.
 
     """
+    __slots__ = ()
 
     language = 'ro'
 
