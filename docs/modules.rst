@@ -19,3 +19,5 @@ API Reference for the classes in mlconjug.PyVerbiste.py
 .. automodule:: mlconjug.PyVerbiste
     :member-order: bysource
     :members:
+    :inherited-members:
+    :show-inheritance:
