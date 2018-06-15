@@ -88,7 +88,7 @@ class Conjugator:
             Toggles abbreviated or full pronouns.
             The default value is 'abbrev'.
             Select 'pronoun' for full pronouns.
-        :return verb_object: Verb object or None.
+        :return: Verb object or None.
 
         """
         if not self.verbiste.is_valid_verb(verb):
