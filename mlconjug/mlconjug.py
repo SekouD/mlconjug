@@ -54,10 +54,10 @@ class Conjugator:
     | If no parameters are provided, the default language is set to french and the pre-trained french conjugation model is used.
     | The class defines the method conjugate(verb, language) which is the main method of the module.
 
-    :param language:
-    | Language of the conjugator. The default language is 'fr' for french.
-    :param model:
-    | A user provided model if the user has trained his own model.
+    :param language: string.
+        Language of the conjugator. The default language is 'fr' for french.
+    :param model: string.
+        A user provided model if the user has trained his own model.
 
     """
     def __init__(self, language='fr', model=None):
@@ -79,15 +79,17 @@ class Conjugator:
         | It first checks to see if the verb is in Verbiste.
         | If it is not, and a pre-trained scikit-learn model has been supplied, the method then calls the model
         to predict the conjugation class of the provided verb.
+
         | Returns a Verb object or None.
 
         :param verb: string.
-        | Verb to conjugate.
+            Verb to conjugate.
         :param subject: string.
-        | Toggles abbreviated or full pronouns.
-        | The default value is 'abbrev'.
-        | Select 'pronoun' for full pronouns.
+            Toggles abbreviated or full pronouns.
+            The default value is 'abbrev'.
+            Select 'pronoun' for full pronouns.
         :return verb_object: Verb object or None.
+
         """
         if not self.verbiste.is_valid_verb(verb):
             raise ValueError('The supplied word: {0} is not a valid verb in {1}.'.format(verb, LANGUAGE_FULL[self.language]))
@@ -116,6 +118,7 @@ class Conjugator:
         Assigns the provided pre-trained scikit-learn model to be able to conjugate unknown verbs.
 
         :param model: scikit-learn Classifier or Pipeline.
+
         """
         self.model = model
         return
@@ -128,6 +131,7 @@ class EndingCountVectorizer(CountVectorizer):
     | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
     | As in Indo-European languages verbs are inflected by adding a morphological suffix,
     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
+
     | The features are the verb ending ngrams. (ngram_range is set at class instanciation).
 
     """
@@ -136,9 +140,9 @@ class EndingCountVectorizer(CountVectorizer):
         Parses a verb and returns the ending ngrams.
 
         :param verb: string.
-        | Verb to vectorize.
+            Verb to vectorize.
         :return: list.
-        | Final ngrams of the verb.
+            Final ngrams of the verb.
         """
         verb = self._white_spaces.sub(" ", verb)
         verb_len = len(verb)
@@ -154,7 +158,7 @@ class DataSet:
     | Defines helper functions for managing Machine Learning tasks like constructing a training and testing set.
 
     :param VerbisteObj:
-    | Instance of a Verbiste object.
+        Instance of a Verbiste object.
 
     """
     def __init__(self, VerbisteObj):
@@ -192,10 +196,11 @@ class DataSet:
         Splits the data into a training and a testing set.
 
         :param threshold: int.
-        | Minimum size of conjugation class to be split.
+            Minimum size of conjugation class to be split.
         :param proportion: float.
-        | Proportion of samples in the training set.
-        | Must be between 0 and 1.
+            Proportion of samples in the training set.
+            Must be between 0 and 1.
+
         """
         if proportion <= 0 or proportion >= 1:
             raise ValueError('The split proportion must be between 0 and 1')
@@ -232,6 +237,7 @@ class Model(object):
     :param vectorizer: scikit-learn Vectorizer.
     :param feature_selector: scikit-learn Classifier with a fit_transform() method
     :param classifier: scikit-learn Classifier with a predict() method
+
     """
     def __init__(self, vectorizer=None, feature_selector=None, classifier=None):
         if not vectorizer:
@@ -253,9 +259,10 @@ class Model(object):
         Trains the model on the supplied samples and labels.
 
         :param samples: list.
-        | List of verbs.
+            List of verbs.
         :param labels: list.
-        | List of verb templates.
+            List of verb templates.
+
         """
         self.model = self.model.fit(samples, labels)
         return
@@ -265,9 +272,10 @@ class Model(object):
         Predicts the conjugation class of the provided list of verbs.
 
         :param verbs: list.
-        | List of verbs.
+            List of verbs.
         :return: list.
-        | List of predicted conjugation groups.
+            List of predicted conjugation groups.
+
         """
         prediction = self.model.predict(verbs)
         return prediction

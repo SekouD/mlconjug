@@ -10,7 +10,6 @@ API Reference for the classes in mlconjug.mlconjug.py
     :member-order: bysource
     :members:
     :private-members:
-    :inherited-members:
     :show-inheritance:
 
 

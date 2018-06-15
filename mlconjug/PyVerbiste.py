@@ -121,7 +121,8 @@ class Verbiste:
         Load and parses the verbs from xml file.
 
         :param verbs_file: string or path object.
-        | Path to the verbs xml file.
+            Path to the verbs xml file.
+
         """
         self.verbs = self._parse_verbs(verbs_file)
         return
@@ -131,9 +132,10 @@ class Verbiste:
         Parses XML file
 
         :param file: FileObject.
-        | XML file containing the verbs.
+            XML file containing the verbs.
         :return: OrderedDict.
-        | An OrderedDict containing the verb and its template for all verbs in the file.
+            An OrderedDict containing the verb and its template for all verbs in the file.
+
         """
         verbs_dic = {}
         xml = ET.parse(file)
@@ -152,7 +154,8 @@ class Verbiste:
         | As English is much more productive and varied in the morphology of its verbs, any word is allowed as a verb.
 
         :return: set.
-        | A set containing the allowed endings of verbs in the target language.
+            A set containing the allowed endings of verbs in the target language.
+
         """
         if self.language == 'en':
             return True
@@ -166,9 +169,10 @@ class Verbiste:
         | Verbs in other languages are filtered by their endings.
 
         :param verb: string.
-        | The verb conjugate.
+            The verb conjugate.
         :return: bool.
-        | True if the verb is a valid verb in the language. False otherwise.
+            True if the verb is a valid verb in the language. False otherwise.
+
         """
         if self.language == 'en':
             return True # LOL!
@@ -183,7 +187,8 @@ class Verbiste:
         Load and parses the conjugations from xml file.
 
         :param conjugations_file: string or path object.
-        | Path to the conjugation xml file.
+            Path to the conjugation xml file.
+
         """
         self.conjugations = self._parse_conjugations(conjugations_file)
         return
@@ -193,9 +198,10 @@ class Verbiste:
         Parses XML file
 
         :param file: FileObject.
-        | XML file containing the conjugation templates
+            XML file containing the conjugation templates
         :return: OrderedDict.
-        | An OrderedDict containing all the conjugation templates in the file.
+            An OrderedDict containing all the conjugation templates in the file.
+
         """
         conjugations_dic = {}
         xml = ET.parse(file)
@@ -213,9 +219,10 @@ class Verbiste:
         Load and parses the inflected forms of the tense from xml file.
 
         :param tense: string.
-        | The current tense being processed.
+            The current tense being processed.
         :return: list.
-        | List of conjugated suffixes.
+            List of conjugated suffixes.
+
         """
         persons = list(tense)
         if not persons:
@@ -235,8 +242,9 @@ class Verbiste:
         Gets verb information and returns a VerbInfo instance.
 
         :param verb: string.
-        | Verb to conjugate.
+            Verb to conjugate.
         :return: VerbInfo object or None.
+
         """
         if verb not in self.verbs.keys():
             return None
@@ -252,9 +260,10 @@ class Verbiste:
         Gets conjugation information corresponding to the given template.
 
         :param template: string.
-        | Name of the verb ending pattern.
+            Name of the verb ending pattern.
         :return: OrderedDict or None.
-        | OrderedDict containing the conjugated suffixes of the template.
+            OrderedDict containing the conjugated suffixes of the template.
+
         """
         if template not in self.conjugations.keys():
             return None
@@ -268,11 +277,11 @@ class VerbInfo(object):
     This class defines the Verbiste verb information structure.
 
     :param infinitive: string.
-    | Infinitive form of the verb.
+        Infinitive form of the verb.
     :param root: string.
-    | Lexical root of the verb.
+        Lexical root of the verb.
     :param template: string.
-    | Name of the verb ending pattern.
+        Name of the verb ending pattern.
 
     """
     __slots__ = ('infinitive', 'root', 'template')
@@ -299,9 +308,9 @@ class Verb(object):
     :param verb_info: VerbInfo Object.
     :param conjug_info: OrderedDict.
     :param subject: string.
-    | Toggles abbreviated or full pronouns.
-    | The default value is 'abbrev'.
-    | Select 'pronoun' for full pronouns.
+        Toggles abbreviated or full pronouns.
+        The default value is 'abbrev'.
+        Select 'pronoun' for full pronouns.
 
     """
     __slots__ = ('name', 'verb_info', 'conjug_info', 'subject')
