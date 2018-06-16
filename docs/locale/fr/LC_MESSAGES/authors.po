@@ -1,0 +1,39 @@
+# TRANSLATION TEMPLATE FOR authors.rst.
+# Copyright (C) 2018, SekouD
+# This file is distributed under the same license as the MLConjug package.
+# SekouD <sekoud.python@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: MLConjug 2.1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-16 21:18+0200\n"
+"PO-Revision-Date: 2018-06-16 22:18+0200\n"
+"Last-Translator: SekouD <sekoud.python@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+"Language-Team: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.8\n"
+
+#: ../../../AUTHORS.rst:3
+msgid "Credits"
+msgstr "Crédits"
+
+#: ../../../AUTHORS.rst:6
+msgid "Development Lead"
+msgstr "Responsable du développement"
+
+#: ../../../AUTHORS.rst:8
+msgid "SekouD <sekoud.python@gmail.com>"
+msgstr "SekouD <sekoud.python@gmail.com>"
+
+#: ../../../AUTHORS.rst:11
+msgid "Contributors"
+msgstr "Contributeurs"
+
+#: ../../../AUTHORS.rst:13
+msgid "None yet. Why not be the first?"
+msgstr "Aucun pour l'instant. Pourquoi ne pas être le premier?"
