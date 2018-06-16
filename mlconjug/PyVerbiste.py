@@ -25,13 +25,6 @@ RESOURCE_PACKAGE = __name__
 
 LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
-LANGUAGE_FULL = {'fr': 'French',
-                 'en': 'English',
-                 'es': 'Spanish',
-                 'it': 'Italian',
-                 'pt': 'Portuguese',
-                 'ro': 'Romanian'}
-
 VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
                        'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
