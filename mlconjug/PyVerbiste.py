@@ -99,7 +99,7 @@ class Verbiste:
 
     def __init__(self, language='default'):
         if language not in LANGUAGES:
-            raise ValueError('Unsupported language.\nThe allowed languages are fr, en, es, it, pt, ro')
+            raise ValueError(_('Unsupported language.\nThe allowed languages are fr, en, es, it, pt, ro.'))
         if language == 'default':
             self.language = 'fr'
         else:
@@ -129,7 +129,7 @@ class Verbiste:
 
     def _parse_verbs(self, file):
         """
-        Parses XML file
+        Parses XML file.
 
         :param file: FileObject.
             XML file containing the verbs.
@@ -169,7 +169,7 @@ class Verbiste:
         | Verbs in other languages are filtered by their endings.
 
         :param verb: string.
-            The verb conjugate.
+            The verb to conjugate.
         :return: bool.
             True if the verb is a valid verb in the language. False otherwise.
 
@@ -195,10 +195,10 @@ class Verbiste:
 
     def _parse_conjugations(self, file):
         """
-        Parses XML file
+        Parses XML file.
 
         :param file: FileObject.
-            XML file containing the conjugation templates
+            XML file containing the conjugation templates.
         :return: OrderedDict.
             An OrderedDict containing all the conjugation templates in the file.
 

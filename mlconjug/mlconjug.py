@@ -92,7 +92,7 @@ class Conjugator:
 
         """
         if not self.verbiste.is_valid_verb(verb):
-            raise ValueError('The supplied word: {0} is not a valid verb in {1}.'.format(verb, LANGUAGE_FULL[self.language]))
+            raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, LANGUAGE_FULL[self.language]))
         if verb not in self.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -137,12 +137,12 @@ class EndingCountVectorizer(CountVectorizer):
     """
     def _char_ngrams(self, verb):
         """
-        Parses a verb and returns the ending ngrams.
+        Parses a verb and returns the ending n-grams.
 
         :param verb: string.
             Verb to vectorize.
         :return: list.
-            Final ngrams of the verb.
+            Final n-grams of the verb.
         """
         verb = self._white_spaces.sub(" ", verb)
         verb_len = len(verb)
@@ -203,7 +203,7 @@ class DataSet:
 
         """
         if proportion <= 0 or proportion >= 1:
-            raise ValueError('The split proportion must be between 0 and 1')
+            raise ValueError(_('The split proportion must be between 0 and 1.'))
         self.min_threshold = threshold
         self.split_proportion = proportion
         train_set = []
