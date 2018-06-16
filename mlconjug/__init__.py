@@ -54,12 +54,8 @@ if user_locale in SUPPORETD_LANGUAGES:
     MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',
                                                 localedir=pkg_resources.resource_filename(RESOURCE_PACKAGE, 'locale'),
                                                 languages=[user_locale], fallback=True, codeset='UTF-8')
-    print('blah')
-    pass
 else:
     MLCONJUG_TRANSLATIONS = gettext.NullTranslations()
-    # _ = lambda string: string
-    pass
 
 MLCONJUG_TRANSLATIONS.install()
 
