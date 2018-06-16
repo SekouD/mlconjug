@@ -25,12 +25,12 @@ import pkg_resources
 
 RESOURCE_PACKAGE = __name__
 
-LANGUAGE_FULL = {'fr': 'French',
+LANGUAGE_FULL = {'fr': 'Français',
                  'en': 'English',
-                 'es': 'Spanish',
-                 'it': 'Italian',
-                 'pt': 'Portuguese',
-                 'ro': 'Romanian'}
+                 'es': 'Español',
+                 'it': 'Italiano',
+                 'pt': 'Português',
+                 'ro': 'Română'}
 
 VERBS = {'fr': VerbFr,
          'en': VerbEn,
