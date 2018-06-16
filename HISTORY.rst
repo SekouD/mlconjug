@@ -3,6 +3,13 @@ History
 =======
 
 
+2.1.5 (2018-06-15)
+------------------
+
+* Added localization.
+* Now the user interface of mlconjug is avalaible in French, Spanish, Italian, Portuguese and Romanian, in addition to English.
+
+
 2.1.2 (2018-06-15)
 ------------------
 
