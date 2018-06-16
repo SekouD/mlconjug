@@ -29,3 +29,50 @@ __version__ = '2.1.4'
 
 from .mlconjug import EndingCountVectorizer, DataSet, Model, LinearSVC, SGDClassifier, SelectFromModel, Conjugator, Pipeline
 from .PyVerbiste import Verbiste
+import pkg_resources
+import platform
+import locale
+import gettext
+
+
+# Sets up the automatic translation of annotated strings displayed to the user.
+RESOURCE_PACKAGE = __name__
+TRANSLATIONS_PATH = pkg_resources.resource_filename(RESOURCE_PACKAGE, 'locale')
+
+SUPPORETD_LANGUAGES = ('es', 'fr', 'it', 'pt', 'ro')
+
+if 'Windows' in platform.system():
+    import ctypes
+    windll = ctypes.windll.kernel32
+    user_locale = locale.windows_locale[ windll.GetUserDefaultUILanguage() ][:2]
+    pass
+else:
+    user_locale = locale.getdefaultlocale()[:2]
+    pass
+
+if user_locale in SUPPORETD_LANGUAGES:
+    MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',
+                                                localedir=pkg_resources.resource_filename(RESOURCE_PACKAGE, 'locale'),
+                                                languages=[user_locale], fallback=True, codeset='UTF-8')
+    print('blah')
+    pass
+else:
+    MLCONJUG_TRANSLATIONS = gettext.NullTranslations()
+    # _ = lambda string: string
+    pass
+
+MLCONJUG_TRANSLATIONS.install()
+
+
+# Enables the translation of docstrings when using the help() builtin function.
+import inspect
+def getdoc(object):
+    try:
+        doc = object.__doc__
+    except AttributeError:
+        return None
+    if not isinstance(doc, str):
+        return None
+    return inspect.cleandoc(_(doc))
+
+inspect.getdoc = getdoc
