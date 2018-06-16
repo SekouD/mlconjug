@@ -106,6 +106,10 @@ pygments_style = 'sphinx'
 # documents.
 #keep_warnings = False
 
+# Localization settings
+locale_dirs = ['locale/']
+gettext_compact = False
+
 
 # -- Options for HTML output -------------------------------------------
 
