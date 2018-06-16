@@ -51,7 +51,8 @@ setup(
         ]
     },
     package_data={'verbiste_data': ['mlconjug/data/verbiste/*'],
-                  'trained_models': 'mlconjug/data/models/*'},
+                  'trained_models': ['mlconjug/data/models/*'],
+                  'translations': ['mlconjug/locale/*']},
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
