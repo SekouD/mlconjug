@@ -53,7 +53,7 @@ class TestPyVerbiste:
         assert self.verbiste.verbs['abaisser'] == {'template': 'aim:er', 'root': 'abaiss'}
 
     def test_repr(self):
-        assert self.verbiste.__repr__() == 'mlconjug.Verbiste(language=fr)'
+        assert self.verbiste.__repr__() == 'mlconjug.PyVerbiste.Verbiste(language=fr)'
 
     def test_unsupported_language(self):
         with pytest.raises(ValueError) as excinfo:
@@ -64,7 +64,7 @@ class TestPyVerbiste:
         verb_info = self.verbiste.get_verb_info('aller')
         assert verb_info == VerbInfo('aller', '', ':aller')
         assert self.verbiste.get_verb_info('cacater') is None
-        assert verb_info.__repr__() == 'mlconjug.VerbInfo(aller, , :aller)'
+        assert verb_info.__repr__() == 'mlconjug.PyVerbiste.VerbInfo(aller, , :aller)'
 
     def test_get_conjug_info(self):
         conjug_info = self.verbiste.get_conjug_info(':aller')
@@ -101,7 +101,7 @@ class TestVerb:
         test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
         test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
         test_verb = VerbFr(test_verb_info, test_conjug_info)
-        assert test_verb.__repr__() == 'mlconjug.VerbFr(manger)'
+        assert test_verb.__repr__() == 'mlconjug.PyVerbiste.VerbFr(manger)'
 
 
 class TestEndingCountVectorizer:
@@ -115,7 +115,7 @@ class TestEndingCountVectorizer:
 class TestConjugator:
     conjugator = Conjugator()
     def test_repr(self):
-        assert self.conjugator.__repr__() == 'mlconjug.Conjugator(language=fr)'
+        assert self.conjugator.__repr__() == 'mlconjug.mlconjug.Conjugator(language=fr)'
 
     def test_conjugate(self):
         test_verb = self.conjugator.conjugate('aller')
@@ -135,7 +135,7 @@ class TestConjugator:
 class TestDataSet:
     data_set = DataSet(Verbiste())
     def test_repr(self):
-        assert self.data_set.__repr__() == 'mlconjug.DataSet(<bound method Verbiste.__repr__ of mlconjug.Verbiste(language=fr)>)'
+        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet(<bound method Verbiste.__repr__ of mlconjug.PyVerbiste.Verbiste(language=fr)>)'
 
     def test_construct_dict_conjug(self):
         self.data_set.construct_dict_conjug()
@@ -166,7 +166,7 @@ class TestModel:
     dataset.split_data(proportion=0.9)
 
     def test_repr(self):
-        assert self.model.__repr__() == 'mlconjug.Model(classifier, feature_selector, vectorizer)'
+        assert self.model.__repr__() == 'mlconjug.mlconjug.Model(classifier, feature_selector, vectorizer)'
 
     def test_train(self):
         self.model.train(self.dataset.test_input, self.dataset.test_labels)
