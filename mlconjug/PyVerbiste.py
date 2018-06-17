@@ -99,10 +99,10 @@ class Verbiste:
             self.language = language
         self.verbs = {}
         self.conjugations = OrderedDict()
-        verbs_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[self.language])
+        verbs_file = pkg_resources.resource_filename(RESOURCE_PACKAGE, VERBS_RESOURCE_PATH[self.language])
         self._load_verbs(verbs_file)
         self._allowed_endings = self._detect_allowed_endings()
-        conjugations_file = pkg_resources.resource_stream(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[self.language])
+        conjugations_file = pkg_resources.resource_filename(RESOURCE_PACKAGE, CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
 
