@@ -34,7 +34,7 @@ import platform
 import locale
 import gettext
 
-__all__ = (mlconjug.__all__ + PyVerbiste.__all__)
+# __all__ = (mlconjug.__all__ + PyVerbiste.__all__)
 
 # Sets up the automatic translation of annotated strings displayed to the user.
 RESOURCE_PACKAGE = __name__

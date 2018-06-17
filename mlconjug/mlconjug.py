@@ -24,7 +24,7 @@ import pickle
 
 import pkg_resources
 
-__all__ = ['Conjugator', 'EndingCountVectorizer', 'DataSet', 'Model', 'LinearSVC', 'SGDClassifier', 'SelectFromModel', 'Pipeline']
+# __all__ = ['Conjugator', 'EndingCountVectorizer', 'DataSet', 'Model', 'LinearSVC', 'SGDClassifier', 'SelectFromModel', 'Pipeline']
 
 RESOURCE_PACKAGE = __name__
 
