@@ -21,6 +21,8 @@ import xml.etree.ElementTree as ET
 from collections import OrderedDict
 import pkg_resources
 
+__all__ = ['Verbiste', 'Verb', 'VerbFr', 'VerbEn', 'VerbEs', 'VerbIt', 'VerbPt', 'VerbRo', 'VerbInfo']
+
 RESOURCE_PACKAGE = __name__
 
 LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')

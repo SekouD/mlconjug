@@ -27,13 +27,14 @@ __author__ = """SekouD"""
 __email__ = 'sekoud.python@gmail.com'
 __version__ = '2.1.5'
 
-from .mlconjug import EndingCountVectorizer, DataSet, Model, LinearSVC, SGDClassifier, SelectFromModel, Conjugator, Pipeline
-from .PyVerbiste import Verbiste
+from .mlconjug import *
+from .PyVerbiste import *
 import pkg_resources
 import platform
 import locale
 import gettext
 
+__all__ = (mlconjug.__all__ + PyVerbiste.__all__)
 
 # Sets up the automatic translation of annotated strings displayed to the user.
 RESOURCE_PACKAGE = __name__
@@ -69,4 +70,5 @@ def getdoc(object):
         return None
     return inspect.cleandoc(_(doc))
 
+# Replaces the getdoc method
 inspect.getdoc = getdoc

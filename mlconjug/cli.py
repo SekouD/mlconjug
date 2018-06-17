@@ -3,7 +3,7 @@
 """Console script for mlconjug."""
 
 import click
-import mlconjug
+from .mlconjug import Conjugator
 from pprint import pprint
 
 
@@ -15,7 +15,7 @@ from pprint import pprint
               type=click.STRING)
 def main(verb, language):
     """Console script for mlconjug."""
-    conjugator = mlconjug.Conjugator(language)
+    conjugator = Conjugator(language)
     result = conjugator.conjugate(verb)
     pprint(result.conjug_info)
 

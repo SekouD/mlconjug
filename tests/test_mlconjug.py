@@ -15,19 +15,24 @@ from click.testing import CliRunner
 
 from collections import OrderedDict
 
-from mlconjug import mlconjug, PyVerbiste
+from mlconjug import Conjugator, EndingCountVectorizer, DataSet, Model,\
+    LinearSVC, SGDClassifier,SelectFromModel
+
+from mlconjug import Verbiste, VerbInfo, Verb, VerbEn,\
+    VerbEs, VerbFr, VerbIt, VerbPt, VerbRo
+
 from mlconjug import cli
 
 
 LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
-VERBS = {'default': PyVerbiste.Verb,
-         'fr': PyVerbiste.VerbFr,
-         'en': PyVerbiste.VerbEn,
-         'es': PyVerbiste.VerbEs,
-         'it': PyVerbiste.VerbIt,
-         'pt': PyVerbiste.VerbPt,
-         'ro': PyVerbiste.VerbRo}
+VERBS = {'default': Verb,
+         'fr': VerbFr,
+         'en': VerbEn,
+         'es': VerbEs,
+         'it': VerbIt,
+         'pt': VerbPt,
+         'ro': VerbRo}
 
 TEST_VERBS = {'fr': ('manger', 'man:ger'),
          'en': ('bring', 'br:ing'),
@@ -37,8 +42,8 @@ TEST_VERBS = {'fr': ('manger', 'man:ger'),
          'ro': ('cambra', 'dans:a')}
 
 class TestPyVerbiste:
-    verbiste = PyVerbiste.Verbiste(language='fr')
-    verbiste_en = PyVerbiste.Verbiste(language='en')
+    verbiste = Verbiste(language='fr')
+    verbiste_en = Verbiste(language='en')
     def test_init_verbiste(self):
         assert len(self.verbiste.templates) == len(self.verbiste.conjugations) == 149
         assert self.verbiste.templates[0] == ':aller'
@@ -48,18 +53,18 @@ class TestPyVerbiste:
         assert self.verbiste.verbs['abaisser'] == {'template': 'aim:er', 'root': 'abaiss'}
 
     def test_repr(self):
-        assert self.verbiste.__repr__() == 'mlconjug.PyVerbiste.Verbiste(language=fr)'
+        assert self.verbiste.__repr__() == 'mlconjug.Verbiste(language=fr)'
 
     def test_unsupported_language(self):
         with pytest.raises(ValueError) as excinfo:
-            PyVerbiste.Verbiste(language='de')
+            Verbiste(language='de')
         # assert 'Unsupported language.' in str(excinfo.value)
 
     def test_get_verb_info(self):
         verb_info = self.verbiste.get_verb_info('aller')
-        assert verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
+        assert verb_info == VerbInfo('aller', '', ':aller')
         assert self.verbiste.get_verb_info('cacater') is None
-        assert verb_info.__repr__() == 'mlconjug.PyVerbiste.VerbInfo(aller, , :aller)'
+        assert verb_info.__repr__() == 'mlconjug.VerbInfo(aller, , :aller)'
 
     def test_get_conjug_info(self):
         conjug_info = self.verbiste.get_conjug_info(':aller')
@@ -76,7 +81,7 @@ class TestPyVerbiste:
 class TestVerb:
     def test_verbinfo(self):
         for lang in LANGUAGES:
-            verbiste = PyVerbiste.Verbiste(language=lang)
+            verbiste = Verbiste(language=lang)
             test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
             test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
             test_verb = VERBS[verbiste.language](test_verb_info, test_conjug_info)
@@ -84,53 +89,53 @@ class TestVerb:
             assert isinstance(test_verb.conjug_info, OrderedDict)
 
     def test_default_verb(self):
-        verbiste = PyVerbiste.Verbiste(language='default')
+        verbiste = Verbiste(language='default')
         test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
         test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
-        test_verb = PyVerbiste.Verb(test_verb_info, test_conjug_info)
-        assert isinstance(test_verb, PyVerbiste.Verb)
+        test_verb = Verb(test_verb_info, test_conjug_info)
+        assert isinstance(test_verb, Verb)
         assert isinstance(test_verb.conjug_info, OrderedDict)
 
     def test_repr(self):
-        verbiste = PyVerbiste.Verbiste(language='fr')
+        verbiste = Verbiste(language='fr')
         test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
         test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
-        test_verb = PyVerbiste.VerbFr(test_verb_info, test_conjug_info)
-        assert test_verb.__repr__() == 'mlconjug.PyVerbiste.VerbFr(manger)'
+        test_verb = VerbFr(test_verb_info, test_conjug_info)
+        assert test_verb.__repr__() == 'mlconjug.VerbFr(manger)'
 
 
 class TestEndingCountVectorizer:
     ngrange = (2, 7)
-    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True, ngram_range=ngrange)
+    vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=ngrange)
     def test_char_ngrams(self):
         ngrams = self.vectorizer._char_ngrams('aller')
         assert 'ller' in ngrams
 
 
 class TestConjugator:
-    conjugator = mlconjug.Conjugator()
+    conjugator = Conjugator()
     def test_repr(self):
-        assert self.conjugator.__repr__() == 'mlconjug.mlconjug.Conjugator(language=fr)'
+        assert self.conjugator.__repr__() == 'mlconjug.Conjugator(language=fr)'
 
     def test_conjugate(self):
         test_verb = self.conjugator.conjugate('aller')
-        assert isinstance(test_verb, PyVerbiste.Verb)
-        assert test_verb.verb_info == PyVerbiste.VerbInfo('aller', '', ':aller')
+        assert isinstance(test_verb, Verb)
+        assert test_verb.verb_info == VerbInfo('aller', '', ':aller')
         test_verb = self.conjugator.conjugate('cacater')
-        assert isinstance(test_verb, PyVerbiste.Verb)
+        assert isinstance(test_verb, Verb)
         with pytest.raises(ValueError) as excinfo:
             self.conjugator.conjugate('blablah')
         # assert 'The supplied word: blablah is not a valid verb in French.' in str(excinfo.value)
 
     def test_set_model(self):
-        self.conjugator.set_model(mlconjug.Model())
-        assert isinstance(self.conjugator.model, mlconjug.Model)
+        self.conjugator.set_model(Model())
+        assert isinstance(self.conjugator.model, Model)
 
 
 class TestDataSet:
-    data_set = mlconjug.DataSet(mlconjug.Verbiste())
+    data_set = DataSet(Verbiste())
     def test_repr(self):
-        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet(<bound method Verbiste.__repr__ of mlconjug.PyVerbiste.Verbiste(language=fr)>)'
+        assert self.data_set.__repr__() == 'mlconjug.DataSet(<bound method Verbiste.__repr__ of mlconjug.Verbiste(language=fr)>)'
 
     def test_construct_dict_conjug(self):
         self.data_set.construct_dict_conjug()
@@ -148,24 +153,24 @@ class TestDataSet:
 
 
 class TestModel:
-    vectorizer = mlconjug.EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
+    vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
     # Feature reduction
-    feature_reductor = mlconjug.SelectFromModel(
-        mlconjug.LinearSVC(penalty="l1", max_iter=3000, dual=False, verbose=2))
+    feature_reductor = SelectFromModel(
+        LinearSVC(penalty="l1", max_iter=3000, dual=False, verbose=2))
     # Prediction Classifier
-    classifier = mlconjug.SGDClassifier(loss="log", penalty='elasticnet', alpha=1e-5, random_state=42)
+    classifier = SGDClassifier(loss="log", penalty='elasticnet', alpha=1e-5, random_state=42)
     # Initialize Model
-    model = mlconjug.Model(vectorizer, feature_reductor, classifier)
-    dataset = mlconjug.DataSet(mlconjug.Verbiste())
+    model = Model(vectorizer, feature_reductor, classifier)
+    dataset = DataSet(Verbiste())
     dataset.construct_dict_conjug()
     dataset.split_data(proportion=0.9)
 
     def test_repr(self):
-        assert self.model.__repr__() == 'mlconjug.mlconjug.Model(classifier, feature_selector, vectorizer)'
+        assert self.model.__repr__() == 'mlconjug.Model(classifier, feature_selector, vectorizer)'
 
     def test_train(self):
         self.model.train(self.dataset.test_input, self.dataset.test_labels)
-        assert isinstance(self.model, mlconjug.Model)
+        assert isinstance(self.model, Model)
 
     def test_predict(self):
         result = self.model.predict(['aimer',])

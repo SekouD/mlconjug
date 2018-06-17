@@ -9,7 +9,8 @@ MLConjug Main module.
 
 """
 
-from .PyVerbiste import Verbiste, Verb, VerbFr, VerbEn, VerbEs, VerbIt, VerbPt, VerbRo, VerbInfo
+from .PyVerbiste import Verbiste, VerbInfo, Verb, VerbEn, VerbEs, VerbFr, VerbIt, \
+    VerbPt, VerbRo
 
 from sklearn.feature_selection import SelectFromModel
 from sklearn.feature_extraction.text import CountVectorizer
@@ -22,6 +23,8 @@ from collections import defaultdict
 import pickle
 
 import pkg_resources
+
+__all__ = ['Conjugator', 'EndingCountVectorizer', 'DataSet', 'Model', 'LinearSVC', 'SGDClassifier', 'SelectFromModel', 'Pipeline']
 
 RESOURCE_PACKAGE = __name__
 
