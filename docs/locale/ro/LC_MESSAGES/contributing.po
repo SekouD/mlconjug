@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:5
 msgid "Contributing"
-msgstr ""
+msgstr "Contribuind"
 
 #: ../../../CONTRIBUTING.rst:7
 msgid ""
@@ -29,27 +29,27 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:10
 msgid "You can contribute in many ways:"
-msgstr ""
+msgstr "Puteți contribui în multe feluri:"
 
 #: ../../../CONTRIBUTING.rst:13
 msgid "Types of Contributions"
-msgstr ""
+msgstr "Tipuri de contribuții"
 
 #: ../../../CONTRIBUTING.rst:16
 msgid "Report Bugs"
-msgstr ""
+msgstr "Raportează bug-uri"
 
 #: ../../../CONTRIBUTING.rst:18
 msgid "Report bugs at https://github.com/SekouD/mlconjug/issues."
-msgstr ""
+msgstr "Raportați bug-uri la adresa https://github.com/SekouD/mlconjug/issues."
 
 #: ../../../CONTRIBUTING.rst:20
 msgid "If you are reporting a bug, please include:"
-msgstr ""
+msgstr "Dacă raportați un bug, vă rugăm să includeți:"
 
 #: ../../../CONTRIBUTING.rst:22
 msgid "Your operating system name and version."
-msgstr ""
+msgstr "Numele și versiunea sistemului de operare."
 
 #: ../../../CONTRIBUTING.rst:23
 msgid ""
@@ -59,11 +59,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:24
 msgid "Detailed steps to reproduce the bug."
-msgstr ""
+msgstr "Pași detaliați pentru a reproduce bug-ul."
 
 #: ../../../CONTRIBUTING.rst:27
 msgid "Fix Bugs"
-msgstr ""
+msgstr "Remediați bug-uri"
 
 #: ../../../CONTRIBUTING.rst:29
 msgid ""
@@ -73,7 +73,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:33
 msgid "Implement Features"
-msgstr ""
+msgstr "Implementați caracteristicile"
 
 #: ../../../CONTRIBUTING.rst:35
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:39
 msgid "Write Documentation"
-msgstr ""
+msgstr "Scrie documentația"
 
 #: ../../../CONTRIBUTING.rst:41
 msgid ""
@@ -95,7 +95,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:46
 msgid "Submit Feedback"
-msgstr ""
+msgstr "Trimite parerea ta"
 
 #: ../../../CONTRIBUTING.rst:48
 msgid ""
@@ -105,15 +105,15 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:50
 msgid "If you are proposing a feature:"
-msgstr ""
+msgstr "Dacă propui o caracteristică:"
 
 #: ../../../CONTRIBUTING.rst:52
 msgid "Explain in detail how it would work."
-msgstr ""
+msgstr "Explicați în detaliu modul în care ar funcționa."
 
 #: ../../../CONTRIBUTING.rst:53
 msgid "Keep the scope as narrow as possible, to make it easier to implement."
-msgstr ""
+msgstr "Păstrați domeniul de aplicare cât mai restrâns posibil, pentru a facilita punerea în aplicare."
 
 #: ../../../CONTRIBUTING.rst:54
 msgid ""
@@ -123,7 +123,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:58
 msgid "Get Started!"
-msgstr ""
+msgstr "Incepe!"
 
 #: ../../../CONTRIBUTING.rst:60
 msgid ""
@@ -133,11 +133,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:62
 msgid "Fork the `mlconjug` repo on GitHub."
-msgstr ""
+msgstr "Închideți repo-ul "mlconjug" pe GitHub."
 
 #: ../../../CONTRIBUTING.rst:63
 msgid "Clone your fork locally::"
-msgstr ""
+msgstr "Clonați furculita la fața locului:"
 
 #: ../../../CONTRIBUTING.rst:67
 msgid ""
@@ -148,11 +148,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:73
 msgid "Create a branch for local development::"
-msgstr ""
+msgstr "Creați o sucursală pentru dezvoltarea locală ::"
 
 #: ../../../CONTRIBUTING.rst:77
 msgid "Now you can make your changes locally."
-msgstr ""
+msgstr "Acum vă puteți face schimbările la nivel local."
 
 #: ../../../CONTRIBUTING.rst:79
 msgid ""
@@ -162,27 +162,27 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:85
 msgid "To get flake8 and tox, just pip install them into your virtualenv."
-msgstr ""
+msgstr "Pentru a obține flake8 și tox, trebuie doar să le instalați în virtualenv."
 
 #: ../../../CONTRIBUTING.rst:87
 msgid "Commit your changes and push your branch to GitHub::"
-msgstr ""
+msgstr "Implică-ți schimbările și împinge-ți sucursala în GitHub ::"
 
 #: ../../../CONTRIBUTING.rst:93
 msgid "Submit a pull request through the GitHub website."
-msgstr ""
+msgstr "Trimiteți o cerere de tragere prin intermediul site-ului GitHub."
 
 #: ../../../CONTRIBUTING.rst:96
 msgid "Pull Request Guidelines"
-msgstr ""
+msgstr "Trageți ghidul de solicitare"
 
 #: ../../../CONTRIBUTING.rst:98
 msgid "Before you submit a pull request, check that it meets these guidelines:"
-msgstr ""
+msgstr "Înainte de a trimite o solicitare de tragere, verificați dacă respectă aceste reguli:"
 
 #: ../../../CONTRIBUTING.rst:100
 msgid "The pull request should include tests."
-msgstr ""
+msgstr "Cererea de tragere ar trebui să includă teste."
 
 #: ../../../CONTRIBUTING.rst:101
 msgid ""
@@ -200,9 +200,9 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:109
 msgid "Tips"
-msgstr ""
+msgstr "sfaturi"
 
 #: ../../../CONTRIBUTING.rst:111
 msgid "To run a subset of tests::"
-msgstr ""
+msgstr "Pentru a rula un subset de teste:"
 

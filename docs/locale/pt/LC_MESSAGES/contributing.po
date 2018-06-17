@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:5
 msgid "Contributing"
-msgstr ""
+msgstr "Contribuindo"
 
 #: ../../../CONTRIBUTING.rst:7
 msgid ""
@@ -29,27 +29,27 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:10
 msgid "You can contribute in many ways:"
-msgstr ""
+msgstr "Você pode contribuir de várias maneiras:"
 
 #: ../../../CONTRIBUTING.rst:13
 msgid "Types of Contributions"
-msgstr ""
+msgstr "Tipos de Contribuições"
 
 #: ../../../CONTRIBUTING.rst:16
 msgid "Report Bugs"
-msgstr ""
+msgstr "Reportar erros"
 
 #: ../../../CONTRIBUTING.rst:18
 msgid "Report bugs at https://github.com/SekouD/mlconjug/issues."
-msgstr ""
+msgstr "Relatar erros em https://github.com/SekouD/mlconjug/issues."
 
 #: ../../../CONTRIBUTING.rst:20
 msgid "If you are reporting a bug, please include:"
-msgstr ""
+msgstr "Se você está relatando um bug, por favor inclua:"
 
 #: ../../../CONTRIBUTING.rst:22
 msgid "Your operating system name and version."
-msgstr ""
+msgstr "O nome e a versão do seu sistema operacional."
 
 #: ../../../CONTRIBUTING.rst:23
 msgid ""
@@ -59,11 +59,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:24
 msgid "Detailed steps to reproduce the bug."
-msgstr ""
+msgstr "Etapas detalhadas para reproduzir o bug."
 
 #: ../../../CONTRIBUTING.rst:27
 msgid "Fix Bugs"
-msgstr ""
+msgstr "Corrigir erros"
 
 #: ../../../CONTRIBUTING.rst:29
 msgid ""
@@ -73,7 +73,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:33
 msgid "Implement Features"
-msgstr ""
+msgstr "Recursos do Implemento"
 
 #: ../../../CONTRIBUTING.rst:35
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:39
 msgid "Write Documentation"
-msgstr ""
+msgstr "Escrever documentação"
 
 #: ../../../CONTRIBUTING.rst:41
 msgid ""
@@ -95,7 +95,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:46
 msgid "Submit Feedback"
-msgstr ""
+msgstr "Enviar feedback"
 
 #: ../../../CONTRIBUTING.rst:48
 msgid ""
@@ -105,15 +105,15 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:50
 msgid "If you are proposing a feature:"
-msgstr ""
+msgstr "Se você está propondo um recurso:"
 
 #: ../../../CONTRIBUTING.rst:52
 msgid "Explain in detail how it would work."
-msgstr ""
+msgstr "Explique em detalhes como isso funcionaria."
 
 #: ../../../CONTRIBUTING.rst:53
 msgid "Keep the scope as narrow as possible, to make it easier to implement."
-msgstr ""
+msgstr "Mantenha o escopo o mais estreito possível, para facilitar a implementação."
 
 #: ../../../CONTRIBUTING.rst:54
 msgid ""
@@ -123,7 +123,7 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:58
 msgid "Get Started!"
-msgstr ""
+msgstr "Iniciar!"
 
 #: ../../../CONTRIBUTING.rst:60
 msgid ""
@@ -133,11 +133,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:62
 msgid "Fork the `mlconjug` repo on GitHub."
-msgstr ""
+msgstr "Bifurque o repositório `mlconjug` no GitHub."
 
 #: ../../../CONTRIBUTING.rst:63
 msgid "Clone your fork locally::"
-msgstr ""
+msgstr "Clone seu garfo localmente ::"
 
 #: ../../../CONTRIBUTING.rst:67
 msgid ""
@@ -148,11 +148,11 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:73
 msgid "Create a branch for local development::"
-msgstr ""
+msgstr "Crie um ramo para desenvolvimento local ::"
 
 #: ../../../CONTRIBUTING.rst:77
 msgid "Now you can make your changes locally."
-msgstr ""
+msgstr "Agora você pode fazer suas alterações localmente."
 
 #: ../../../CONTRIBUTING.rst:79
 msgid ""
@@ -162,27 +162,27 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:85
 msgid "To get flake8 and tox, just pip install them into your virtualenv."
-msgstr ""
+msgstr "Para obter flake8 e tox, basta pip instalá-los em seu virtualenv."
 
 #: ../../../CONTRIBUTING.rst:87
 msgid "Commit your changes and push your branch to GitHub::"
-msgstr ""
+msgstr "Confirme suas alterações e envie sua ramificação para o GitHub ::"
 
 #: ../../../CONTRIBUTING.rst:93
 msgid "Submit a pull request through the GitHub website."
-msgstr ""
+msgstr "Envie uma solicitação pull através do site do GitHub."
 
 #: ../../../CONTRIBUTING.rst:96
 msgid "Pull Request Guidelines"
-msgstr ""
+msgstr "Diretrizes de solicitação pull"
 
 #: ../../../CONTRIBUTING.rst:98
 msgid "Before you submit a pull request, check that it meets these guidelines:"
-msgstr ""
+msgstr "Antes de enviar uma solicitação de recebimento, verifique se ela atende a estas diretrizes:"
 
 #: ../../../CONTRIBUTING.rst:100
 msgid "The pull request should include tests."
-msgstr ""
+msgstr "A solicitação pull deve incluir testes."
 
 #: ../../../CONTRIBUTING.rst:101
 msgid ""
@@ -200,9 +200,9 @@ msgstr ""
 
 #: ../../../CONTRIBUTING.rst:109
 msgid "Tips"
-msgstr ""
+msgstr "Dicas"
 
 #: ../../../CONTRIBUTING.rst:111
 msgid "To run a subset of tests::"
-msgstr ""
+msgstr "Para executar um subconjunto de testes ::"
 

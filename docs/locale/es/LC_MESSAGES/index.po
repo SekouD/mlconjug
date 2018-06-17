@@ -19,15 +19,15 @@ msgstr ""
 
 #: ../../index.rst:2
 msgid "Welcome to MLConjug's documentation!"
-msgstr ""
+msgstr "Bienvenido a la documentación de MLConjug!"
 
 #: ../../index.rst:4
 msgid "Contents:"
-msgstr ""
+msgstr "Contenido:"
 
 #: ../../index.rst:18
 msgid "Indices and tables"
-msgstr ""
+msgstr "Índices y tablas"
 
 #: ../../index.rst:20
 msgid ":ref:`genindex`"

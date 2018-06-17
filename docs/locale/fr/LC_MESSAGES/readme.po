@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../../README.rst:3
 msgid "MLConjug"
-msgstr ""
+msgstr "MLConjug"
 
 #: ../../../README.rst:32
 msgid ""
@@ -41,23 +41,23 @@ msgstr ""
 
 #: ../../../README.rst:35
 msgid "The supplied pre-trained models are composed of:"
-msgstr ""
+msgstr "Les modèles pré-formés fournis sont composés de:"
 
 #: ../../../README.rst:37
 msgid "a binary feature extractor,"
-msgstr ""
+msgstr "un extracteur de caractéristiques binaires,"
 
 #: ../../../README.rst:38
 msgid "a feature selector using Linear Support Vector Classification,"
-msgstr ""
+msgstr "un sélecteur de fonctions utilisant la classification linéaire vectorisée de support,"
 
 #: ../../../README.rst:39
 msgid "a classifier using Stochastic Gradient Descent."
-msgstr ""
+msgstr "un classificateur utilisant la descente de gradient stochastique."
 
 #: ../../../README.rst:41
 msgid "MLConjug uses scikit-learn to implement the Machine Learning algorithms."
-msgstr ""
+msgstr "MLConjug utilise scikit-learn pour implémenter les algorithmes Machine Learning."
 
 #: ../../../README.rst:42
 msgid ""
@@ -73,47 +73,47 @@ msgstr ""
 
 #: ../../../README.rst:47
 msgid "Free software: MIT license"
-msgstr ""
+msgstr "Logiciel gratuit: licence MIT"
 
 #: ../../../README.rst:48
 msgid "Documentation: https://mlconjug.readthedocs.io."
-msgstr ""
+msgstr "Documentation: https://mlconjug.readthedocs.io."
 
 #: ../../../README.rst:51
 msgid "Supported Languages"
-msgstr ""
+msgstr "Langues supportées"
 
 #: ../../../README.rst:53
 msgid "French"
-msgstr ""
+msgstr "français"
 
 #: ../../../README.rst:54
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: ../../../README.rst:55
 msgid "Spanish"
-msgstr ""
+msgstr "Espanol"
 
 #: ../../../README.rst:56
 msgid "Italian"
-msgstr ""
+msgstr "italien"
 
 #: ../../../README.rst:57
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugais"
 
 #: ../../../README.rst:58
 msgid "Romanian"
-msgstr ""
+msgstr "roumain"
 
 #: ../../../README.rst:62
 msgid "Features"
-msgstr ""
+msgstr "Caractéristiques"
 
 #: ../../../README.rst:64
 msgid "Easy to use API."
-msgstr ""
+msgstr "API facile à utiliser."
 
 #: ../../../README.rst:65
 msgid ""
@@ -123,21 +123,21 @@ msgstr ""
 
 #: ../../../README.rst:66
 msgid "Easily train new models or add new languages."
-msgstr ""
+msgstr "Facilement former de nouveaux modèles ou ajouter de nouvelles langues."
 
 #: ../../../README.rst:67
 msgid "Easily integrate MLConjug in your own projects."
-msgstr ""
+msgstr "Intégrez facilement MLConjug dans vos propres projets."
 
 #: ../../../README.rst:68
 msgid "Can be used as a command line tool."
-msgstr ""
+msgstr "Peut être utilisé comme un outil de ligne de commande."
 
 #: ../../../README.rst:71
 msgid "Credits"
-msgstr ""
+msgstr "Crédits"
 
 #: ../../../README.rst:73
 msgid "This package was created with the help of Verbiste_ and scikit-learn_."
-msgstr ""
+msgstr "Ce paquet a été créé avec l'aide de Verbiste_ et de scikit-learn_."
 

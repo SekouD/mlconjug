@@ -36,8 +36,8 @@ msgstr ""
 
 #: ../../usage.rst:28
 msgid "To use MLConjug in a project and train a new model::"
-msgstr ""
+msgstr "Per utilizzare MLConjug in un progetto e formare un nuovo modello ::"
 
 #: ../../usage.rst:73
 msgid "To use MLConjug from the command line::"
-msgstr ""
+msgstr "Per utilizzare MLConjug dalla riga di comando ::"

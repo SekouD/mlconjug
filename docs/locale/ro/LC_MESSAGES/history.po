@@ -19,15 +19,15 @@ msgstr ""
 
 #: ../../../HISTORY.rst:3
 msgid "History"
-msgstr ""
+msgstr "Istorie"
 
 #: ../../../HISTORY.rst:7
 msgid "2.1.5 (2018-06-15)"
-msgstr ""
+msgstr "2.1.5 (2018-06-15)"
 
 #: ../../../HISTORY.rst:9
 msgid "Added localization."
-msgstr ""
+msgstr "Adăugată localizare."
 
 #: ../../../HISTORY.rst:10
 msgid ""
@@ -37,47 +37,47 @@ msgstr ""
 
 #: ../../../HISTORY.rst:14
 msgid "2.1.2 (2018-06-15)"
-msgstr ""
+msgstr "2.1.2 (2018-06-15)"
 
 #: ../../../HISTORY.rst:16
 msgid "Added invalid verb detection."
-msgstr ""
+msgstr "Adăugată detecție verbală nevalidă."
 
 #: ../../../HISTORY.rst:20
 msgid "2.1.0 (2018-06-15)"
-msgstr ""
+msgstr "2.1.0 (2018-06-15)"
 
 #: ../../../HISTORY.rst:22
 msgid "Updated all language models for compatibility with scikit-learn 0.19.1."
-msgstr ""
+msgstr "Actualizate toate modelele de limbă pentru compatibilitatea cu scikit-learn 0.19.1."
 
 #: ../../../HISTORY.rst:26
 msgid "2.0.0 (2018-06-14)"
-msgstr ""
+msgstr "2.0.0 (2018-06-14)"
 
 #: ../../../HISTORY.rst:28
 msgid "Includes English conjugation model."
-msgstr ""
+msgstr "Include modelul de conjugare în limba engleză."
 
 #: ../../../HISTORY.rst:29
 msgid "Includes Spanish conjugation model."
-msgstr ""
+msgstr "Include modelul de conjugare spaniol."
 
 #: ../../../HISTORY.rst:30
 msgid "Includes Italian conjugation model."
-msgstr ""
+msgstr "Include modelul de conjugare italian."
 
 #: ../../../HISTORY.rst:31
 msgid "Includes Portuguese conjugation model."
-msgstr ""
+msgstr "Include modelul de conjugare portugheză."
 
 #: ../../../HISTORY.rst:32
 msgid "Includes Romanian conjugation model."
-msgstr ""
+msgstr "Include modelul de conjugare din România."
 
 #: ../../../HISTORY.rst:36
 msgid "1.2.0 (2018-06-12)"
-msgstr ""
+msgstr "1.2.0 (2018-06-12)"
 
 #: ../../../HISTORY.rst:38 ../../../HISTORY.rst:46
 msgid ""
@@ -87,21 +87,21 @@ msgstr ""
 
 #: ../../../HISTORY.rst:39 ../../../HISTORY.rst:47
 msgid "Includes improved french conjugation model."
-msgstr ""
+msgstr "Include un model îmbunătățit de conjugare franceză."
 
 #: ../../../HISTORY.rst:40
 msgid "Added support for multiple languages."
-msgstr ""
+msgstr "Suport adăugat pentru mai multe limbi."
 
 #: ../../../HISTORY.rst:44
 msgid "1.1.0 (2018-06-11)"
-msgstr ""
+msgstr "1.1.0 (2018-06-11)"
 
 #: ../../../HISTORY.rst:51
 msgid "1.0.0 (2018-06-10)"
-msgstr ""
+msgstr "1.0.0 (2018-06-10)"
 
 #: ../../../HISTORY.rst:53
 msgid "First release on PyPI."
-msgstr ""
+msgstr "Prima lansare pe PyPI."
 

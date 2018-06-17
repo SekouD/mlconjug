@@ -19,15 +19,15 @@ msgstr ""
 
 #: ../../installation.rst:5
 msgid "Installation"
-msgstr ""
+msgstr "Instalación"
 
 #: ../../installation.rst:9
 msgid "Stable release"
-msgstr ""
+msgstr "Lanzamiento estable"
 
 #: ../../installation.rst:11
 msgid "To install MLConjug, run this command in your terminal:"
-msgstr ""
+msgstr "Para instalar MLConjug, ejecute este comando en su terminal:"
 
 #: ../../installation.rst:17
 msgid ""
@@ -43,21 +43,21 @@ msgstr ""
 
 #: ../../installation.rst:27
 msgid "From sources"
-msgstr ""
+msgstr "De fuentes"
 
 #: ../../installation.rst:29
 msgid "The sources for MLConjug can be downloaded from the `Github repo`_."
-msgstr ""
+msgstr "Las fuentes de MLConjug se pueden descargar del `Github repo`_."
 
 #: ../../installation.rst:31
 msgid "You can either clone the public repository:"
-msgstr ""
+msgstr "Puedes clonar el repositorio público:"
 
 #: ../../installation.rst:37
 msgid "Or download the `tarball`_:"
-msgstr ""
+msgstr "O descargue el `tarball`_:"
 
 #: ../../installation.rst:43
 msgid "Once you have a copy of the source, you can install it with:"
-msgstr ""
+msgstr "Una vez que tenga una copia de la fuente, puede instalarla con:"
 
