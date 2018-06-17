@@ -47,7 +47,7 @@ if 'Windows' in platform.system():
     user_locale = locale.windows_locale[ windll.GetUserDefaultUILanguage() ][:2]
     pass
 else:
-    user_locale = locale.getdefaultlocale()[:2]
+    user_locale = locale.getdefaultlocale()[0][:2]
     pass
 
 if user_locale in SUPPORETD_LANGUAGES:
