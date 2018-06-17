@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-16 21:18+0200\n"
-"PO-Revision-Date: 2018-06-17 15:29+0200\n"
+"PO-Revision-Date: 2018-06-17 17:21+0200\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr "MLConjug"
 
 #: ../../../README.rst:32
 msgid "A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon) using Machine Learning techniques."
-msgstr "Une librairie Python pour conjuguer les verbes en français, anglais, espagnol, italien, portugais et roumain (plus rapidement) en utilisant des techniques d'apprentissage automatique autrement appelées Machine Learning."
+msgstr "Une librairie Python pour conjuguer les verbes en français, anglais, espagnol, italien, portugais et roumain (plus bientôt) en utilisant des techniques d'apprentissage automatique autrement appelées Machine Learning."
 
 #: ../../../README.rst:33
 msgid "Any verb in one of the supported language can be conjugated, as the module contains a Machine Learning model of how the verbs behave."
@@ -35,11 +35,11 @@ msgstr "Même des verbes complètement nouveaux ou inventés peuvent être conju
 
 #: ../../../README.rst:35
 msgid "The supplied pre-trained models are composed of:"
-msgstr "Les modèles pré-entraîné fournis sont composés de:"
+msgstr "Les modèles pré-entraînés fournis sont composés de:"
 
 #: ../../../README.rst:37
 msgid "a binary feature extractor,"
-msgstr "un extracteur de traits (caractéristiques saillantes des verbes) binaire,"
+msgstr "un extracteur de traits binaire (caractéristiques saillantes des verbes),"
 
 #: ../../../README.rst:38
 msgid "a feature selector using Linear Support Vector Classification,"
@@ -55,11 +55,13 @@ msgstr "MLConjug utilise scikit-learn pour implémenter les algorithmes de Machi
 
 #: ../../../README.rst:42
 msgid "Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model."
-msgstr "Les utilisateurs de la librairie peuvent utiliser n'importe quel classificateur compatible avec scikit-learn pour modifier et entraîner le modèle."
+msgstr "Les utilisateurs de la librairie peuvent utiliser n'importe quel classificateur compatible avec l'API scikit-learn pour modifier et entraîner le modèle."
 
 #: ../../../README.rst:44
 msgid "The training data is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html ."
-msgstr "Les données d'entraînement pour le français sont basées sur Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html."
+msgstr ""
+"Les données d'entraînement pour le français sont basées sur Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html.\n"
+"Les données d'entraînement pour les autres langues ont été générées en utilisant l'apprentissage non supervisé une fois le modèle français a été optimisé."
 
 #: ../../../README.rst:47
 msgid "Free software: MIT license"

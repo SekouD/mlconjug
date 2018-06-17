@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-16 21:18+0200\n"
-"PO-Revision-Date: 2018-06-17 15:36+0200\n"
+"PO-Revision-Date: 2018-06-17 17:21+0200\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "C'est la méthode préférée pour installer MLConjug, car cette méthod
 
 #: ../../installation.rst:19
 msgid "If you don't have `pip`_ installed, this `Python installation guide`_ can guide you through the process."
-msgstr "Si ` pip`_ n'est pas installé , ce guide d'installation Python `Python installation guide`_ peut vous guider tout au long du processus."
+msgstr "Si `pip`_ n'est pas installé , ce `guide d'installation Python`_ peut vous guider tout au long du processus."
 
 #: ../../installation.rst:27
 msgid "From sources"
@@ -43,7 +43,7 @@ msgstr "Depuis le code source"
 
 #: ../../installation.rst:29
 msgid "The sources for MLConjug can be downloaded from the `Github repo`_."
-msgstr "Le code source de MLConjug peut être téléchargé à partir du projet GitHub `Github repo`_."
+msgstr "Le code source de MLConjug peut être téléchargé à partir du `projet GitHub`_."
 
 #: ../../installation.rst:31
 msgid "You can either clone the public repository:"
@@ -51,7 +51,7 @@ msgstr "Vous pouvez soit cloner le dépôt public:"
 
 #: ../../installation.rst:37
 msgid "Or download the `tarball`_:"
-msgstr "Ou téléchargez l'archive ` tarball`_:"
+msgstr "Ou téléchargez une `archive`_:"
 
 #: ../../installation.rst:43
 msgid "Once you have a copy of the source, you can install it with:"
