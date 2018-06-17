@@ -9,6 +9,7 @@ MLConjug Main module.
 
 """
 
+# from mlconjug import _RESOURCE_PACKAGE, _LANGUAGE_FULL
 from .PyVerbiste import Verbiste, VerbInfo, Verb, VerbEn, VerbEs, VerbFr, VerbIt, \
     VerbPt, VerbRo
 
@@ -21,28 +22,27 @@ from sklearn.pipeline import Pipeline
 import random
 from collections import defaultdict
 import pickle
-
 import pkg_resources
 
 # __all__ = ['Conjugator', 'EndingCountVectorizer', 'DataSet', 'Model', 'LinearSVC', 'SGDClassifier', 'SelectFromModel', 'Pipeline']
 
-RESOURCE_PACKAGE = __name__
+_RESOURCE_PACKAGE = __name__
 
-LANGUAGE_FULL = {'fr': 'Français',
+_LANGUAGE_FULL = {'fr': 'Français',
                  'en': 'English',
                  'es': 'Español',
                  'it': 'Italiano',
                  'pt': 'Português',
                  'ro': 'Română'}
 
-VERBS = {'fr': VerbFr,
+_VERBS = {'fr': VerbFr,
          'en': VerbEn,
          'es': VerbEs,
          'it': VerbIt,
          'pt': VerbPt,
          'ro': VerbRo}
 
-PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
+_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
                           'it': '/'.join(('data', 'models', 'trained_model-it.pickle')),
                           'es': '/'.join(('data', 'models', 'trained_model-es.pickle')),
                           'en': '/'.join(('data', 'models', 'trained_model-en.pickle')),
@@ -70,7 +70,7 @@ class Conjugator:
         self.data_set.split_data(proportion=0.9)
         if not model:
             model = pickle.loads(pkg_resources.resource_stream(
-                RESOURCE_PACKAGE, PRE_TRAINED_MODEL_PATH[language]).read())
+                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language]).read())
         self.model = model
 
     def __repr__(self):
@@ -95,7 +95,7 @@ class Conjugator:
 
         """
         if not self.verbiste.is_valid_verb(verb):
-            raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, LANGUAGE_FULL[self.language]))
+            raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
         if verb not in self.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -113,7 +113,7 @@ class Conjugator:
             conjug_info = self.verbiste.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
-        verb_object = VERBS[self.language](verb_info, conjug_info, subject)
+        verb_object = _VERBS[self.language](verb_info, conjug_info, subject)
         return verb_object
 
     def set_model(self, model):
