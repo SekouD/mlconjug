@@ -45,10 +45,8 @@ if 'Windows' in platform.system():
     import ctypes
     windll = ctypes.windll.kernel32
     user_locale = locale.windows_locale[ windll.GetUserDefaultUILanguage() ][:2]
-    pass
 else:
     user_locale = locale.getdefaultlocale()[0][:2]
-    pass
 
 if user_locale in SUPPORETD_LANGUAGES:
     MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',
