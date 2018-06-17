@@ -3,21 +3,23 @@
 # This file is distributed under the same license as the MLConjug package.
 # SekouD <sekoud.python@gmail.com>, 2018.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-16 21:18+0200\n"
-"PO-Revision-Date: 2018-06-16 18:14\n"
-"Last-Translator: SekouD <sekoud.python@gmail.com>.\n"
+"PO-Revision-Date: 2018-06-17 15:38+0200\n"
+"Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language-Team: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.0.8\n"
 
 #: ../../../HISTORY.rst:3
 msgid "History"
-msgstr "Histoire"
+msgstr "Historique"
 
 #: ../../../HISTORY.rst:7
 msgid "2.1.5 (2018-06-15)"
@@ -37,7 +39,7 @@ msgstr "2.1.2 (2018-06-15)"
 
 #: ../../../HISTORY.rst:16
 msgid "Added invalid verb detection."
-msgstr "Ajout de la détection de verbe invalide."
+msgstr "Ajout de la détection des verbes invalides."
 
 #: ../../../HISTORY.rst:20
 msgid "2.1.0 (2018-06-15)"
@@ -45,7 +47,7 @@ msgstr "2.1.0 (2018-06-15)"
 
 #: ../../../HISTORY.rst:22
 msgid "Updated all language models for compatibility with scikit-learn 0.19.1."
-msgstr "Mise à jour de tous les modèles de langue pour la compatibilité avec scikit-learn 0.19.1."
+msgstr "Mise à jour de tous les modèles d'apprentissage de langue pour compatibilité avec scikit-learn 0.19.1."
 
 #: ../../../HISTORY.rst:26
 msgid "2.0.0 (2018-06-14)"
@@ -75,21 +77,13 @@ msgstr "Inclut le modèle de conjugaison roumain."
 msgid "1.2.0 (2018-06-12)"
 msgstr "1.2.0 (2018-06-12)"
 
-#: ../../../HISTORY.rst:38
-msgid ../../../HISTORY.rst:46
-msgstr ../../../HISTORY.rst:46
-
-#: ../../../HISTORY.rst:46
+#: ../../../HISTORY.rst:38 ../../../HISTORY.rst:46
 msgid "Refactored the API. Now a Single class Conjugator is needed to interface with the module."
-msgstr "Refactorisé l'API, un Conjugateur de classe unique est maintenant nécessaire pour l'interface avec le module."
+msgstr "Refactorisé l'API, une classe unique Conjugateur est maintenant suffisante pour l'interface avec le module."
 
-#: ../../../HISTORY.rst:39
-msgid ../../../HISTORY.rst:47
-msgstr ../../../HISTORY.rst:47
-
-#: ../../../HISTORY.rst:47
+#: ../../../HISTORY.rst:39 ../../../HISTORY.rst:47
 msgid "Includes improved french conjugation model."
-msgstr "Inclut un modèle de conjugaison français amélioré."
+msgstr "Inclut un modèle de conjugaison du français amélioré."
 
 #: ../../../HISTORY.rst:40
 msgid "Added support for multiple languages."
@@ -106,4 +100,3 @@ msgstr "1.0.0 (2018-06-10)"
 #: ../../../HISTORY.rst:53
 msgid "First release on PyPI."
 msgstr "Première version sur PyPI."
-
