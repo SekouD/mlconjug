@@ -29,13 +29,13 @@ msgstr "Índices y tablas"
 
 #: ../../index.rst:20
 msgid ":ref:`genindex`"
-msgstr ": ref:` genindex` "
+msgstr ":ref:`genindex`"
 
 #: ../../index.rst:21
 msgid ":ref:`modindex`"
-msgstr ": ref:` modindex` "
+msgstr ":ref:`modindex`"
 
 #: ../../index.rst:22
 msgid ":ref:`search`"
-msgstr ": ref:` búsqueda` "
+msgstr ":ref:`search`"
 
