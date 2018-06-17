@@ -9,135 +9,121 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-16 21:18+0200\n"
-"PO-Revision-Date: 2018-06-16 18:14+0000\n"
+"PO-Revision-Date: 2018-06-16 18:14\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>.\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.6.0\n"
 
 #: ../../../README.rst:3
 msgid "MLConjug"
 msgstr "MLConjug"
 
 #: ../../../README.rst:32
-msgid ""
-"A Python library to conjugate verbs in French, English, Spanish, Italian,"
-" Portuguese and Romanian (more soon) using Machine Learning techniques."
-msgstr ""
+msgid "A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon) using Machine Learning techniques."
+msgstr "Una biblioteca de Python para conjugar verbos en francés, inglés, español, italiano, portugués y rumano (más pronto) usando técnicas de Machine Learning".
 
 #: ../../../README.rst:33
-msgid ""
-"Any verb in one of the supported language can be conjugated, as the "
-"module contains a Machine Learning model of how the verbs behave."
-msgstr ""
+msgid "Any verb in one of the supported language can be conjugated, as the module contains a Machine Learning model of how the verbs behave."
+msgstr "Cualquier verbo en uno de los idiomas soportados puede ser conjugado, ya que el módulo contiene un modelo de Aprendizaje automático sobre cómo se comportan los verbos".
 
 #: ../../../README.rst:34
-msgid ""
-"Even completely new or made-up verbs can be successfully conjugated in "
-"this manner."
-msgstr ""
+msgid "Even completely new or made-up verbs can be successfully conjugated in this manner."
+msgstr "Incluso los verbos completamente nuevos o inventados pueden conjugarse exitosamente de esta manera".
 
 #: ../../../README.rst:35
 msgid "The supplied pre-trained models are composed of:"
-msgstr "Modelele pre-instruite furnizate sunt compuse din:"
+msgstr "Los modelos preentrenados suministrados se componen de:"
 
 #: ../../../README.rst:37
 msgid "a binary feature extractor,"
-msgstr "un extractor de caracteristici binare,"
+msgstr "un extractor de funciones binarias"
 
 #: ../../../README.rst:38
 msgid "a feature selector using Linear Support Vector Classification,"
-msgstr "un selector de caracteristici care utilizează clasificarea vectorială de sprijin liniar,"
+msgstr "un selector de funciones usando Linear Support Vector Classification,"
 
 #: ../../../README.rst:39
 msgid "a classifier using Stochastic Gradient Descent."
-msgstr "un clasificator care utilizează coborârea gradientului stochastic."
+msgstr "un clasificador que usa el Gradiente de Gradiente Estocástico".
 
 #: ../../../README.rst:41
 msgid "MLConjug uses scikit-learn to implement the Machine Learning algorithms."
-msgstr "MLConjug utilizează scikit-learn pentru a implementa algoritmii Machine Learning."
+msgstr "MLConjug usa scikit-learn para implementar los algoritmos de Machine Learning".
 
 #: ../../../README.rst:42
-msgid ""
-"Users of the library can use any compatible classifiers from scikit-learn"
-" to modify and retrain the model."
-msgstr ""
+msgid "Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model."
+msgstr "Los usuarios de la biblioteca pueden usar cualquier clasificador compatible de scikit-learn para modificar y volver a entrenar el modelo".
 
 #: ../../../README.rst:44
-msgid ""
-"The training data is based on Verbiste "
-"https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html ."
-msgstr ""
+msgid "The training data is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html ."
+msgstr "Los datos de capacitación se basan en Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html".
 
 #: ../../../README.rst:47
 msgid "Free software: MIT license"
-msgstr "Software gratuit: licență MIT"
+msgstr "Software libre: licencia MIT"
 
 #: ../../../README.rst:48
 msgid "Documentation: https://mlconjug.readthedocs.io."
-msgstr "Documentație: https://mlconjug.readthedocs.io."
+msgstr "Documentación: https://mlconjug.readthedocs.io".
 
 #: ../../../README.rst:51
 msgid "Supported Languages"
-msgstr "Limbile acceptate"
+msgstr "Idiomas admitidos"
 
 #: ../../../README.rst:53
 msgid "French"
-msgstr "limba franceza"
+msgstr "Francés"
 
 #: ../../../README.rst:54
 msgid "English"
-msgstr "Engleză"
+msgstr "Inglés"
 
 #: ../../../README.rst:55
 msgid "Spanish"
-msgstr "Spaniolă"
+msgstr "Español"
 
 #: ../../../README.rst:56
 msgid "Italian"
-msgstr "Italiană"
+msgstr "Italiano"
 
 #: ../../../README.rst:57
 msgid "Portuguese"
-msgstr "portugheză"
+msgstr "Portugués"
 
 #: ../../../README.rst:58
 msgid "Romanian"
-msgstr "Română"
+msgstr "Rumano"
 
 #: ../../../README.rst:62
 msgid "Features"
-msgstr "Caracteristici"
+msgstr "Caracteristicas"
 
 #: ../../../README.rst:64
 msgid "Easy to use API."
-msgstr "API ușor de utilizat."
+msgstr "API fácil de usar".
 
 #: ../../../README.rst:65
-msgid ""
-"Includes pre-trained models with 99% + accuracy in predicting conjugation"
-" class of unknown verbs."
-msgstr ""
+msgid "Includes pre-trained models with 99% + accuracy in predicting conjugation class of unknown verbs."
+msgstr "Incluye modelos pre-entrenados con un 99% de precisión en la predicción de la conjugación de verbos desconocidos".
 
 #: ../../../README.rst:66
 msgid "Easily train new models or add new languages."
-msgstr "Formați cu ușurință modele noi sau adăugați limbi noi."
+msgstr "Entrene fácilmente nuevos modelos o agregue nuevos idiomas".
 
 #: ../../../README.rst:67
 msgid "Easily integrate MLConjug in your own projects."
-msgstr "Integrați cu ușurință programul MLConjug în proiectele proprii."
+msgstr "Integre fácilmente MLConjug en sus propios proyectos".
 
 #: ../../../README.rst:68
 msgid "Can be used as a command line tool."
-msgstr "Poate fi folosit ca un instrument de linie de comandă."
+msgstr "Se puede usar como una herramienta de línea de comandos".
 
 #: ../../../README.rst:71
 msgid "Credits"
-msgstr "credite"
+msgstr "Créditos"
 
 #: ../../../README.rst:73
 msgid "This package was created with the help of Verbiste_ and scikit-learn_."
-msgstr "Acest pachet a fost creat cu ajutorul Verbiste_ și scikit-learn_."
+msgstr "Este paquete fue creado con la ayuda de Verbiste_ y scikit-learn_".
 
