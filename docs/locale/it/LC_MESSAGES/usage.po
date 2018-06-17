@@ -17,21 +17,21 @@ msgstr ""
 
 #: ../../usage.rst:3
 msgid "Usage"
-msgstr "Uso"
+msgstr "Utilizzo"
 
 #: ../../usage.rst:5
 msgid "The default language is French. When called without specifying a language, the library will try to conjugate the verb in French."
-msgstr "El idioma predeterminado es el francés. Cuando se invoca sin especificar un idioma, la biblioteca intentará conjugar el verbo en francés".
+msgstr "La lingua predefinita è il francese: quando viene chiamato senza specificare una lingua, la libreria proverà a coniugare il verbo in francese".
 
 #: ../../usage.rst:8
 msgid "To use MLConjug in a project with the provided pre-trained conjugation models::"
-msgstr "Utilizar MLConjug en un proyecto con los modelos de conjugación pre-entrenados proporcionados ::"
+msgstr "Utilizzare MLConjug in un progetto con i modelli di coniugazione pre-addestrati forniti:"
 
 #: ../../usage.rst:28
 msgid "To use MLConjug in a project and train a new model::"
-msgstr "Usar MLConjug en un proyecto y entrenar un nuevo modelo ::"
+msgstr "Utilizzare MLConjug in un progetto e formare un nuovo modello ::"
 
 #: ../../usage.rst:73
 msgid "To use MLConjug from the command line::"
-msgstr "Para usar MLConjug desde la línea de comando ::"
+msgstr "Per utilizzare MLConjug dalla riga di comando ::"
 

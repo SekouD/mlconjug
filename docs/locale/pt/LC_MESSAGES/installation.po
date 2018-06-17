@@ -17,41 +17,41 @@ msgstr ""
 
 #: ../../installation.rst:5
 msgid "Installation"
-msgstr "Instalación"
+msgstr "Instalação"
 
 #: ../../installation.rst:9
 msgid "Stable release"
-msgstr "Lanzamiento estable"
+msgstr "Versão estável"
 
 #: ../../installation.rst:11
 msgid "To install MLConjug, run this command in your terminal:"
-msgstr "Para instalar MLConjug, ejecute este comando en su terminal:"
+msgstr "Para instalar o MLConjug, execute este comando no seu terminal:"
 
 #: ../../installation.rst:17
 msgid "This is the preferred method to install MLConjug, as it will always install the most recent stable release."
-msgstr "Este es el método preferido para instalar MLConjug, ya que siempre instalará la versión estable más reciente".
+msgstr "Este é o método preferido para instalar o MLConjug, já que ele sempre instalará a versão estável mais recente."
 
 #: ../../installation.rst:19
 msgid "If you don't have `pip`_ installed, this `Python installation guide`_ can guide you through the process."
-msgstr "Si no tiene` pip`_ instalado, esta `guía de instalación de Python`_ puede guiarlo a través del proceso."
+msgstr "Se você não tem o` pip`_ instalado, este `guia de instalação do Python`_ pode guiá-lo através do processo."
 
 #: ../../installation.rst:27
 msgid "From sources"
-msgstr "De fuentes"
+msgstr "De fontes"
 
 #: ../../installation.rst:29
 msgid "The sources for MLConjug can be downloaded from the `Github repo`_."
-msgstr "Las fuentes para MLConjug se pueden descargar del` Github repo`_ ".
+msgstr "As fontes do MLConjug podem ser baixadas do repositório do Github."
 
 #: ../../installation.rst:31
 msgid "You can either clone the public repository:"
-msgstr "Puedes clonar el repositorio público:"
+msgstr "Você pode clonar o repositório público:"
 
 #: ../../installation.rst:37
 msgid "Or download the `tarball`_:"
-msgstr "O descargue el` tarball`_: "
+msgstr "Ou baixe o` tarball`_: "
 
 #: ../../installation.rst:43
 msgid "Once you have a copy of the source, you can install it with:"
-msgstr "Una vez que tenga una copia de la fuente, puede instalarla con:"
+msgstr "Depois de ter uma cópia da fonte, você pode instalá-lo com:"
 

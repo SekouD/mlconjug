@@ -76,11 +76,17 @@ msgid "1.2.0 (2018-06-12)"
 msgstr "1.2.0 (2018-06-12)"
 
 #: ../../../HISTORY.rst:38
+msgid ../../../HISTORY.rst:46
+msgstr ../../../HISTORY.rst:46
+
 #: ../../../HISTORY.rst:46
 msgid "Refactored the API. Now a Single class Conjugator is needed to interface with the module."
 msgstr "Refactorizó la API. Ahora se necesita un Conjugador de una sola clase para interactuar con el módulo".
 
 #: ../../../HISTORY.rst:39
+msgid ../../../HISTORY.rst:47
+msgstr ../../../HISTORY.rst:47
+
 #: ../../../HISTORY.rst:47
 msgid "Includes improved french conjugation model."
 msgstr "Incluye un modelo mejorado de conjugación en francés".

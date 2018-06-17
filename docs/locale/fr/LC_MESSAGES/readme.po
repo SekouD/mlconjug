@@ -21,109 +21,109 @@ msgstr "MLConjug"
 
 #: ../../../README.rst:32
 msgid "A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon) using Machine Learning techniques."
-msgstr "Una biblioteca de Python para conjugar verbos en francés, inglés, español, italiano, portugués y rumano (más pronto) usando técnicas de Machine Learning".
+msgstr "Une bibliothèque Python pour conjuguer les verbes en français, anglais, espagnol, italien, portugais et roumain (plus rapidement) en utilisant des techniques d'apprentissage automatique."
 
 #: ../../../README.rst:33
 msgid "Any verb in one of the supported language can be conjugated, as the module contains a Machine Learning model of how the verbs behave."
-msgstr "Cualquier verbo en uno de los idiomas soportados puede ser conjugado, ya que el módulo contiene un modelo de Aprendizaje automático sobre cómo se comportan los verbos".
+msgstr "Tout verbe dans l'une des langues prises en charge peut être conjugué, car le module contient un modèle d'apprentissage automatique de la façon dont les verbes se comportent."
 
 #: ../../../README.rst:34
 msgid "Even completely new or made-up verbs can be successfully conjugated in this manner."
-msgstr "Incluso los verbos completamente nuevos o inventados pueden conjugarse exitosamente de esta manera".
+msgstr "Même des verbes complètement nouveaux ou inventés peuvent être conjugués avec succès de cette manière."
 
 #: ../../../README.rst:35
 msgid "The supplied pre-trained models are composed of:"
-msgstr "Los modelos preentrenados suministrados se componen de:"
+msgstr "Les modèles pré-formés fournis sont composés de:"
 
 #: ../../../README.rst:37
 msgid "a binary feature extractor,"
-msgstr "un extractor de funciones binarias"
+msgstr "un extracteur de fonctionnalité binaire"
 
 #: ../../../README.rst:38
 msgid "a feature selector using Linear Support Vector Classification,"
-msgstr "un selector de funciones usando Linear Support Vector Classification,"
+msgstr "un sélecteur de fonctions utilisant la classification linéaire vectorisée de support",
 
 #: ../../../README.rst:39
 msgid "a classifier using Stochastic Gradient Descent."
-msgstr "un clasificador que usa el Gradiente de Gradiente Estocástico".
+msgstr "un classificateur utilisant la descente de gradient stochastique."
 
 #: ../../../README.rst:41
 msgid "MLConjug uses scikit-learn to implement the Machine Learning algorithms."
-msgstr "MLConjug usa scikit-learn para implementar los algoritmos de Machine Learning".
+msgstr "MLConjug utilise scikit-learn pour implémenter les algorithmes de Machine Learning."
 
 #: ../../../README.rst:42
 msgid "Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model."
-msgstr "Los usuarios de la biblioteca pueden usar cualquier clasificador compatible de scikit-learn para modificar y volver a entrenar el modelo".
+msgstr "Les utilisateurs de la bibliothèque peuvent utiliser n'importe quel classificateur compatible de scikit-learn pour modifier et recycler le modèle."
 
 #: ../../../README.rst:44
 msgid "The training data is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html ."
-msgstr "Los datos de capacitación se basan en Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html".
+msgstr "Les données d'entraînement sont basées sur Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html."
 
 #: ../../../README.rst:47
 msgid "Free software: MIT license"
-msgstr "Software libre: licencia MIT"
+msgstr "Logiciel libre: licence MIT"
 
 #: ../../../README.rst:48
 msgid "Documentation: https://mlconjug.readthedocs.io."
-msgstr "Documentación: https://mlconjug.readthedocs.io".
+msgstr "Documentation: https://mlconjug.readthedocs.io."
 
 #: ../../../README.rst:51
 msgid "Supported Languages"
-msgstr "Idiomas admitidos"
+msgstr "Langues prises en charge"
 
 #: ../../../README.rst:53
 msgid "French"
-msgstr "Francés"
+msgstr "Français"
 
 #: ../../../README.rst:54
 msgid "English"
-msgstr "Inglés"
+msgstr "Anglais"
 
 #: ../../../README.rst:55
 msgid "Spanish"
-msgstr "Español"
+msgstr "Espanol"
 
 #: ../../../README.rst:56
 msgid "Italian"
-msgstr "Italiano"
+msgstr "Italien"
 
 #: ../../../README.rst:57
 msgid "Portuguese"
-msgstr "Portugués"
+msgstr "Portugais"
 
 #: ../../../README.rst:58
 msgid "Romanian"
-msgstr "Rumano"
+msgstr "Roumain"
 
 #: ../../../README.rst:62
 msgid "Features"
-msgstr "Caracteristicas"
+msgstr "Caractéristiques"
 
 #: ../../../README.rst:64
 msgid "Easy to use API."
-msgstr "API fácil de usar".
+msgstr "API facile à utiliser."
 
 #: ../../../README.rst:65
 msgid "Includes pre-trained models with 99% + accuracy in predicting conjugation class of unknown verbs."
-msgstr "Incluye modelos pre-entrenados con un 99% de precisión en la predicción de la conjugación de verbos desconocidos".
+msgstr "Inclut des modèles pré-formés avec une précision de plus de 99% dans la prédiction de la classe de conjugaison des verbes inconnus."
 
 #: ../../../README.rst:66
 msgid "Easily train new models or add new languages."
-msgstr "Entrene fácilmente nuevos modelos o agregue nuevos idiomas".
+msgstr "Entraînez facilement de nouveaux modèles ou ajoutez de nouvelles langues."
 
 #: ../../../README.rst:67
 msgid "Easily integrate MLConjug in your own projects."
-msgstr "Integre fácilmente MLConjug en sus propios proyectos".
+msgstr "Intégrez facilement MLConjug dans vos propres projets."
 
 #: ../../../README.rst:68
 msgid "Can be used as a command line tool."
-msgstr "Se puede usar como una herramienta de línea de comandos".
+msgstr "Peut être utilisé comme un outil de ligne de commande."
 
 #: ../../../README.rst:71
 msgid "Credits"
-msgstr "Créditos"
+msgstr "Crédits"
 
 #: ../../../README.rst:73
 msgid "This package was created with the help of Verbiste_ and scikit-learn_."
-msgstr "Este paquete fue creado con la ayuda de Verbiste_ y scikit-learn_".
+msgstr "Ce paquet a été créé avec l'aide de Verbiste_ et de scikit-learn_."
 

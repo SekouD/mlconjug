@@ -17,7 +17,7 @@ msgstr ""
 
 #: ../../../HISTORY.rst:3
 msgid "History"
-msgstr "Historia"
+msgstr "Storia"
 
 #: ../../../HISTORY.rst:7
 msgid "2.1.5 (2018-06-15)"
@@ -25,11 +25,11 @@ msgstr "2.1.5 (2018-06-15)"
 
 #: ../../../HISTORY.rst:9
 msgid "Added localization."
-msgstr "Localización agregada".
+msgstr "Aggiunta localizzazione."
 
 #: ../../../HISTORY.rst:10
 msgid "Now the user interface of mlconjug is avalaible in French, Spanish, Italian, Portuguese and Romanian, in addition to English."
-msgstr "Ahora la interfaz de usuario de mlconjug está disponible en francés, español, italiano, portugués y rumano, además del inglés".
+msgstr "Ora l'interfaccia utente di mlconjug è disponibile in francese, spagnolo, italiano, portoghese e rumeno, oltre all'inglese."
 
 #: ../../../HISTORY.rst:14
 msgid "2.1.2 (2018-06-15)"
@@ -37,7 +37,7 @@ msgstr "2.1.2 (2018-06-15)"
 
 #: ../../../HISTORY.rst:16
 msgid "Added invalid verb detection."
-msgstr "Se agregó detección de verbos inválidos".
+msgstr "Aggiunto riconoscimento verbo non valido."
 
 #: ../../../HISTORY.rst:20
 msgid "2.1.0 (2018-06-15)"
@@ -45,7 +45,7 @@ msgstr "2.1.0 (2018-06-15)"
 
 #: ../../../HISTORY.rst:22
 msgid "Updated all language models for compatibility with scikit-learn 0.19.1."
-msgstr "Actualicé todos los modelos de idiomas para compatibilidad con scikit-learn 0.19.1".
+msgstr "Aggiornamento di tutti i modelli linguistici per compatibilità con scikit-learn 0.19.1."
 
 #: ../../../HISTORY.rst:26
 msgid "2.0.0 (2018-06-14)"
@@ -53,41 +53,47 @@ msgstr "2.0.0 (2018-06-14)"
 
 #: ../../../HISTORY.rst:28
 msgid "Includes English conjugation model."
-msgstr "Incluye el modelo de conjugación en inglés".
+msgstr "Include il modello di coniugazione inglese."
 
 #: ../../../HISTORY.rst:29
 msgid "Includes Spanish conjugation model."
-msgstr "Incluye el modelo de conjugación español".
+msgstr "Include il modello di coniugazione spagnolo."
 
 #: ../../../HISTORY.rst:30
 msgid "Includes Italian conjugation model."
-msgstr "Incluye el modelo de conjugación italiano".
+msgstr "Include il modello di coniugazione italiano."
 
 #: ../../../HISTORY.rst:31
 msgid "Includes Portuguese conjugation model."
-msgstr "Incluye el modelo de conjugación portugués".
+msgstr "Include il modello di coniugazione portoghese."
 
 #: ../../../HISTORY.rst:32
 msgid "Includes Romanian conjugation model."
-msgstr "Incluye el modelo de conjugación rumano".
+msgstr "Include il modello di coniugazione rumeno."
 
 #: ../../../HISTORY.rst:36
 msgid "1.2.0 (2018-06-12)"
 msgstr "1.2.0 (2018-06-12)"
 
 #: ../../../HISTORY.rst:38
+msgid ../../../HISTORY.rst:46
+msgstr ../../../HISTORY.rst:46
+
 #: ../../../HISTORY.rst:46
 msgid "Refactored the API. Now a Single class Conjugator is needed to interface with the module."
-msgstr "Refactorizó la API. Ahora se necesita un Conjugador de una sola clase para interactuar con el módulo".
+msgstr "Rifattorizzato l'API. Ora è necessario un coniugatore di classe singola per interfacciarsi con il modulo."
 
 #: ../../../HISTORY.rst:39
+msgid ../../../HISTORY.rst:47
+msgstr ../../../HISTORY.rst:47
+
 #: ../../../HISTORY.rst:47
 msgid "Includes improved french conjugation model."
-msgstr "Incluye un modelo mejorado de conjugación en francés".
+msgstr "Include un modello di coniugazione francese migliorato."
 
 #: ../../../HISTORY.rst:40
 msgid "Added support for multiple languages."
-msgstr "Se agregó soporte para múltiples idiomas".
+msgstr "Aggiunto supporto per più lingue."
 
 #: ../../../HISTORY.rst:44
 msgid "1.1.0 (2018-06-11)"
@@ -99,5 +105,5 @@ msgstr "1.0.0 (2018-06-10)"
 
 #: ../../../HISTORY.rst:53
 msgid "First release on PyPI."
-msgstr "Primer lanzamiento en PyPI".
+msgstr "Prima versione su PyPI."
 
