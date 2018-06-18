@@ -123,6 +123,7 @@ class Conjugator:
         :param model: scikit-learn Classifier or Pipeline.
 
         """
+        assert isinstance(model, Model), _('Please provide an instance of a mlconjug.mlconjug.Model')
         self.model = model
         return
 
@@ -166,9 +167,9 @@ class DataSet:
     """
     def __init__(self, VerbisteObj):
         self.verbiste = VerbisteObj
-        self.verbes = self.verbiste.verbs.keys()
+        self.verbs = self.verbiste.verbs.keys()
         self.templates = sorted(self.verbiste.conjugations.keys())
-        self.liste_verbes = []
+        self.liste_verbs = []
         self.liste_templates = []
         self.dict_conjug = {}
         self.train_input = []
@@ -188,7 +189,7 @@ class DataSet:
         """
         conjug = defaultdict(list)
         for verbe, info_verbe in self.verbiste.verbs.items():
-            self.liste_verbes.append(verbe)
+            self.liste_verbs.append(verbe)
             self.liste_templates.append(self.templates.index(info_verbe["template"]))
             conjug[info_verbe["template"]].append(verbe)
         self.dict_conjug = conjug
@@ -211,15 +212,15 @@ class DataSet:
         self.split_proportion = proportion
         train_set = []
         test_set = []
-        for template, lverbes in self.dict_conjug.items():
-            if len(lverbes) <= threshold:
-                for verbe in lverbes:
+        for template, lverbs in self.dict_conjug.items():
+            if len(lverbs) <= threshold:
+                for verbe in lverbs:
                     train_set.append((verbe, template))
             else:
-                index = round(len(lverbes) * proportion)
-                for verbe in lverbes[:index]:
+                index = round(len(lverbs) * proportion)
+                for verbe in lverbs[:index]:
                     train_set.append((verbe, template))
-                for verbe in lverbes[index:]:
+                for verbe in lverbs[index:]:
                     test_set.append((verbe, template))
         random.shuffle(train_set)
         random.shuffle(test_set)
