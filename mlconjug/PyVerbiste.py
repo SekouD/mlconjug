@@ -17,13 +17,13 @@ __author__ = 'SekouD'
 __author_email__ = 'sekoud.python@gmail.com'
 
 # from . import _RESOURCE_PACKAGE, _SUPPORTED_LANGUAGES
+# from .mlconjug import Conjugator
 
 import copy
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
 import pkg_resources
 
-# __all__ = ['Verbiste', 'Verb', 'VerbFr', 'VerbEn', 'VerbEs', 'VerbIt', 'VerbPt', 'VerbRo', 'VerbInfo']
 
 _RESOURCE_PACKAGE = __name__
 
@@ -109,6 +109,7 @@ class Verbiste:
         conjugations_file = pkg_resources.resource_filename(_RESOURCE_PACKAGE, _CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
+        return
 
     def __repr__(self):
         return '{0}.{1}(language={2})'.format(__name__, self.__class__.__name__, self.language)
@@ -269,7 +270,7 @@ class Verbiste:
             return info
 
 
-class VerbInfo(object):
+class VerbInfo:
     """
     This class defines the Verbiste verb information structure.
 
@@ -287,18 +288,19 @@ class VerbInfo(object):
         self.infinitive = infinitive
         self.root = root
         self.template = template
+        return
 
     def __repr__(self):
         return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, self.infinitive, self.root, self.template)
 
     def __eq__(self, other):
-        if self.infinitive == other.infinitive and self.root == other.root and self.template == other.template:
-            return True
+        if not isinstance(other, VerbInfo):
+            return NotImplemented
         else:
-            return False
+            return self.infinitive == other.infinitive and self.root == other.root and self.template == other.template
 
 
-class Verb(object):
+class Verb:
     """
     This class defines the Verb Object.
 
@@ -320,6 +322,7 @@ class Verb(object):
         self.conjug_info = conjug_info
         self.subject = subject
         self._load_conjug()
+        return
 
     def __repr__(self):
         return '{0}.{1}({2})'.format(__name__, self.__class__.__name__, self.name)

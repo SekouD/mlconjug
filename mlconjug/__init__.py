@@ -31,7 +31,7 @@ from .mlconjug import *
 from .PyVerbiste import *
 import pkg_resources
 import platform
-import locale
+from locale import windows_locale, getdefaultlocale
 import gettext
 
 # Sets up the automatic translation of annotated strings displayed to the user.
@@ -42,12 +42,31 @@ _SUPPORTED_LANGUAGES = ('default', 'en', 'es', 'fr', 'it', 'pt', 'ro')
 _TRANSLATED_LANGUAGES = _SUPPORTED_LANGUAGES[2:]
 
 
-if 'Windows' in platform.system():
-    import ctypes
-    _windll = ctypes.windll.kernel32
-    _user_locale = locale.windows_locale[ _windll.GetUserDefaultUILanguage() ][:2]
-else:
-    _user_locale = locale.getdefaultlocale()[0][:2]
+def _get_user_locale():
+    """
+    | Gets the user locale to set the user interface language language.
+    | The default is set to english if the user's system locale is not one of the translated languages.
+
+    :return: string.
+            The user locale.
+    """
+    if 'Windows' in platform.system():
+        import ctypes
+        windll = ctypes.windll.kernel32
+        default_locale = windows_locale[windll.GetUserDefaultUILanguage()]
+    else:
+        default_locale = getdefaultlocale()
+    if default_locale:
+        if isinstance(default_locale, tuple):
+            user_locale = [0][:2]
+        else:
+            user_locale = default_locale[:2]
+    else:
+        user_locale = 'en'
+    return user_locale
+
+
+_user_locale = _get_user_locale()
 
 if _user_locale in _TRANSLATED_LANGUAGES:
     _MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',

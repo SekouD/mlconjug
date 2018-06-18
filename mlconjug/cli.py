@@ -18,6 +18,7 @@ def main(verb, language):
     conjugator = Conjugator(language)
     result = conjugator.conjugate(verb)
     pprint(result.conjug_info)
+    return
 
 
 if __name__ == "__main__":
