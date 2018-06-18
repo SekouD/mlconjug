@@ -147,6 +147,7 @@ class EndingCountVectorizer(CountVectorizer):
             Verb to vectorize.
         :return: list.
             Final n-grams of the verb.
+
         """
         verb = self._white_spaces.sub(" ", verb)
         verb_len = len(verb)
