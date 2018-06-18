@@ -82,7 +82,7 @@ class VerbInfo:
     def __repr__(self) -> Text: ...
 
     def __eq__(self,
-               other: Any
+               other: object
                ) -> bool: ...
 
 
