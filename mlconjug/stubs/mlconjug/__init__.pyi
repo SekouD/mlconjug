@@ -11,7 +11,7 @@ import gettext
 __author__: Text
 __email__: Text
 __version__: Text
-_RESOURCE_PACKAGE = Text
+_RESOURCE_PACKAGE: Text = __name__
 _TRANSLATIONS_PATH: Text
 _SUPPORTED_LANGUAGES: Tuple[Text]
 _TRANSLATED_LANGUAGES: Tuple[Text]
