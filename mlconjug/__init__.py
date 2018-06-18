@@ -48,7 +48,8 @@ def _get_user_locale():
     | The default is set to english if the user's system locale is not one of the translated languages.
 
     :return: string.
-            The user locale.
+        The user locale.
+
     """
     if 'Windows' in platform.system():
         import ctypes
@@ -80,7 +81,15 @@ _MLCONJUG_TRANSLATIONS.install()
 
 # Enables the translation of docstrings when using the help() builtin function.
 import inspect
+
 def getdoc(object):
+    """
+    Translates the docstrings of the objects defined in the packeage in the supported languages.
+
+    :param object:
+    :return: string.
+        The translated version of the object's docstring.
+    """
     try:
         doc = object.__doc__
     except AttributeError:
