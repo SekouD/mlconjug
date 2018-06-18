@@ -34,8 +34,6 @@ import platform
 import locale
 import gettext
 
-# __all__ = (mlconjug.__all__ + PyVerbiste.__all__)
-
 # Sets up the automatic translation of annotated strings displayed to the user.
 _RESOURCE_PACKAGE = __name__
 _TRANSLATIONS_PATH = pkg_resources.resource_filename(_RESOURCE_PACKAGE, 'locale')
@@ -43,12 +41,6 @@ _TRANSLATIONS_PATH = pkg_resources.resource_filename(_RESOURCE_PACKAGE, 'locale'
 _SUPPORTED_LANGUAGES = ('default', 'en', 'es', 'fr', 'it', 'pt', 'ro')
 _TRANSLATED_LANGUAGES = _SUPPORTED_LANGUAGES[2:]
 
-# _LANGUAGE_FULL = {'fr': 'Français',
-#                  'en': 'English',
-#                  'es': 'Español',
-#                  'it': 'Italiano',
-#                  'pt': 'Português',
-#                  'ro': 'Română'}
 
 if 'Windows' in platform.system():
     import ctypes
