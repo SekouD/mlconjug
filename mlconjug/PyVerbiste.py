@@ -16,8 +16,6 @@ PyVerbiste.
 __author__ = 'SekouD'
 __author_email__ = 'sekoud.python@gmail.com'
 
-# from . import _RESOURCE_PACKAGE, _SUPPORTED_LANGUAGES
-# from .mlconjug import Conjugator
 
 import copy
 import xml.etree.ElementTree as ET
