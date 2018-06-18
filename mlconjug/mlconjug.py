@@ -24,7 +24,6 @@ from collections import defaultdict
 import pickle
 import pkg_resources
 
-# __all__ = ['Conjugator', 'EndingCountVectorizer', 'DataSet', 'Model', 'LinearSVC', 'SGDClassifier', 'SelectFromModel', 'Pipeline']
 
 _RESOURCE_PACKAGE = __name__
 
@@ -72,6 +71,7 @@ class Conjugator:
             model = pickle.loads(pkg_resources.resource_stream(
                 _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language]).read())
         self.model = model
+        return
 
     def __repr__(self):
         return '{0}.{1}(language={2})'.format(__name__, self.__class__.__name__, self.language)
@@ -177,6 +177,7 @@ class DataSet:
         self.test_input = []
         self.test_labels = []
         self.construct_dict_conjug()
+        return
 
     def __repr__(self):
         return '{0}.{1}({2})'.format(__name__, self.__class__.__name__, self.verbiste.__repr__)
@@ -254,6 +255,7 @@ class Model(object):
         self.model = Pipeline([('vectorizer', vectorizer),
                                ('feature_selector', feature_selector),
                                ('classifier', classifier)])
+        return
 
     def __repr__(self):
         return '{0}.{1}({2}, {3}, {4})'.format(__name__, self.__class__.__name__, *sorted(self.model.named_steps))
