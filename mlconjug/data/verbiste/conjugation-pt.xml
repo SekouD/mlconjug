@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding='utf-8'?>
 
-<verbs-pt>
+<conjugation-pt>
 <template name="aque:cer">
 	<Indicativo>
 		<Indicativo-presente>
@@ -64933,4 +64933,4 @@
 	</Particípio>
 </template>
 
-</verbs-pt>
+</conjugation-pt>

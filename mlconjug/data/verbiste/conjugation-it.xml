@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding='utf-8'?>
 
-<verbs-it>
+<conjugation-it>
+
 <template name="sce:ndere">
 	<Indicativo>
 		<Indicativo-presente>
@@ -100403,4 +100404,4 @@
 	</Participio>
 </template>
 
-</verbs-it>
+</conjugation-it>

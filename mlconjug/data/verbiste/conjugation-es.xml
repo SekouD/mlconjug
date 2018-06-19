@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding='utf-8'?>
 
-<verbs-es>
+<conjugation-es>
+
 <template name="abol:ir">
 	<Indicativo>
 		<Indicativo-Presente>
@@ -112446,4 +112447,4 @@
 	</Participo>
 </template>
 
-</verbs-es>
+</conjugation-es>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding='utf-8'?>
 
-<verbs-ro>
+<conjugation-ro>
+
 <template name="a:vea">
 	<Prezent>
 		<Prezent>
@@ -37707,4 +37708,4 @@
 	</Participiu>
 </template>
 
-</verbs-ro>
+</conjugation-ro>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding='utf-8'?>
 
-<verbs-en>
+<conjugation-en>
+
 <template name=":be">
 	<indicative>
 		<indicative-present>
@@ -8474,4 +8475,4 @@
 	</imperative>
 </template>
 
-</verbs-en>
+</conjugation-en>
