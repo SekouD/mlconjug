@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding='utf-8'?>
 
+<!DOCTYPE verbs-pt [
+    <!ELEMENT verbs-pt (v)+>
+    <!ATTLIST verbs-pt
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT v (i,t)> <!-- verb's conjugation information (infinitive, radical) -->
+    <!ATTLIST v
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT i (#PCDATA)>  <!-- infinitive -->
+    <!ATTLIST i
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT t (#PCDATA)> <!-- template (radical:termination) -->
+    <!ATTLIST t
+  xmlns CDATA #FIXED ''>
+]>
+
 <verbs-pt>
 
 <v><i>ababalhar</i>		<t>compr:ar</t></v>

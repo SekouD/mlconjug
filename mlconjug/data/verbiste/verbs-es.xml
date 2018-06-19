@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding='utf-8'?>
 
+<!DOCTYPE verbs-es [
+    <!ELEMENT verbs-es (v)+>
+    <!ATTLIST verbs-es
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT v (i,t)> <!-- verb's conjugation information (infinitive, radical) -->
+    <!ATTLIST v
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT i (#PCDATA)>  <!-- infinitive -->
+    <!ATTLIST i
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT t (#PCDATA)> <!-- template (radical:termination) -->
+    <!ATTLIST t
+  xmlns CDATA #FIXED ''>
+]>
+
 <verbs-es>
 
 <v><i>ababillarse</i>		<t>abab:illarse</t></v>
