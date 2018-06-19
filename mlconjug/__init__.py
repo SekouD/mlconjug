@@ -25,7 +25,7 @@ Usage example:
 
 __author__ = """SekouD"""
 __email__ = 'sekoud.python@gmail.com'
-__version__ = '2.1.5'
+__version__ = '2.1.6'
 
 from .mlconjug import *
 from .PyVerbiste import *
