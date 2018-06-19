@@ -24,6 +24,63 @@
 	02110-1301, USA.
 -->
 
+<!DOCTYPE conjugation-en [
+    <!ELEMENT conjugation-en (template)+>
+    <!ATTLIST conjugation-en
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT template (indicative,infinitive,imperative)>
+    <!ATTLIST template
+      xmlns CDATA #FIXED ''
+      name NMTOKEN #REQUIRED>
+
+    <!ELEMENT indicative (indicative-present,indicative-past-tense,
+                          indicative-present-continuous,
+                          indicative-present-perfect)>
+    <!ATTLIST indicative
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT infinitive (infinitive-present)>
+    <!ATTLIST infinitive
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT imperative (imperative-present)>
+    <!ATTLIST imperative
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT indicative-present (p)+>
+    <!ATTLIST indicative-present
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT indicative-past-tense (p)+>
+    <!ATTLIST indicative-past-tense
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT indicative-present-continuous (p)+>
+    <!ATTLIST indicative-present-continuous
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT indicative-present-perfect (p)+>
+    <!ATTLIST indicative-present-perfect
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT infinitive-present (p)>
+    <!ATTLIST infinitive-present
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT imperative-present (p)+>
+    <!ATTLIST imperative-present
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT p (i)>
+    <!ATTLIST p
+      xmlns CDATA #FIXED ''>
+
+    <!ELEMENT i (#PCDATA)>
+    <!ATTLIST i
+      xmlns CDATA #FIXED ''>
+]>
+
 <conjugation-en>
 
 <template name=":be">
@@ -4142,7 +4199,7 @@
 	</imperative>
 </template>
 
-<template name="cl:ing to">
+<template name="cl:ing_to">
 	<indicative>
 		<indicative-present>
 			<p><i>ing</i></p>
