@@ -58,7 +58,7 @@ _PRONOUNS = {'fr': {'abbrev': _ABBREVS,
              }
 
 _IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
-                              'pronoun': ("tu", "nous", "vous")},
+                              'pronoun': ("", "", "")},
                        'it': None,
                        'es': {'abbrev': ("2s :", "3s :", "1p :", "2p :", "3p :"),
                               'pronoun': ('tú', 'él', 'nosotros', 'vosotros', 'ellos')},
@@ -68,6 +68,14 @@ _IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
                        'ro': {'abbrev': ("2s :", "2p :"),
                               'pronoun': ("tu", "voi")},
                         }
+
+_AUXILIARIES = {'fr':None,
+                'it': 'non',
+                'es': 'no',
+                'en':  {'abbrev': _ABBREVS,
+                    'pronoun': ('am', 'are', 'is', 'are', 'are', 'are')},
+                'pt': 'não',
+                'ro': 'nu'}
 
 _GENDER = {'fr': {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
                  'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")},
@@ -210,7 +218,7 @@ class Verbiste:
             for mood in list(template):
                 conjugations_dic[template_name][mood.tag] = OrderedDict()
                 for tense in list(mood):
-                    conjugations_dic[template_name][mood.tag][tense.tag] = self._load_tense(tense)
+                    conjugations_dic[template_name][mood.tag][tense.tag.replace('-', ' ')] = self._load_tense(tense)
         return conjugations_dic
 
     def _load_tense(self, tense):
@@ -346,7 +354,7 @@ class Verb:
                         if len(persons) == 6:
                             key = _ABBREVS[pers]
                         else:
-                            key = pers
+                            key = ''
                         if term is not None:
                             persons_dict[key] = self.verb_info.root + term
                         else:
@@ -379,9 +387,9 @@ class VerbFr(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'past-participle':
+                        elif tense_name == 'Participe Passé':
                             key = _GENDER[self.language][self.subject][pers]
-                        elif tense_name == 'imperative-present':
+                        elif tense_name == 'Imperatif Présent':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
                         else:
                             key = term
@@ -415,9 +423,13 @@ class VerbEn(Verb):
                 if isinstance(persons, list):
                     persons_dict = OrderedDict()
                     for pers, term in persons:
-                        if len(persons) == 6:
+                        if tense_name == 'indicative present continuous':
+                            key = " ".join((_PRONOUNS[self.language][self.subject][pers],
+                                            _AUXILIARIES[self.language][self.subject][pers],))
+                            pass
+                        elif len(persons) == 6 and not tense_name == 'indicative present continuous':
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'imperative-present':
+                        elif tense_name == 'imperative present':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
                         else:
                             key = term
@@ -427,7 +439,7 @@ class VerbEn(Verb):
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
                 elif isinstance(persons, str):
-                    if tense_name == 'infinitive-present':
+                    if tense_name == 'infinitive present':
                         prefix = 'to '
                     else:
                         prefix = ''
@@ -457,12 +469,13 @@ class VerbEs(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo-Afirmativo':
+                        elif tense_name == 'Imperativo Afirmativo':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo-non':
-                            key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers] + ' ' + _NEGATION[self.language]
+                        elif tense_name == 'Imperativo non':
+                            key = ' '.join((_IMPERATIVE_PRONOUNS[self.language][self.subject][pers],
+                                            _NEGATION[self.language]))
                         else:
-                            key = pers
+                            key = ''
                         if term is not None:
                             persons_dict[key] = self.verb_info.root + term
                         else:
@@ -495,12 +508,12 @@ class VerbIt(Verb):
                     for pers, term in persons:
                         if len(persons) == 6 and not tense_name.startswith('Imperativo'):
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo-Imperativo':
-                            key = pers
-                        elif tense_name == 'Imperativo-non':
+                        elif tense_name == 'Imperativo Imperativo':
+                            key = ''
+                        elif tense_name == 'Imperativo non':
                             key = _NEGATION[self.language]
                         else:
-                            key = pers
+                            key = ''
                         if term is not None:
                             persons_dict[key] = self.verb_info.root + term
                         else:
@@ -533,12 +546,12 @@ class VerbPt(Verb):
                     for pers, term in persons:
                         if len(persons) == 6 and not tense_name.startswith('Imperativo'):
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo-Afirmativo':
-                            key = pers
-                        elif tense_name == 'Imperativo-Negativo':
+                        elif tense_name == 'Imperativo Afirmativo':
+                            key = ''
+                        elif tense_name == 'Imperativo Negativo':
                             key = _NEGATION[self.language]
                         else:
-                            key = pers
+                            key = ''
                         if term is not None:
                             persons_dict[key] = self.verb_info.root + term
                         else:
@@ -571,20 +584,21 @@ class VerbRo(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativ-Imperativ':
+                        elif tense_name == 'Imperativ Imperativ':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
                             # key = pers
-                        elif tense_name == 'Imperativ-Negativ':
+                            pass
+                        elif tense_name == 'Imperativ Negativ':
                             key = _NEGATION[self.language]
                         else:
-                            key = pers
+                            key = ''
                         if term is not None:
                             persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
                 elif isinstance(persons, str):
-                    if tense_name == 'Infinitiv-Infinitiv':
+                    if tense_name == 'Infinitiv Infinitiv':
                         prefix = 'a '
                     else:
                         prefix = ''
