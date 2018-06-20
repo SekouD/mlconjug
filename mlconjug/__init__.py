@@ -33,6 +33,7 @@ import pkg_resources
 import platform
 from locale import windows_locale, getdefaultlocale
 import gettext
+import inspect
 
 # Sets up the automatic translation of annotated strings displayed to the user.
 _RESOURCE_PACKAGE = __name__
@@ -67,21 +68,6 @@ def _get_user_locale():
     return user_locale
 
 
-_user_locale = _get_user_locale()
-
-if _user_locale in _TRANSLATED_LANGUAGES:
-    _MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',
-                                                localedir=_TRANSLATIONS_PATH,
-                                                languages=[_user_locale], fallback=True, codeset='UTF-8')
-else:
-    _MLCONJUG_TRANSLATIONS = gettext.NullTranslations()
-
-_MLCONJUG_TRANSLATIONS.install()
-
-
-# Enables the translation of docstrings when using the help() builtin function.
-import inspect
-
 def getdoc(object):
     """
     Translates the docstrings of the objects defined in the packeage in the supported languages.
@@ -97,6 +83,19 @@ def getdoc(object):
     if not isinstance(doc, str):
         return None
     return inspect.cleandoc(_(doc))
+
+
+_user_locale = _get_user_locale()
+
+if _user_locale in _TRANSLATED_LANGUAGES:
+    _MLCONJUG_TRANSLATIONS = gettext.translation(domain='mlconjug',
+                                                localedir=_TRANSLATIONS_PATH,
+                                                languages=[_user_locale], fallback=True, codeset='UTF-8')
+else:
+    _MLCONJUG_TRANSLATIONS = gettext.NullTranslations()
+
+_MLCONJUG_TRANSLATIONS.install()
+
 
 # Replaces the getdoc method
 inspect.getdoc = getdoc
