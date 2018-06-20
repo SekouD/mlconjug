@@ -63,8 +63,8 @@ class Conjugator:
     """
     def __init__(self, language='fr', model=None):
         self.language = language
-        self.verbiste = Verbiste(language=language)
-        self.data_set = DataSet(self.verbiste)
+        # self.verbiste = Verbiste(language=language)
+        self.data_set = DataSet(Verbiste(language=language))
         self.data_set.split_data(proportion=0.9)
         if not model:
             model = pickle.loads(pkg_resources.resource_stream(
@@ -93,26 +93,28 @@ class Conjugator:
         :return: Verb object or None.
 
         """
-        if not self.verbiste.is_valid_verb(verb):
+        if not self.data_set.verbiste.is_valid_verb(verb):
             raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
-        if verb not in self.verbiste.verbs.keys():
+        if verb not in self.data_set.verbiste.verbs.keys():
             if self.model is None:
                 return None
-            predicted = self.model.predict([verb])[0]
-            template = self.verbiste.templates[predicted]
+            prediction = self.model.predict([verb])[0]
+            predicted = True
+            template = self.data_set.verbiste.templates[prediction]
             index = - len(template[template.index(":") + 1:])
             root = verb[:index]
             verb_info = VerbInfo(verb, root, template)
-            conjug_info = self.verbiste.get_conjug_info(verb_info.template)
+            conjug_info = self.data_set.verbiste.get_conjug_info(verb_info.template)
         else:
+            predicted = False
             infinitive = verb
-            verb_info = self.verbiste.get_verb_info(infinitive)
+            verb_info = self.data_set.verbiste.get_verb_info(infinitive)
             if verb_info is None:
                 return None
-            conjug_info = self.verbiste.get_conjug_info(verb_info.template)
+            conjug_info = self.data_set.verbiste.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
-        verb_object = _VERBS[self.language](verb_info, conjug_info, subject)
+        verb_object = _VERBS[self.language](verb_info, conjug_info, subject, predicted)
         return verb_object
 
     def set_model(self, model):

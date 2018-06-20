@@ -310,15 +310,16 @@ class Verb:
         Select 'pronoun' for full pronouns.
 
     """
-    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject')
+    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted')
 
     language = 'default'
 
-    def __init__(self, verb_info, conjug_info, subject='abbrev'):
+    def __init__(self, verb_info, conjug_info, subject='abbrev', predicted=False):
         self.name = verb_info.infinitive
         self.verb_info = verb_info
         self.conjug_info = conjug_info
         self.subject = subject
+        self.predicted = predicted
         self._load_conjug()
         return
 
