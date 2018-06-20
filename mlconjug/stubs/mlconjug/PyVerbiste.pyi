@@ -1,32 +1,34 @@
-# Stubs for mlconjug.PyVerbiste (Python 3.6)
+# Stubs for mlconjug.PyVerbiste (Python 3.4 to 3.6)
 
-from typing import Any, Text, List, Dict,Tuple, Optional, Union, Set, TextIO
+from typing import Text, Sequence, Mapping, Tuple, Optional, Union, Set, TextIO
 
 __author__: Text
 __author_email__: Text
 _RESOURCE_PACKAGE: Text = __name__
 _LANGUAGES: Tuple[Text]
-_VERBS_RESOURCE_PATH: Dict[Text, Text]
-_CONJUGATIONS_RESOURCE_PATH: Dict[Text, Text]
+_VERBS_RESOURCE_PATH: Mapping[Text, Text]
+_CONJUGATIONS_RESOURCE_PATH: Mapping[Text, Text]
 _ABBREVS: Tuple[Text]
-_PRONOUNS: Dict[Text, Dict[Text, Tuple[Text]]]
-_IMPERATIVE_PRONOUNS: Dict[Text, Optional[Dict[Text, Tuple[Text]]]]
-_GENDER: Dict[Text, Optional[Dict[Text, Tuple[Text]]]]
-_NEGATION: Dict[Text, Text]
+_PRONOUNS: Mapping[Text, Mapping[Text, Tuple[Text]]]
+_IMPERATIVE_PRONOUNS: Mapping[Text, Optional[Mapping[Text, Tuple[Text]]]]
+_GENDER: Mapping[Text, Optional[Mapping[Text, Tuple[Text]]]]
+_NEGATION: Mapping[Text, Text]
 
 # Declare Complex types for clarity.
-Tense = List[Optional[Tuple[int,Text]]]
-Mood = Union[Text, Tense]
-ConjugInfo = Dict[Text, Mood]
-Conjugations = Dict[Text, ConjugInfo]
+_VerbsDict = Mapping[Text, Mapping[Text, Text]]
+_Tense = Sequence[Optional[Tuple[int,Text]]]
+_Mood = Union[Text, _Tense]
+_ConjugInfo = Mapping[Text, _Mood]
+_Conjugations = Mapping[Text, _ConjugInfo]
+_PathLike = Union[Text, TextIO]
 
 
 class Verbiste:
     language: Text = ...
-    verbs: Dict[Text, Dict[Text, Text]] = ...
-    conjugations: Conjugations = ...
+    verbs: _PathLike = ...
+    conjugations: _Conjugations = ...
     _allowed_endings: Set[Text] = ...
-    templates: List[Text] = ...
+    templates: Sequence[Text] = ...
     def __init__(self,
                  language: Text = ...
                  ) -> None: ...
@@ -34,12 +36,12 @@ class Verbiste:
     def __repr__(self) -> Text: ...
 
     def _load_verbs(self,
-                    verbs_file: Union[Text, TextIO]
+                    verbs_file: _PathLike
                     ) -> None: ...
 
     def _parse_verbs(self,
-                     file: Union[Text, TextIO]
-                     ) -> Dict[Text, Dict[Text, Text]]: ...
+                     file: _PathLike
+                     ) -> _PathLike: ...
 
     def _detect_allowed_endings(self) -> Set[Text]: ...
 
@@ -48,16 +50,16 @@ class Verbiste:
                       ) -> bool: ...
 
     def _load_conjugations(self,
-                           conjugations_file: Union[Text, TextIO]
+                           conjugations_file: _PathLike
                            ) -> None: ...
 
     def _parse_conjugations(self,
-                            file: Union[Text, TextIO]
-                            ) -> Conjugations: ...
+                            file: _PathLike
+                            ) -> _Conjugations: ...
 
     def _load_tense(self,
                     tense: Text
-                    ) -> Tense: ...
+                    ) -> _Tense: ...
 
     def get_verb_info(self,
                       verb: Text
@@ -65,7 +67,7 @@ class Verbiste:
 
     def get_conjug_info(self,
                         template: Text
-                        ) -> Optional[ConjugInfo]: ...
+                        ) -> Optional[_ConjugInfo]: ...
 
 
 class VerbInfo:
@@ -91,11 +93,11 @@ class Verb:
     language: Text = ...
     name: Text = ...
     verb_info: VerbInfo = ...
-    conjug_info: ConjugInfo = ...
+    conjug_info: _ConjugInfo = ...
     subject: Text = ...
     def __init__(self,
                  verb_info: VerbInfo,
-                 conjug_info: ConjugInfo,
+                 conjug_info: _ConjugInfo,
                  subject: Text = ...
                  ) -> None: ...
 
