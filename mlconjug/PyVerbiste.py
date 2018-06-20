@@ -54,7 +54,8 @@ _PRONOUNS = {'fr': {'abbrev': _ABBREVS,
             'pt': {'abbrev': _ABBREVS,
                    'pronoun': ('eu', 'tu', 'ele', 'nós', 'vós', 'eles')},
             'ro': {'abbrev': _ABBREVS,
-                   'pronoun': ('eu', 'tu', 'el/ea', 'noi', 'voi', 'ei/ele')}}
+                   'pronoun': ('eu', 'tu', 'el/ea', 'noi', 'voi', 'ei/ele')}
+             }
 
 _IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ("tu", "nous", "vous")},
@@ -64,7 +65,9 @@ _IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
                        'en': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ("", "let's", "")},
                        'pt': None,
-                       'ro': None}
+                       'ro': {'abbrev': ("2s :", "2p :"),
+                              'pronoun': ("tu", "voi")},
+                        }
 
 _GENDER = {'fr': {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
                  'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")},
@@ -310,7 +313,7 @@ class Verb:
         Select 'pronoun' for full pronouns.
 
     """
-    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted')
+    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted', 'prediction_score')
 
     language = 'default'
 
@@ -320,6 +323,7 @@ class Verb:
         self.conjug_info = conjug_info
         self.subject = subject
         self.predicted = predicted
+        self.prediction_score = 0
         self._load_conjug()
         return
 
@@ -568,7 +572,8 @@ class VerbRo(Verb):
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
                         elif tense_name == 'Imperativ-Imperativ':
-                            key = pers
+                            key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
+                            # key = pers
                         elif tense_name == 'Imperativ-Negativ':
                             key = _NEGATION[self.language]
                         else:
