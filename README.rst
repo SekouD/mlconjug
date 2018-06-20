@@ -39,9 +39,11 @@ MLConjug
 - a classifier using Stochastic Gradient Descent.
 
 | MLConjug uses scikit-learn to implement the Machine Learning algorithms.
-| Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model.
+| Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the models.
 
-The training data is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html .
+| The training data for the french model is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html .
+| The training data for English, Spanish, Italian, Portuguese and Romanian was generated using unsupervised learning techniques
+| using the French model as a model to query during the trainig.
 
 
 * Free software: MIT license
