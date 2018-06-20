@@ -93,12 +93,15 @@ class Conjugator:
         :return: Verb object or None.
 
         """
+        prediction_score = 0
+        predicted = False
         if not self.data_set.verbiste.is_valid_verb(verb):
             raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
         if verb not in self.data_set.verbiste.verbs.keys():
             if self.model is None:
                 return None
             prediction = self.model.predict([verb])[0]
+            prediction_score = self.model.model.predict_proba([verb])[0][prediction]
             predicted = True
             template = self.data_set.verbiste.templates[prediction]
             index = - len(template[template.index(":") + 1:])
@@ -114,7 +117,13 @@ class Conjugator:
             conjug_info = self.data_set.verbiste.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
-        verb_object = _VERBS[self.language](verb_info, conjug_info, subject, predicted)
+        if predicted:
+            verb_object = _VERBS[self.language](verb_info, conjug_info, subject, predicted)
+            verb_object.predicted = predicted
+            verb_object.prediction_score = round(prediction_score, 3)
+        else:
+            verb_object = _VERBS[self.language](verb_info, conjug_info, subject)
+
         return verb_object
 
     def set_model(self, model):
