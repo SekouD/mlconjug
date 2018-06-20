@@ -31,15 +31,15 @@
 
     <!ELEMENT v (i,t)> <!-- verb's conjugation information (infinitive, radical) -->
     <!ATTLIST v
-      xmlns CDATA #FIXED "verb's conjugation information (infinitive, radical)">
+      xmlns CDATA #FIXED ''>
 
     <!ELEMENT i (#PCDATA)>  <!-- infinitive -->
     <!ATTLIST i
-      xmlns CDATA #FIXED 'infinitive'>
+      xmlns CDATA #FIXED ''>
 
     <!ELEMENT t (#PCDATA)> <!-- template (radical:termination) -->
     <!ATTLIST t
-        xmlns CDATA #FIXED 'template (radical:termination)'>
+        xmlns CDATA #FIXED ''>
 ]>
 
 <verbs-es>
