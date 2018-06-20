@@ -452,7 +452,7 @@ class VerbEs(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo':
+                        elif tense_name == 'Imperativo-Afirmativo':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers]
                         elif tense_name == 'Imperativo-non':
                             key = _IMPERATIVE_PRONOUNS[self.language][self.subject][pers] + ' ' + _NEGATION[self.language]
@@ -490,7 +490,7 @@ class VerbIt(Verb):
                     for pers, term in persons:
                         if len(persons) == 6 and not tense_name.startswith('Imperativo'):
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativo':
+                        elif tense_name == 'Imperativo-Imperativo':
                             key = pers
                         elif tense_name == 'Imperativo-non':
                             key = _NEGATION[self.language]
@@ -566,7 +566,7 @@ class VerbRo(Verb):
                     for pers, term in persons:
                         if len(persons) == 6:
                             key = _PRONOUNS[self.language][self.subject][pers]
-                        elif tense_name == 'Imperativ':
+                        elif tense_name == 'Imperativ-Imperativ':
                             key = pers
                         elif tense_name == 'Imperativ-Negativ':
                             key = _NEGATION[self.language]
@@ -578,7 +578,7 @@ class VerbRo(Verb):
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
                 elif isinstance(persons, str):
-                    if tense_name == 'Infinitiv':
+                    if tense_name == 'Infinitiv-Infinitiv':
                         prefix = 'a '
                     else:
                         prefix = ''
