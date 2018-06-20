@@ -15,11 +15,7 @@ PyVerbiste.
 
 __author__ = 'SekouD'
 __author_email__ = 'sekoud.python@gmail.com'
-__copyright__ = "Copyright (c) 2017, SekouD"
-__credits__ = ["Pierre Sarrazin",]
-__license__ = "MIT"
-__maintainer__ = "SekouD"
-__status__ = "Production"
+
 
 import copy
 import xml.etree.ElementTree as ET
