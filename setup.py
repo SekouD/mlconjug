@@ -15,11 +15,11 @@ with open('INSTALL.rst') as installation_file:
     installation = installation_file.read()
 
 requirements = [
-    'cython==0.28.3',
+    'cython',
     'Click>=6.0',
-    'numpy==1.14.5',
-    'scipy==1.1.0',
-    'scikit-learn==0.19.1',
+    'numpy',
+    'scipy',
+    'scikit-learn',
 ]
 
 setup_requirements = [
@@ -38,7 +38,7 @@ test_requirements = [
 
 setup(
     name='mlconjug',
-    version='2.1.7',
+    version='2.1.7c',
     description="A Python library to conjugate French, English, Spanish, Italian, Portuguese and Romanian verbs using Machine Learning techniques.",
     long_description=readme + '\n\n' + installation + '\n\n' + history,
     author="SekouD",
