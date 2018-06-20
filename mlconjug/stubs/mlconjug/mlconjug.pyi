@@ -1,9 +1,9 @@
-# Stubs for mlconjug.mlconjug (Python 3.6)
+# Stubs for mlconjug.mlconjug (Python 3.4 to 3.6)
 
 from .PyVerbiste import Verb, Verbiste
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.base import BaseEstimator
-from typing import Any, Optional, Text, Dict, List, DefaultDict, KeysView, Union
+from typing import Optional, Text, Dict, List, DefaultDict, KeysView, Union
 
 
 _RESOURCE_PACKAGE: Text = __name__
