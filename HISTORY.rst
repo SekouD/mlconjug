@@ -2,6 +2,20 @@
 History
 =======
 
+
+2.1.10 (2018-06-21)
+------------------
+
+* Updated all provided pre-trained prediction models
+    - The French Conjugator has accuracy of about 99.94% in predicting the correct conjugation class of a French verb. This is the baseline as i have been working on it for some time now.
+    - The English Conjugator has accuracy of about 99.78% in predicting the correct conjugation class of an English verb. This is one of the biggest improvement since version 2.0.0
+    - The Spanish Conjugator has accuracy of about 99.65% in predicting the correct conjugation class of a Spanish verb. It has also seen a sizable improvement since version 2.0.0
+    - The Romanian Conjugator has accuracy of about 99.06% in predicting the correct conjugation class of a Romanian verb.This is by far the bigger gain. I modified the vectorizer to better take into account the morphological features or romanian verbs. (the previous score was about 86%, so it wil be nice for our romanian friends to have a trusted conjugator)
+    - The Portuguese Conjugator has accuracy of about 96.73% in predicting the correct conjugation class of a Portuguese verb.
+    - The Italian Conjugator has accuracy of about 94.05% in predicting the correct conjugation class of a Italian verb.
+
+
+
 2.1.9 (2018-06-21)
 ------------------
 
