@@ -4,7 +4,7 @@ History
 
 
 2.1.10 (2018-06-21)
-------------------
+-------------------
 
 * Updated all provided pre-trained prediction models
     - The French Conjugator has accuracy of about 99.94% in predicting the correct conjugation class of a French verb. This is the baseline as i have been working on it for some time now.
