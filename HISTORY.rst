@@ -3,7 +3,7 @@ History
 =======
 
 
-2.1.10 (2018-06-21)
+2.1.11 (2018-06-21)
 -------------------
 
 * Updated all provided pre-trained prediction models
