@@ -40,12 +40,12 @@ _VERBS = {'fr': VerbFr,
          'pt': VerbPt,
          'ro': VerbRo}
 
-_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr.pickle')),
-                          'it': '/'.join(('data', 'models', 'trained_model-it.pickle')),
-                          'es': '/'.join(('data', 'models', 'trained_model-es.pickle')),
-                          'en': '/'.join(('data', 'models', 'trained_model-en.pickle')),
-                          'pt': '/'.join(('data', 'models', 'trained_model-pt.pickle')),
-                          'ro': '/'.join(('data', 'models', 'trained_model-ro.pickle'))}
+_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-2018-06-21.pickle')),
+                          'it': '/'.join(('data', 'models', 'trained_model-it-2018-06-21.pickle')),
+                          'es': '/'.join(('data', 'models', 'trained_model-es-2018-06-21.pickle')),
+                          'en': '/'.join(('data', 'models', 'trained_model-en-2018-06-21.pickle')),
+                          'pt': '/'.join(('data', 'models', 'trained_model-pt-2018-06-21.pickle')),
+                          'ro': '/'.join(('data', 'models', 'trained_model-ro-2018-06-21.pickle'))}
 
 
 class Conjugator:
@@ -165,6 +165,47 @@ class EndingCountVectorizer(CountVectorizer):
         ngrams = [verb[-n:] for n in range(min_n, min(max_n + 1, verb_len + 1))]
         return ngrams
 
+
+class BetaEndingCountVectorizer(CountVectorizer):
+    """
+    | Custom Vectorizer optimized for extracting verbs features.
+    | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
+    | As in Indo-European languages verbs are inflected by adding a morphological suffix,
+    the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
+
+    | The features are the verb ending ngrams. (ngram_range is set at class instanciation).
+
+    """
+    def _char_ngrams(self, verb):
+        """
+        Parses a verb and returns the ending n-grams.
+
+        :param verb: string.
+            Verb to vectorize.
+        :return: list.
+            Final n-grams of the verb.
+
+        """
+
+        def _char_ngrams(self, verb):
+            """
+            Parses a verb and returns the ending n-grams.
+
+            :param verb: string.
+                Verb to vectorize.
+            :return: list.
+                Final n-grams of the verb.
+
+            """
+            verb = self._white_spaces.sub(" ", verb)
+            verb_len = len(verb)
+            length_feature = 'LEN{0}'.format(str(verb_len))
+            min_n, max_n = self.ngram_range
+            final_ngrams = ['END{0}'.format(verb[-n:]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
+            initial_ngrams = ['START{0}'.format(verb[:n]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
+            final_ngrams.extend(initial_ngrams)
+            final_ngrams.append(length_feature)
+            return final_ngrams
 
 
 class DataSet:
