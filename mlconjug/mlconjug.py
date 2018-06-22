@@ -42,26 +42,26 @@ _VERBS = {'fr': VerbFr,
           'ro': VerbRo,
           }
 
-_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-final.pickle')),
-                           'it': '/'.join(('data', 'models', 'trained_model-it-final.pickle')),
-                           'es': '/'.join(('data', 'models', 'trained_model-es-final.pickle')),
-                           'en': '/'.join(('data', 'models', 'trained_model-en-final.pickle')),
-                           'pt': '/'.join(('data', 'models', 'trained_model-pt-final.pickle')),
-                           'ro': '/'.join(('data', 'models', 'trained_model-ro-final.pickle')),
+_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-beta.pickle')),
+                           'it': '/'.join(('data', 'models', 'trained_model-it-beta.pickle')),
+                           'es': '/'.join(('data', 'models', 'trained_model-es-beta.pickle')),
+                           'en': '/'.join(('data', 'models', 'trained_model-en-beta.pickle')),
+                           'pt': '/'.join(('data', 'models', 'trained_model-pt-beta.pickle')),
+                           'ro': '/'.join(('data', 'models', 'trained_model-ro-beta.pickle')),
                            }
 
 _ALPHABET = {'fr': {'vowels':'aáàâeêéèiîïoôöœuûùy',
-                    'consonnants': 'bcçdfghjklmnpqrstvwxyz'},
+                    'consonants': 'bcçdfghjklmnpqrstvwxyz'},
              'en': {'vowels':'aeiouy',
-                    'consonnants': 'bcdfghjklmnpqrstvwxyz'},
+                    'consonants': 'bcdfghjklmnpqrstvwxyz'},
              'es': {'vowels':'aáeiíoóuúy',
-                    'consonnants': 'bcdfghjklmnñpqrstvwxyz'},
+                    'consonants': 'bcdfghjklmnñpqrstvwxyz'},
              'it': {'vowels':'aàeéèiìîoóòuùy',
-                    'consonnants': 'bcdfghjklmnpqrstvwxyz'},
+                    'consonants': 'bcdfghjklmnpqrstvwxyz'},
              'pt': {'vowels':'aàãááeêéiíoóõuúy',
-                    'consonnants': 'bcçdfghjklmnpqrstvwxyz'},
+                    'consonants': 'bcçdfghjklmnpqrstvwxyz'},
              'ro': {'vowels':'aăâeiîouy',
-                    'consonnants': 'bcdfghjklmnpqrsșştțţvwxyz'},
+                    'consonants': 'bcdfghjklmnpqrsșştțţvwxyz'},
             }
 
 
