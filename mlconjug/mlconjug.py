@@ -11,11 +11,7 @@ MLConjug Main module.
 
 from .PyVerbiste import Verbiste, VerbInfo, Verb, VerbEn, VerbEs, VerbFr, VerbIt, VerbPt, VerbRo
 
-from sklearn.feature_selection import SelectFromModel
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.svm import LinearSVC
-from sklearn.linear_model import SGDClassifier
-from sklearn.pipeline import Pipeline
+from .__init__ import Pipeline, SelectFromModel, CountVectorizer, LinearSVC, SGDClassifier
 
 import random
 from collections import defaultdict

@@ -1,9 +1,11 @@
 # Stubs for mlconjug.mlconjug (Python 3.4 to 3.6)
 
 from .PyVerbiste import Verb, Verbiste
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.base import BaseEstimator
-from typing import Optional, Text, Mapping, List, Sequence, DefaultDict, KeysView, Union
+
+# I am commenting out the sklearn imports because they have yet no stub files.
+# from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.base import BaseEstimator
+from typing import Optional, Text, Mapping, List, Sequence, DefaultDict, KeysView, Any
 
 
 _RESOURCE_PACKAGE: Text = __name__
@@ -69,9 +71,9 @@ class DataSet:
 class Model:
     pipeline: Model = ...
     def __init__(self,
-                 vectorizer: Optional[CountVectorizer] = ...,
-                 feature_selector: Optional[BaseEstimator] = ...,
-                 classifier: Optional[BaseEstimator] = ...
+                 vectorizer: Optional[Any] = ...,
+                 feature_selector: Optional[Any] = ...,
+                 classifier: Optional[Any] = ...
                  ) -> None: ...
 
     def __repr__(self) -> Text: ...
