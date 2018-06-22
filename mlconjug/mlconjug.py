@@ -182,7 +182,7 @@ class Conjugator:
         if predicted:
             verb_object = _VERBS[self.language](verb_info, conjug_info, subject, predicted)
             verb_object.predicted = predicted
-            verb_object.prediction_score = round(prediction_score, 3)
+            verb_object.confidence_score = round(prediction_score, 3)
         else:
             verb_object = _VERBS[self.language](verb_info, conjug_info, subject)
 
