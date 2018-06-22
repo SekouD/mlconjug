@@ -72,7 +72,7 @@ def extract_verb_features(verb, lang, ngram_range):
     | To enhance the results of the feature extration, several other features have been included:
 
     | The features are the verb's ending n-grams, starting n-grams, length of the verb, number of vowels,
-    | number of consonants and the ratio of vowels over consonants.
+     number of consonants and the ratio of vowels over consonants.
 
     :param verb: string.
         Verb to vectorize.
