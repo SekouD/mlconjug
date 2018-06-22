@@ -25,7 +25,11 @@ MLConjug
 
 .. image:: https://codecov.io/gh/SekouD/mlconjug/branch/master/graph/badge.svg
         :target: https://codecov.io/gh/SekouD/mlconjug
-        :alt: Coverage Status
+        :alt: Code Coverage Status
+
+.. image:: https://snyk.io/test/github/SekouD/mlconjug/badge.svg?targetFile=requirements.txt
+        :target: https://snyk.io/test/github/SekouD/mlconjug?targetFile=requirements.txt
+        :alt: Code Vulnerability Status
 
 
 | A Python library to conjugate verbs in French, English, Spanish, Italian, Portuguese and Romanian (more soon)
