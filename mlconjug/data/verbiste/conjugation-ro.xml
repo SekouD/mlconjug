@@ -48,7 +48,7 @@
     <!ATTLIST Conjunctiv
       xmlns CDATA #FIXED ''>
 
-    <!ELEMENT Infinitiv (Infinitiv-Infinitiv)>
+    <!ELEMENT Infinitiv (Infinitiv-Afirmativ)>
     <!ATTLIST Infinitiv
       xmlns CDATA #FIXED ''>
 
@@ -97,8 +97,8 @@
     <!ATTLIST Conjunctiv-perfect
       xmlns CDATA #FIXED ''>
 
-    <!ELEMENT Infinitiv-Infinitiv (p)>
-    <!ATTLIST Infinitiv-Infinitiv
+    <!ELEMENT Infinitiv-Afirmativ (p)>
+    <!ATTLIST Infinitiv-Afirmativ
       xmlns CDATA #FIXED ''>
 
     <!ELEMENT Perfect-simplu (p)+>
@@ -196,9 +196,9 @@
 		</Conjunctiv-prezent>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>vea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 </template>
 
@@ -242,9 +242,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -388,9 +388,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>re</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -534,9 +534,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -680,9 +680,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -826,9 +826,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rmi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -972,9 +972,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1118,9 +1118,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>fi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1264,9 +1264,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i></i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1410,9 +1410,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>lua</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1556,9 +1556,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ânca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1702,9 +1702,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ărea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1848,9 +1848,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -1994,9 +1994,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>utea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2140,9 +2140,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>e</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2286,9 +2286,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăla</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2432,9 +2432,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2578,9 +2578,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>e</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2724,9 +2724,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -2870,9 +2870,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>î</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3016,9 +3016,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>edea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3162,9 +3162,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eni</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3308,9 +3308,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>vrea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3454,9 +3454,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ate</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3600,9 +3600,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3746,9 +3746,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -3892,9 +3892,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ce</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4038,9 +4038,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4184,9 +4184,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4330,9 +4330,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4476,9 +4476,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rbi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4622,9 +4622,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>age</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4768,9 +4768,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -4914,9 +4914,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ce</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5060,9 +5060,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăţa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5206,9 +5206,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăţăra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5352,9 +5352,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5498,9 +5498,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eri</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5644,9 +5644,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>da</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5790,9 +5790,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăuga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -5936,9 +5936,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6082,9 +6082,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>te</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6228,9 +6228,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ce</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6374,9 +6374,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6520,9 +6520,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>epta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6666,9 +6666,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6812,9 +6812,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -6958,9 +6958,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7104,9 +7104,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7250,9 +7250,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7396,9 +7396,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7542,9 +7542,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7688,9 +7688,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7834,9 +7834,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăsa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -7980,9 +7980,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8126,9 +8126,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8272,9 +8272,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rde</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8418,9 +8418,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ţi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8564,9 +8564,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eza</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8710,9 +8710,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>pta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -8856,9 +8856,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9002,9 +9002,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>sta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9148,9 +9148,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9294,9 +9294,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i></i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9440,9 +9440,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9586,9 +9586,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>sca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9732,9 +9732,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -9878,9 +9878,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10024,9 +10024,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>zi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10170,9 +10170,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10316,9 +10316,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10462,9 +10462,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i></i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10608,9 +10608,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i></i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10754,9 +10754,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -10900,9 +10900,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11046,9 +11046,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ădea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11192,9 +11192,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ălca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11338,9 +11338,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11484,9 +11484,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11630,9 +11630,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăsca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11776,9 +11776,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăuta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -11922,9 +11922,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12068,9 +12068,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ătina</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12214,9 +12214,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ace</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12360,9 +12360,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>oase</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12506,9 +12506,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rî</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12652,9 +12652,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>sta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12798,9 +12798,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -12944,9 +12944,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>anda</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13090,9 +13090,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>te</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13236,9 +13236,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăcea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13382,9 +13382,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13528,9 +13528,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>pe</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13674,9 +13674,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ște</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13820,9 +13820,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -13966,9 +13966,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ce</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14112,9 +14112,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14258,9 +14258,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>udrir;odrir</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14404,9 +14404,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>urna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14550,9 +14550,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14696,9 +14696,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>e</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14842,9 +14842,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>si</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -14988,9 +14988,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăpa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15134,9 +15134,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15280,9 +15280,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15426,9 +15426,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>aște</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15572,9 +15572,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăţa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15718,9 +15718,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -15864,9 +15864,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eni</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16010,9 +16010,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăpăra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16156,9 +16156,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăpăna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16302,9 +16302,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16448,9 +16448,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăsa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16594,9 +16594,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16740,9 +16740,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>chea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -16886,9 +16886,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ana</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17032,9 +17032,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>păra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17178,9 +17178,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăleca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17324,9 +17324,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ălţa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17470,9 +17470,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ărca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17616,9 +17616,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17762,9 +17762,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eri</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -17908,9 +17908,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18054,9 +18054,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18200,9 +18200,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ia</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18346,9 +18346,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăma</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18492,9 +18492,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rţi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18638,9 +18638,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uia</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18784,9 +18784,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ura</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -18930,9 +18930,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ela</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19076,9 +19076,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19222,9 +19222,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>pa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19368,9 +19368,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăţa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19514,9 +19514,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>nţi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19660,9 +19660,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>da</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19806,9 +19806,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -19952,9 +19952,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20098,9 +20098,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20244,9 +20244,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>te</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20390,9 +20390,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>era</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20536,9 +20536,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20682,9 +20682,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>sifica</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20828,9 +20828,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -20974,9 +20974,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ermeca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21120,9 +21120,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rbe</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21266,9 +21266,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rfeca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21412,9 +21412,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21558,9 +21558,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21704,9 +21704,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21850,9 +21850,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăgăi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -21996,9 +21996,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>me</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22142,9 +22142,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ti</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22288,9 +22288,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22434,9 +22434,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ămăi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22580,9 +22580,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ărţui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22726,9 +22726,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>tui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -22872,9 +22872,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eși</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23018,9 +23018,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>implanta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23164,9 +23164,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>și</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23310,9 +23310,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăiera</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23456,9 +23456,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>incarna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23602,9 +23602,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>voia</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23748,9 +23748,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>mna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -23894,9 +23894,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>aţișa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24040,9 +24040,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ingrădi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24186,9 +24186,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ingrămădi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24332,9 +24332,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ășa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24478,9 +24478,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>îngrozi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24624,9 +24624,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>îngurlui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24770,9 +24770,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>îngusta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -24916,9 +24916,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>înhăita</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25062,9 +25062,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăţa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25208,9 +25208,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25354,9 +25354,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>insera</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25500,9 +25500,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>arce</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25646,9 +25646,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăia</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25792,9 +25792,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>se</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -25938,9 +25938,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26084,9 +26084,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26230,9 +26230,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26376,9 +26376,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăsa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26522,9 +26522,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ătra</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26668,9 +26668,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ania</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26814,9 +26814,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>euna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -26960,9 +26960,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>si</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27106,9 +27106,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27252,9 +27252,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uia</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27398,9 +27398,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uri</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27544,9 +27544,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>aște</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27690,9 +27690,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>za</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27836,9 +27836,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>za</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -27982,9 +27982,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28128,9 +28128,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28274,9 +28274,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>te</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28420,9 +28420,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28566,9 +28566,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>asa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28712,9 +28712,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăpa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -28858,9 +28858,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ârlogi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29004,9 +29004,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>așli</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29150,9 +29150,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eri</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29296,9 +29296,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>erde</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29442,9 +29442,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>sa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29588,9 +29588,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>da</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29734,9 +29734,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -29880,9 +29880,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>urta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30026,9 +30026,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ade</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30172,9 +30172,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăgila</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30318,9 +30318,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30464,9 +30464,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ări</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30610,9 +30610,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rbe</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30756,9 +30756,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i></i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -30902,9 +30902,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ama</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31048,9 +31048,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ândui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31194,9 +31194,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăni</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31340,9 +31340,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ate</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31486,9 +31486,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ma</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31632,9 +31632,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>eri</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31778,9 +31778,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ca</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -31924,9 +31924,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>zi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32070,9 +32070,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>enta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32216,9 +32216,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>urta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32362,9 +32362,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>mţi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32508,9 +32508,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ărsa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32654,9 +32654,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>inde</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32800,9 +32800,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>zema</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -32946,9 +32946,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ade</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33092,9 +33092,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>aniza</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33238,9 +33238,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>uga</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33384,9 +33384,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ălta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33530,9 +33530,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>atura</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33676,9 +33676,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ălda</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33822,9 +33822,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -33968,9 +33968,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ate</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34114,9 +34114,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ula</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34260,9 +34260,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>măna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34406,9 +34406,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>i</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34552,9 +34552,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34698,9 +34698,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>zi</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34844,9 +34844,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ti</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -34990,9 +34990,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ni</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35136,9 +35136,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>de</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35282,9 +35282,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>da</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35428,9 +35428,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ne</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35574,9 +35574,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>edea</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35720,9 +35720,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>soma</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -35866,9 +35866,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>spiona</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36012,9 +36012,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rge</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36158,9 +36158,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>a</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36304,9 +36304,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăbărî</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36450,9 +36450,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>te</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36596,9 +36596,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>nde</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36742,9 +36742,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăda</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -36888,9 +36888,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ălta</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37034,9 +37034,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ărsa</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37180,9 +37180,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ătăma</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37326,9 +37326,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>î</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37472,9 +37472,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ănţui</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37618,9 +37618,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>ăna</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
@@ -37764,9 +37764,9 @@
 		</Conjunctiv-perfect>
 	</Conjunctiv>
 	<Infinitiv>
-		<Infinitiv-Infinitiv>
+		<Infinitiv-Afirmativ>
 			<p><i>rli</i></p>
-		</Infinitiv-Infinitiv>
+		</Infinitiv-Afirmativ>
 	</Infinitiv>
 	<Perfect>
 		<Perfect-simplu>
