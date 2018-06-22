@@ -123,8 +123,8 @@ class Conjugator:
         self.data_set.split_data(proportion=0.9)
         if not model:
             with ZipFile(pkg_resources.resource_stream(
-                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language]).read()) as content:
-                with content.open('trained_model-{0}-beta.pickle', 'rb') as archive:
+                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
+                with content.open('trained_model-{0}-beta.pickle'.format(self.language), 'r') as archive:
                     model = pickle.loads(archive.read())
         self.model = model
         return
