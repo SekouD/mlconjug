@@ -323,7 +323,7 @@ class Verb:
         Indicates if the conjugation information was predicted by the model or retrieved from the dataset.
 
     """
-    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted', 'prediction_score')
+    __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted', 'confidence_score')
 
     language = 'default'
 
@@ -333,7 +333,7 @@ class Verb:
         self.conjug_info = conjug_info
         self.subject = subject
         self.predicted = predicted
-        self.prediction_score = None
+        self.confidence_score = None
         self._load_conjug()
         return
 
