@@ -12,6 +12,12 @@ _VERBS: Mapping[Text, Verb]
 _PRE_TRAINED_MODEL_PATH: Mapping[Text, Text]
 
 
+def extract_verb_features(verb: Text,
+                              lang: Text,
+                              ngram_range: Text
+                              ) -> Sequence[Text]: ...
+
+
 class Conjugator:
     language: Text = ...
     # verbiste: Verbiste = ...
@@ -33,13 +39,6 @@ class Conjugator:
                   model: Model
                   ) -> None: ...
 
-
-class CustomVectorizer():
-    @staticmethod
-    def extract_verb_features(verb: Text,
-                              lang: Text,
-                              ngram_range: Text
-                              ) -> Sequence[Text]: ...
 
 class DataSet:
     verbiste: Verbiste = ...
@@ -70,7 +69,7 @@ class DataSet:
 class Model:
     pipeline: Model = ...
     def __init__(self,
-                 vectorizer: Optional[Union[EndingCountVectorizer, CountVectorizer]] = ...,
+                 vectorizer: Optional[CountVectorizer] = ...,
                  feature_selector: Optional[BaseEstimator] = ...,
                  classifier: Optional[BaseEstimator] = ...
                  ) -> None: ...
