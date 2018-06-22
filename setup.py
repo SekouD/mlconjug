@@ -14,6 +14,9 @@ with open('HISTORY.rst') as history_file:
 with open('INSTALL.rst') as installation_file:
     installation = installation_file.read()
 
+with open('docs/usage.rst') as usage_file:
+    usage = usage_file.read()
+
 requirements = [
     'cython',
     'Click>=6.0',
@@ -40,7 +43,7 @@ setup(
     name='mlconjug',
     version='3.0.0',
     description="A Python library to conjugate French, English, Spanish, Italian, Portuguese and Romanian verbs using Machine Learning techniques.",
-    long_description=readme + '\n\n' + installation + '\n\n' + history,
+    long_description=readme + '\n\n' + installation + '\n\n' + usage + '\n\n' + history,
     author="SekouD",
     author_email='sekoud.python@gmail.com',
     url='https://github.com/SekouD/mlconjug',
