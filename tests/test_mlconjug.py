@@ -11,12 +11,14 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
 
+from functools import partial
+
 from click.testing import CliRunner
 
 from collections import OrderedDict
 
-from mlconjug import Conjugator, EndingCountVectorizer, DataSet, Model,\
-    LinearSVC, SGDClassifier,SelectFromModel
+from mlconjug import Conjugator, CustomVectorizer, DataSet, Model,\
+    LinearSVC, SGDClassifier,SelectFromModel, CountVectorizer
 
 from mlconjug import Verbiste, VerbInfo, Verb, VerbEn,\
     VerbEs, VerbFr, VerbIt, VerbPt, VerbRo
@@ -106,7 +108,8 @@ class TestVerb:
 
 class TestEndingCountVectorizer:
     ngrange = (2, 7)
-    vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=ngrange)
+    custom_vectorizer = partial(CustomVectorizer.extract_verb_features, lang='fr', ngram_range=ngrange)
+    vectorizer = CountVectorizer(analyzer=custom_vectorizer, binary=True, ngram_range=ngrange)
     def test_char_ngrams(self):
         ngrams = self.vectorizer._char_ngrams('aller')
         assert 'ller' in ngrams
@@ -153,7 +156,8 @@ class TestDataSet:
 
 
 class TestModel:
-    vectorizer = EndingCountVectorizer(analyzer="char", binary=True, ngram_range=(2, 7))
+    extract_verb_features = CustomVectorizer.extract_verb_features
+    vectorizer = CountVectorizer(analyzer=partial(extract_verb_features, lang='fr', ngram_range=(2,7)), binary=True, ngram_range=(2, 7))
     # Feature reduction
     feature_reductor = SelectFromModel(
         LinearSVC(penalty="l1", max_iter=3000, dual=False, verbose=2))

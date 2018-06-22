@@ -1,6 +1,6 @@
 # Stubs for mlconjug.PyVerbiste (Python 3.4 to 3.6)
 
-from typing import Text, Sequence, Mapping, Tuple, Optional, Union, Set, TextIO
+from typing import Text, Sequence, Mapping, Dict, Tuple, Optional, Union, Set, TextIO
 
 __author__: Text
 __author_email__: Text
@@ -16,8 +16,8 @@ _NEGATION: Mapping[Text, Text]
 
 # Declare Complex types for clarity.
 _VerbsDict = Mapping[Text, Mapping[Text, Text]]
-_Tense = Sequence[Optional[Tuple[int,Text]]]
-_Mood = Union[Text, _Tense]
+_Tense = Mapping[Text, Sequence[Optional[Tuple[int,Text]]]]
+_Mood = Dict[Text, Union[Text, _Tense]]
 _ConjugInfo = Mapping[Text, _Mood]
 _Conjugations = Mapping[Text, _ConjugInfo]
 _PathLike = Union[Text, TextIO]
@@ -25,7 +25,7 @@ _PathLike = Union[Text, TextIO]
 
 class Verbiste:
     language: Text = ...
-    verbs: _PathLike = ...
+    verbs: Mapping[Text, Mapping[Text, Text]] = ...
     conjugations: _Conjugations = ...
     _allowed_endings: Set[Text] = ...
     templates: Sequence[Text] = ...
@@ -96,6 +96,7 @@ class Verb:
     conjug_info: _ConjugInfo = ...
     subject: Text = ...
     predicted: bool = ...
+    prediction_score: Optional[float] = ...
     def __init__(self,
                  verb_info: VerbInfo,
                  conjug_info: _ConjugInfo,

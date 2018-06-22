@@ -4,7 +4,7 @@
 MLConjug.
 
 A Python library to conjugate verbs of in French, English, Spanish, Italian, Portuguese and Romanian (mores soon) using Machine Learning techniques.
-Any verb in one of the supported language can be conjugated as the module contains a Machine Learning model of how the verbs behave.
+Any verb in one of the supported language can be conjugated as the module contains a Machine Learning pipeline of how the verbs behave.
 Even completely new or made-up verbs can be successfully conjugated in this manner.
 The supplied pre-trained models are composed of:
 
@@ -13,7 +13,7 @@ The supplied pre-trained models are composed of:
 - a classifier using Stochastic Gradient Descent.
 
 MLConjug uses scikit-learn to implement the Machine Learning algorithms.
-Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the model.
+Users of the library can use any compatible classifiers from scikit-learn to modify and retrain the pipeline.
 
 Usage example:
     $ mlconjug manger
@@ -26,7 +26,7 @@ Usage example:
 
 __author__ = """SekouD"""
 __email__ = 'sekoud.python@gmail.com'
-__version__ = '2.1.10'
+__version__ = '2.1.11'
 __copyright__ = "Copyright (c) 2017, SekouD"
 __credits__ = ("Pierre Sarrazin",)
 __license__ = "MIT"

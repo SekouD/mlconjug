@@ -331,7 +331,7 @@ class Verb:
         self.conjug_info = conjug_info
         self.subject = subject
         self.predicted = predicted
-        self.prediction_score = 0
+        self.prediction_score = None
         self._load_conjug()
         return
 
