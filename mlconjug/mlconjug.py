@@ -28,19 +28,19 @@ import re
 _RESOURCE_PACKAGE = __name__
 
 _LANGUAGE_FULL = {'fr': 'Français',
-                 'en': 'English',
-                 'es': 'Español',
-                 'it': 'Italiano',
-                 'pt': 'Português',
-                 'ro': 'Română',
+                  'en': 'English',
+                  'es': 'Español',
+                  'it': 'Italiano',
+                  'pt': 'Português',
+                  'ro': 'Română',
                   }
 
 _VERBS = {'fr': VerbFr,
-         'en': VerbEn,
-         'es': VerbEs,
-         'it': VerbIt,
-         'pt': VerbPt,
-         'ro': VerbRo,
+          'en': VerbEn,
+          'es': VerbEs,
+          'it': VerbIt,
+          'pt': VerbPt,
+          'ro': VerbRo,
           }
 
 _PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-final.pickle')),
@@ -66,7 +66,45 @@ _ALPHABET = {'fr': {'vowels':'aáàâeêéèiîïoôöœuûùy',
             }
 
 
+def extract_verb_features(verb, lang, ngram_range):
+    """
+    | Custom Vectorizer optimized for extracting verbs features.
+    | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
+    | As in Indo-European languages verbs are inflected by adding a morphological suffix,
+    the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
 
+    | The features are the verb ending n-grams, starting n-grams, length of verb, number of vowels,
+    | number of consonants and the ratio of vowels over consonants.
+
+    :param verb: string.
+        Verb to vectorize.
+    :param lang: string.
+        Language to analyze.
+    :param ngram_range: tuple.
+        The range of the ngram sliding window.
+    :return: list.
+        List of the most salient features of the verb for the task of finding it's conjugation's class.
+
+    """
+    _white_spaces = re.compile(r"\s\s+")
+    verb = _white_spaces.sub(" ", verb)
+    verb = verb.lower()
+    verb_len = len(verb)
+    length_feature = 'LEN={0}'.format(str(verb_len))
+    min_n, max_n = ngram_range
+    final_ngrams = ['END={0}'.format(verb[-n:]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
+    initial_ngrams = ['START={0}'.format(verb[:n]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
+    vowels = sum(verb.count(c) for c in _ALPHABET[lang]['vowels'])
+    vowels_number = 'VOW_NUM={0}'.format(vowels)
+    consonants = sum(verb.count(c) for c in _ALPHABET[lang]['consonants'])
+    consonants_number = 'CONS_NUM={0}'.format(consonants)
+    if consonants == 0:
+        vow_cons_ratio = 'V/C=N/A'
+    else:
+        vow_cons_ratio = 'V/C={0}'.format(round(vowels / consonants, 2))
+    final_ngrams.extend(initial_ngrams)
+    final_ngrams.extend((length_feature, vowels_number, consonants_number, vow_cons_ratio))
+    return final_ngrams
 
 
 class Conjugator:
@@ -159,53 +197,6 @@ class Conjugator:
         return
 
 
-
-class CustomVectorizer():
-    """
-    | Custom Vectorizer optimized for extracting verbs features.
-    | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
-    | As in Indo-European languages verbs are inflected by adding a morphological suffix,
-    the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
-
-    | The features are the verb ending n-grams, starting n-grams, length of verb, number of vowels, number of consonnants and the ratio of vowels over consonnants.
-
-    """
-    @staticmethod
-    def extract_verb_features(verb, lang, ngram_range):
-        """
-        Parses a verb and returns the features of the verb.
-
-        :param verb: string.
-            Verb to vectorize.
-        :param lang: string.
-            Language to analyze.
-        :param ngram_range: tuple.
-            The range of the ngram sliding window.
-        :return: list.
-            List of the most salient features of the verb for the task of finding it's conjugation's class.
-
-        """
-        _white_spaces = re.compile(r"\s\s+")
-        verb = _white_spaces.sub(" ", verb)
-        verb = verb.lower()
-        verb_len = len(verb)
-        length_feature = 'LEN={0}'.format(str(verb_len))
-        min_n, max_n = ngram_range
-        final_ngrams = ['END={0}'.format(verb[-n:]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
-        initial_ngrams = ['START={0}'.format(verb[:n]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
-        vowels = sum(verb.count(c) for c in _ALPHABET[lang]['vowels'])
-        vowels_number = 'VOW_NUM={0}'.format(vowels)
-        consonnants = sum(verb.count(c) for c in _ALPHABET[lang]['consonnants'])
-        consonnants_number = 'CONS_NUM={0}'.format(consonnants)
-        if consonnants == 0:
-            vow_cons_ratio = 'V/C=N/A'
-        else:
-            vow_cons_ratio = 'V/C={0}'.format(round(vowels / consonnants, 2))
-        final_ngrams.extend(initial_ngrams)
-        final_ngrams.extend((length_feature, vowels_number, consonnants_number, vow_cons_ratio))
-        return final_ngrams
-
-
 class DataSet:
     """
     | This class holds and manages the data set.
@@ -296,7 +287,7 @@ class Model(object):
     """
     def __init__(self, vectorizer=None, feature_selector=None, classifier=None):
         if not vectorizer:
-            vectorizer = CountVectorizer(analyzer=CustomVectorizer.extract_verb_features, binary=True, ngram_range=(2, 7))
+            vectorizer = CountVectorizer(analyzer=extract_verb_features, binary=True, ngram_range=(2, 7))
         if not feature_selector:
             feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=12000, dual=False, verbose=2))
         if not classifier:
