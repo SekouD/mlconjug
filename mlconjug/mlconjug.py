@@ -19,7 +19,7 @@ import pickle
 import pkg_resources
 import re
 from zipfile import ZipFile
-
+from functools import partial
 
 _RESOURCE_PACKAGE = __name__
 
@@ -47,19 +47,19 @@ _PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-b
                            'ro': '/'.join(('data', 'models', 'trained_model-ro-beta.zip')),
                            }
 
-_ALPHABET = {'fr': {'vowels':'aáàâeêéèiîïoôöœuûùy',
+_ALPHABET = {'fr': {'vowels': 'aáàâeêéèiîïoôöœuûùy',
                     'consonants': 'bcçdfghjklmnpqrstvwxyz'},
-             'en': {'vowels':'aeiouy',
+             'en': {'vowels': 'aeiouy',
                     'consonants': 'bcdfghjklmnpqrstvwxyz'},
-             'es': {'vowels':'aáeiíoóuúy',
+             'es': {'vowels': 'aáeiíoóuúy',
                     'consonants': 'bcdfghjklmnñpqrstvwxyz'},
-             'it': {'vowels':'aàeéèiìîoóòuùy',
+             'it': {'vowels': 'aàeéèiìîoóòuùy',
                     'consonants': 'bcdfghjklmnpqrstvwxyz'},
-             'pt': {'vowels':'aàãááeêéiíoóõuúy',
+             'pt': {'vowels': 'aàãááeêéiíoóõuúy',
                     'consonants': 'bcçdfghjklmnpqrstvwxyz'},
-             'ro': {'vowels':'aăâeiîouy',
+             'ro': {'vowels': 'aăâeiîouy',
                     'consonants': 'bcdfghjklmnpqrsșştțţvwxyz'},
-            }
+             }
 
 
 def extract_verb_features(verb, lang, ngram_range):
@@ -67,9 +67,11 @@ def extract_verb_features(verb, lang, ngram_range):
     | Custom Vectorizer optimized for extracting verbs features.
     | The Vectorizer subclasses sklearn.feature_extraction.text.CountVectorizer .
     | As in Indo-European languages verbs are inflected by adding a morphological suffix,
-    the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
+     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
 
-    | The features are the verb's ending n-grams, starting n-grams, length of verb, number of vowels,
+    | To enhance the results of the feature extration, several other features have been included:
+
+    | The features are the verb's ending n-grams, starting n-grams, length of the verb, number of vowels,
     | number of consonants and the ratio of vowels over consonants.
 
     :param verb: string.
@@ -90,6 +92,8 @@ def extract_verb_features(verb, lang, ngram_range):
     min_n, max_n = ngram_range
     final_ngrams = ['END={0}'.format(verb[-n:]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
     initial_ngrams = ['START={0}'.format(verb[:n]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
+    if lang not in _ALPHABET:
+        lang = 'en' # We chose 'en' as the default alphabet because english is more standard, without accents or diactrics.
     vowels = sum(verb.count(c) for c in _ALPHABET[lang]['vowels'])
     vowels_number = 'VOW_NUM={0}'.format(vowels)
     consonants = sum(verb.count(c) for c in _ALPHABET[lang]['consonants'])
@@ -112,18 +116,18 @@ class Conjugator:
 
     :param language: string.
         Language of the conjugator. The default language is 'fr' for french.
-    :param model: string.
+    :param model: mlconjug.Model or scikit-learn Pipeline or Classifier implement the fit() and predict() methods.
         A user provided pipeline if the user has trained his own pipeline.
 
     """
+
     def __init__(self, language='fr', model=None):
         self.language = language
-        # self.verbiste = Verbiste(language=language)
         self.data_set = DataSet(Verbiste(language=language))
         self.data_set.split_data(proportion=0.9)
         if not model:
             with ZipFile(pkg_resources.resource_stream(
-                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
+                    _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
                 with content.open('trained_model-{0}-beta.pickle'.format(self.language), 'r') as archive:
                     model = pickle.loads(archive.read())
         self.model = model
@@ -152,7 +156,8 @@ class Conjugator:
         """
         prediction_score = 0
         if not self.data_set.verbiste.is_valid_verb(verb):
-            raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
+            raise ValueError(
+                _('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
         if verb not in self.data_set.verbiste.verbs.keys():
             if self.model is None:
                 return None
@@ -203,6 +208,7 @@ class DataSet:
         Instance of a Verbiste object.
 
     """
+
     def __init__(self, VerbisteObj):
         self.verbiste = VerbisteObj
         self.verbs = self.verbiste.verbs.keys()
@@ -275,16 +281,18 @@ class Model(object):
     | This class manages the scikit-learn pipeline.
     | The Pipeline includes a feature vectorizer, a feature selector and a classifier.
     | If any of the vectorizer, feature selector or classifier is not supplied at instance declaration,
-    the __init__ method will provide good default values that get more than 92% prediction accuracy.
+     the __init__ method will provide good default values that get more than 92% prediction accuracy.
 
     :param vectorizer: scikit-learn Vectorizer.
     :param feature_selector: scikit-learn Classifier with a fit_transform() method
     :param classifier: scikit-learn Classifier with a predict() method
+    :param language: language of the corpus of verbs to be analyzed.
 
     """
-    def __init__(self, vectorizer=None, feature_selector=None, classifier=None):
+
+    def __init__(self, vectorizer=None, feature_selector=None, classifier=None, language=None):
         if not vectorizer:
-            vectorizer = CountVectorizer(analyzer=extract_verb_features, binary=True, ngram_range=(2, 7))
+            vectorizer = CountVectorizer(analyzer=partial(extract_verb_features, lang=language, ngram_range=(2, 7)), binary=True)
         if not feature_selector:
             feature_selector = SelectFromModel(LinearSVC(penalty='l1', max_iter=12000, dual=False, verbose=2))
         if not classifier:
@@ -293,6 +301,7 @@ class Model(object):
         self.pipeline = Pipeline([('vectorizer', vectorizer),
                                   ('feature_selector', feature_selector),
                                   ('classifier', classifier)])
+        self.language = language
         return
 
     def __repr__(self):
