@@ -17,7 +17,7 @@ from click.testing import CliRunner
 
 from collections import OrderedDict
 
-from mlconjug import Conjugator, CustomVectorizer, DataSet, Model,\
+from mlconjug import Conjugator, DataSet, Model, extract_verb_features,\
     LinearSVC, SGDClassifier,SelectFromModel, CountVectorizer
 
 from mlconjug import Verbiste, VerbInfo, Verb, VerbEn,\
@@ -108,7 +108,7 @@ class TestVerb:
 
 class TestEndingCountVectorizer:
     ngrange = (2, 7)
-    custom_vectorizer = partial(CustomVectorizer.extract_verb_features, lang='fr', ngram_range=ngrange)
+    custom_vectorizer = partial(extract_verb_features, lang='fr', ngram_range=ngrange)
     vectorizer = CountVectorizer(analyzer=custom_vectorizer, binary=True, ngram_range=ngrange)
     def test_char_ngrams(self):
         ngrams = self.vectorizer._char_ngrams('aller')
@@ -156,7 +156,7 @@ class TestDataSet:
 
 
 class TestModel:
-    extract_verb_features = CustomVectorizer.extract_verb_features
+    extract_verb_features = extract_verb_features
     vectorizer = CountVectorizer(analyzer=partial(extract_verb_features, lang='fr', ngram_range=(2,7)), binary=True, ngram_range=(2, 7))
     # Feature reduction
     feature_reductor = SelectFromModel(
