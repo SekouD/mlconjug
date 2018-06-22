@@ -3,6 +3,23 @@ History
 =======
 
 
+3.0.1 (2018-06-22)
+-------------------
+
+* Updated all provided pre-trained prediction models:
+    - Implemented a new vectrorizer extracting more meaningful features.
+    - As a result the performance of the models has gone through the roof in all languages.
+    - Recall and Precision are intesimally close to 100 %. English being the anly to achieve a perfect score at both Recall and Precision.
+
+* Major API changes:
+    - I removed the class EndingCustomVectorizer and refactored it's functionnality in a top level function called extract_verb_features()
+    - The provided new improved model are now being zip compressed before release because the feature space has so much grown that their size made them impractical to distribute with the package.
+    - Renamed "Model.model" to "Model.pipeline"
+    - Renamed "liste_verbes" and "liste_templates" to "verbs_list" and "templates_list" respectively. (Pardon my french ;-) )
+    - Added the attributes "predicted" and "prediction_score" to the class Verb.
+    - The whole package have been typed check. I will soon add mlconjug's type stubs to typeshed.
+
+
 2.1.11 (2018-06-21)
 -------------------
 
@@ -13,7 +30,6 @@ History
     - The Romanian Conjugator has accuracy of about 99.06% in predicting the correct conjugation class of a Romanian verb.This is by far the bigger gain. I modified the vectorizer to better take into account the morphological features or romanian verbs. (the previous score was about 86%, so it wil be nice for our romanian friends to have a trusted conjugator)
     - The Portuguese Conjugator has accuracy of about 96.73% in predicting the correct conjugation class of a Portuguese verb.
     - The Italian Conjugator has accuracy of about 94.05% in predicting the correct conjugation class of a Italian verb.
-
 
 
 2.1.9 (2018-06-21)
