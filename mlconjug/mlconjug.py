@@ -154,6 +154,7 @@ class Conjugator:
         :return: Verb object or None.
 
         """
+        verb = verb.lower()
         prediction_score = 0
         if not self.data_set.verbiste.is_valid_verb(verb):
             raise ValueError(
