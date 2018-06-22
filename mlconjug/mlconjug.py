@@ -18,6 +18,7 @@ from collections import defaultdict
 import pickle
 import pkg_resources
 import re
+from zipfile import ZipFile
 
 
 _RESOURCE_PACKAGE = __name__
@@ -38,12 +39,12 @@ _VERBS = {'fr': VerbFr,
           'ro': VerbRo,
           }
 
-_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-beta.pickle')),
-                           'it': '/'.join(('data', 'models', 'trained_model-it-beta.pickle')),
-                           'es': '/'.join(('data', 'models', 'trained_model-es-beta.pickle')),
-                           'en': '/'.join(('data', 'models', 'trained_model-en-beta.pickle')),
-                           'pt': '/'.join(('data', 'models', 'trained_model-pt-beta.pickle')),
-                           'ro': '/'.join(('data', 'models', 'trained_model-ro-beta.pickle')),
+_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-beta.zip')),
+                           'it': '/'.join(('data', 'models', 'trained_model-it-beta.zip')),
+                           'es': '/'.join(('data', 'models', 'trained_model-es-beta.zip')),
+                           'en': '/'.join(('data', 'models', 'trained_model-en-beta.zip')),
+                           'pt': '/'.join(('data', 'models', 'trained_model-pt-beta.zip')),
+                           'ro': '/'.join(('data', 'models', 'trained_model-ro-beta.zip')),
                            }
 
 _ALPHABET = {'fr': {'vowels':'aáàâeêéèiîïoôöœuûùy',
@@ -121,8 +122,10 @@ class Conjugator:
         self.data_set = DataSet(Verbiste(language=language))
         self.data_set.split_data(proportion=0.9)
         if not model:
-            model = pickle.loads(pkg_resources.resource_stream(
-                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language]).read())
+            with ZipFile(pkg_resources.resource_stream(
+                _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language]).read()) as content:
+                with content.open('trained_model-{0}-beta.pickle', 'rb') as archive:
+                    model = pickle.loads(archive.read())
         self.model = model
         return
 
