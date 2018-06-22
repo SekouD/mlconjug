@@ -15,8 +15,8 @@ History
     - I removed the class EndingCustomVectorizer and refactored it's functionnality in a top level function called extract_verb_features()
     - The provided new improved model are now being zip compressed before release because the feature space has so much grown that their size made them impractical to distribute with the package.
     - Renamed "Model.model" to "Model.pipeline"
-    - Renamed "liste_verbes" and "liste_templates" to "verbs_list" and "templates_list" respectively. (Pardon my french ;-) )
-    - Added the attributes "predicted" and "prediction_score" to the class Verb.
+    - Renamed "DataSet.liste_verbes" and "DataSet.liste_templates" to "DataSet.verbs_list" and "DataSet.templates_list" respectively. (Pardon my french ;-) )
+    - Added the attributes "predicted" and "confidence_score" to the class Verb.
     - The whole package have been typed check. I will soon add mlconjug's type stubs to typeshed.
 
 
