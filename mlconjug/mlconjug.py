@@ -9,7 +9,6 @@ MLConjug Main module.
 
 """
 
-# from mlconjug import _RESOURCE_PACKAGE, _LANGUAGE_FULL
 from .PyVerbiste import Verbiste, VerbInfo, Verb, VerbEn, VerbEs, VerbFr, VerbIt, VerbPt, VerbRo
 
 from sklearn.feature_selection import SelectFromModel
@@ -73,7 +72,7 @@ def extract_verb_features(verb, lang, ngram_range):
     | As in Indo-European languages verbs are inflected by adding a morphological suffix,
     the vectorizer extracts verb endings and produces a vector representation of the verb with binary features.
 
-    | The features are the verb ending n-grams, starting n-grams, length of verb, number of vowels,
+    | The features are the verb's ending n-grams, starting n-grams, length of verb, number of vowels,
     | number of consonants and the ratio of vowels over consonants.
 
     :param verb: string.
@@ -153,7 +152,6 @@ class Conjugator:
 
         """
         prediction_score = 0
-        predicted = False
         if not self.data_set.verbiste.is_valid_verb(verb):
             raise ValueError(_('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
         if verb not in self.data_set.verbiste.verbs.keys():
