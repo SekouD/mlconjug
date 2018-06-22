@@ -28,44 +28,44 @@ _RESOURCE_PACKAGE = __name__
 _LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
 _VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
-                       'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
-                       'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
-                       'en': '/'.join(('data', 'verbiste', 'verbs-en.xml')),
-                       'pt': '/'.join(('data', 'verbiste', 'verbs-pt.xml')),
-                       'ro': '/'.join(('data', 'verbiste', 'verbs-ro.xml')),}
+                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
+                        'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
+                        'en': '/'.join(('data', 'verbiste', 'verbs-en.xml')),
+                        'pt': '/'.join(('data', 'verbiste', 'verbs-pt.xml')),
+                        'ro': '/'.join(('data', 'verbiste', 'verbs-ro.xml')),}
 
 _CONJUGATIONS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'conjugation-fr.xml')),
-                              'it': '/'.join(('data', 'verbiste', 'conjugation-it.xml')),
-                              'es': '/'.join(('data', 'verbiste', 'conjugation-es.xml')),
-                              'en': '/'.join(('data', 'verbiste', 'conjugation-en.xml')),
-                              'pt': '/'.join(('data', 'verbiste', 'conjugation-pt.xml')),
-                              'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')),}
+                               'it': '/'.join(('data', 'verbiste', 'conjugation-it.xml')),
+                               'es': '/'.join(('data', 'verbiste', 'conjugation-es.xml')),
+                               'en': '/'.join(('data', 'verbiste', 'conjugation-en.xml')),
+                               'pt': '/'.join(('data', 'verbiste', 'conjugation-pt.xml')),
+                               'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')),}
 
 _ABBREVS = ("1s", "2s", "3s", "1p", "2p", "3p")
 
 _PRONOUNS = {'fr': {'abbrev': _ABBREVS,
                    'pronoun': ("je", "tu", "il (elle, on)", "nous", "vous", "ils (elles)")},
-            'it': {'abbrev': _ABBREVS,
+             'it': {'abbrev': _ABBREVS,
                    'pronoun': ('io', 'tu', 'egli/ella', 'noi', 'voi', 'essi/esse')},
-            'es': {'abbrev': _ABBREVS,
+             'es': {'abbrev': _ABBREVS,
                    'pronoun': ('yo', 'tú', 'él', 'nosotros', 'vosotros', 'ellos')},
-            'en': {'abbrev': _ABBREVS,
+             'en': {'abbrev': _ABBREVS,
                    'pronoun': ('I', 'you', 'he/she/it', 'you', 'we', 'they')},
-            'pt': {'abbrev': _ABBREVS,
+             'pt': {'abbrev': _ABBREVS,
                    'pronoun': ('eu', 'tu', 'ele', 'nós', 'vós', 'eles')},
-            'ro': {'abbrev': _ABBREVS,
+             'ro': {'abbrev': _ABBREVS,
                    'pronoun': ('eu', 'tu', 'el/ea', 'noi', 'voi', 'ei/ele')}
              }
 
 _IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ("", "", "")},
-                       'it': None,
-                       'es': {'abbrev': ("2s :", "3s :", "1p :", "2p :", "3p :"),
+                        'it': None,
+                        'es': {'abbrev': ("2s :", "3s :", "1p :", "2p :", "3p :"),
                               'pronoun': ('tú', 'él', 'nosotros', 'vosotros', 'ellos')},
-                       'en': {'abbrev': ("2s :", "1p :", "2p :"),
+                        'en': {'abbrev': ("2s :", "1p :", "2p :"),
                               'pronoun': ("", "let's", "")},
-                       'pt': None,
-                       'ro': {'abbrev': ("2s :", "2p :"),
+                        'pt': None,
+                        'ro': {'abbrev': ("2s :", "2p :"),
                               'pronoun': ("tu", "voi")},
                         }
 
@@ -79,18 +79,18 @@ _AUXILIARIES = {'fr':None,
 
 _GENDER = {'fr': {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
                  'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")},
-          'it': None,
-          'es': None,
-          'en': None,
-          'pt': None,
-          'ro': None}
+           'it': None,
+           'es': None,
+           'en': None,
+           'pt': None,
+           'ro': None}
 
 _NEGATION = {'fr': 'ne',
-            'it': 'non',
-            'es': 'no',
-            'en': "don't",
-            'pt': 'não',
-            'ro': 'nu'}
+             'it': 'non',
+             'es': 'no',
+             'en': "don't",
+             'pt': 'não',
+             'ro': 'nu'}
 
 
 class Verbiste:
@@ -125,7 +125,7 @@ class Verbiste:
 
     def _load_verbs(self, verbs_file):
         """
-        Load and parses the verbs from xml file.
+        Load and parses the verbs from the xml file.
 
         :param verbs_file: string or path object.
             Path to the verbs xml file.
@@ -136,7 +136,7 @@ class Verbiste:
 
     def _parse_verbs(self, file):
         """
-        Parses XML file.
+        Parses the XML file.
 
         :param file: FileObject.
             XML file containing the verbs.
@@ -191,7 +191,7 @@ class Verbiste:
 
     def _load_conjugations(self, conjugations_file):
         """
-        Load and parses the conjugations from xml file.
+        Load and parses the conjugations from the xml file.
 
         :param conjugations_file: string or path object.
             Path to the conjugation xml file.
@@ -202,7 +202,7 @@ class Verbiste:
 
     def _parse_conjugations(self, file):
         """
-        Parses XML file.
+        Parses the XML file.
 
         :param file: FileObject.
             XML file containing the conjugation templates.
@@ -225,10 +225,10 @@ class Verbiste:
         """
         Load and parses the inflected forms of the tense from xml file.
 
-        :param tense: string.
-            The current tense being processed.
+        :param tense: list of xml tags containing inflected forms.
+            The list of inflected forms for the current tense being processed.
         :return: list.
-            List of conjugated suffixes.
+            List of inflected forms.
 
         """
         persons = list(tense)
@@ -319,6 +319,8 @@ class Verb:
         Toggles abbreviated or full pronouns.
         The default value is 'abbrev'.
         Select 'pronoun' for full pronouns.
+    :param predicted: bool.
+        Indicates if the conjugation information was predicted by the model or retrieved from the dataset.
 
     """
     __slots__ = ('name', 'verb_info', 'conjug_info', 'subject', 'predicted', 'prediction_score')
