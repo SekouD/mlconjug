@@ -1,4 +1,4 @@
-# Stubs for mlconjug (Python 3.4 to 3.6)
+# Stubs for mlconjug (Python 3)
 
 
 from .mlconjug import *

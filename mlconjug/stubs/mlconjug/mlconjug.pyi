@@ -1,6 +1,6 @@
-# Stubs for mlconjug.mlconjug (Python 3.4 to 3.6)
+# Stubs for mlconjug.mlconjug (Python 3)
 
-from .PyVerbiste import Verb, Verbiste, ConjugManager
+from .PyVerbiste import Verb, ConjugManager
 
 # I am commenting out the sklearn imports because they have yet no stub files.
 # from sklearn.feature_extraction.text import CountVectorizer
@@ -22,7 +22,6 @@ def extract_verb_features(verb: Text,
 
 class Conjugator:
     language: Text = ...
-    # conjug_manager: Verbiste = ...
     data_set: DataSet = ...
     model: Model = ...
     def __init__(self,
