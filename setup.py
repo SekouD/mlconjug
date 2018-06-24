@@ -53,7 +53,7 @@ setup(
             'mlconjug=mlconjug.cli:main'
         ]
     },
-    package_data={'verbiste_data': ['mlconjug/data/verbiste/*'],
+    package_data={'verbiste_data': ['mlconjug/data/conjug_manager/*'],
                   'trained_models': ['mlconjug/data/models/*'],
                   'translations': ['mlconjug/locale/*']},
     include_package_data=True,
@@ -61,7 +61,7 @@ setup(
     license="MIT license",
     zip_safe=False,
     keywords='mlconjug conjugation conjugaison conjugación coniugazione conjugação conjugare verbs verbes verbos'
-             ' ML machine-learning NLP linguistics linguistique linguistica verbiste sklearn scikit-learn',
+             ' ML machine-learning NLP linguistics linguistique linguistica conjug_manager sklearn scikit-learn',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Topic :: Software Development :: Libraries :: Python Modules',
