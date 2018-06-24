@@ -3,8 +3,15 @@ History
 =======
 
 
+3.1.0 (2018-06-24)
+------------------
+
+* Internal changes to the format of the verbiste data from xml to json for better handling of unicode characters.
+* New class ConjugManager to more easily add new languages to mlconjug.
+* Minor Api enhancement (see `API documentation`_)
+
 3.0.1 (2018-06-22)
--------------------
+------------------
 
 * Updated all provided pre-trained prediction models:
     - Implemented a new vectrorizer extracting more meaningful features.
@@ -47,6 +54,7 @@ History
 
 .. _Type annotations: https://github.com/python/typeshed
 .. _All the documentation of the project: https://mlconjug.readthedocs.io/en/latest/
+.. _API documentation: https://mlconjug.readthedocs.io/en/latest/modules.html
 
 
 2.1.5 (2018-06-15)
