@@ -39,12 +39,12 @@ _VERBS = {'fr': VerbFr,
           'ro': VerbRo,
           }
 
-_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-beta.zip')),
-                           'it': '/'.join(('data', 'models', 'trained_model-it-beta.zip')),
-                           'es': '/'.join(('data', 'models', 'trained_model-es-beta.zip')),
-                           'en': '/'.join(('data', 'models', 'trained_model-en-beta.zip')),
-                           'pt': '/'.join(('data', 'models', 'trained_model-pt-beta.zip')),
-                           'ro': '/'.join(('data', 'models', 'trained_model-ro-beta.zip')),
+_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-final.zip')),
+                           'it': '/'.join(('data', 'models', 'trained_model-it-final.zip')),
+                           'es': '/'.join(('data', 'models', 'trained_model-es-final.zip')),
+                           'en': '/'.join(('data', 'models', 'trained_model-en-final.zip')),
+                           'pt': '/'.join(('data', 'models', 'trained_model-pt-final.zip')),
+                           'ro': '/'.join(('data', 'models', 'trained_model-ro-final.zip')),
                            }
 
 _ALPHABET = {'fr': {'vowels': 'aáàâeêéèiîïoôöœuûùy',
@@ -128,7 +128,7 @@ class Conjugator:
         if not model:
             with ZipFile(pkg_resources.resource_stream(
                     _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
-                with content.open('trained_model-{0}-beta.pickle'.format(self.language), 'r') as archive:
+                with content.open('trained_model-{0}-final.pickle'.format(self.language), 'r') as archive:
                     model = pickle.loads(archive.read())
         self.model = model
         return
