@@ -6,6 +6,7 @@ History
 3.1.0 (2018-06-24)
 ------------------
 
+* Updated the conjugation models for Spanish and Portuguese.
 * Internal changes to the format of the verbiste data from xml to json for better handling of unicode characters.
 * New class ConjugManager to more easily add new languages to mlconjug.
 * Minor Api enhancement (see `API documentation`_)
