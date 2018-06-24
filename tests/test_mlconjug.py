@@ -21,7 +21,7 @@ from mlconjug import Conjugator, DataSet, Model, extract_verb_features,\
     LinearSVC, SGDClassifier,SelectFromModel, CountVectorizer
 
 from mlconjug import Verbiste, VerbInfo, Verb, VerbEn,\
-    VerbEs, VerbFr, VerbIt, VerbPt, VerbRo
+    VerbEs, VerbFr, VerbIt, VerbPt, VerbRo, ConjugManager
 
 from mlconjug import cli
 
@@ -136,9 +136,9 @@ class TestConjugator:
 
 
 class TestDataSet:
-    data_set = DataSet(Verbiste())
+    data_set = DataSet(ConjugManager())
     def test_repr(self):
-        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet(<bound method Verbiste.__repr__ of mlconjug.PyVerbiste.Verbiste(language=fr)>)'
+        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet(<bound method ConjugManager.__repr__ of mlconjug.PyVerbiste.ConjugManager(language=fr)>)'
 
     def test_construct_dict_conjug(self):
         self.data_set.construct_dict_conjug()

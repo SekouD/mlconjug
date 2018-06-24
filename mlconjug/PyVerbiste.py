@@ -9,7 +9,7 @@ PyVerbiste.
 
 
 | The conjugation data conforms to the XML schema defined by Verbiste.
-| More information on Verbiste at https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
+| More information on Verbiste at https://perso.b2b2c.ca/~sarrazip/dev/conjug_manager.html
 
 """
 
@@ -19,6 +19,7 @@ __author_email__ = 'sekoud.python@gmail.com'
 
 import copy
 import xml.etree.ElementTree as ET
+import json
 from collections import OrderedDict
 import pkg_resources
 
@@ -27,19 +28,19 @@ _RESOURCE_PACKAGE = __name__
 
 _LANGUAGES = ('default', 'fr', 'en', 'es', 'it', 'pt', 'ro')
 
-_VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'verbs-fr.xml')),
-                        'it': '/'.join(('data', 'verbiste', 'verbs-it.xml')),
-                        'es': '/'.join(('data', 'verbiste', 'verbs-es.xml')),
-                        'en': '/'.join(('data', 'verbiste', 'verbs-en.xml')),
-                        'pt': '/'.join(('data', 'verbiste', 'verbs-pt.xml')),
-                        'ro': '/'.join(('data', 'verbiste', 'verbs-ro.xml')),}
+_VERBS_RESOURCE_PATH = {'fr': '/'.join(('data', 'conjug_manager', 'verbs-fr.json')),
+                        'it': '/'.join(('data', 'conjug_manager', 'verbs-it.json')),
+                        'es': '/'.join(('data', 'conjug_manager', 'verbs-es.json')),
+                        'en': '/'.join(('data', 'conjug_manager', 'verbs-en.json')),
+                        'pt': '/'.join(('data', 'conjug_manager', 'verbs-pt.json')),
+                        'ro': '/'.join(('data', 'conjug_manager', 'verbs-ro.json')),}
 
-_CONJUGATIONS_RESOURCE_PATH = {'fr': '/'.join(('data', 'verbiste', 'conjugation-fr.xml')),
-                               'it': '/'.join(('data', 'verbiste', 'conjugation-it.xml')),
-                               'es': '/'.join(('data', 'verbiste', 'conjugation-es.xml')),
-                               'en': '/'.join(('data', 'verbiste', 'conjugation-en.xml')),
-                               'pt': '/'.join(('data', 'verbiste', 'conjugation-pt.xml')),
-                               'ro': '/'.join(('data', 'verbiste', 'conjugation-ro.xml')),}
+_CONJUGATIONS_RESOURCE_PATH = {'fr': '/'.join(('data', 'conjug_manager', 'conjugation-fr.json')),
+                               'it': '/'.join(('data', 'conjug_manager', 'conjugation-it.json')),
+                               'es': '/'.join(('data', 'conjug_manager', 'conjugation-es.json')),
+                               'en': '/'.join(('data', 'conjug_manager', 'conjugation-en.json')),
+                               'pt': '/'.join(('data', 'conjug_manager', 'conjugation-pt.json')),
+                               'ro': '/'.join(('data', 'conjug_manager', 'conjugation-ro.json')),}
 
 _ABBREVS = ("1s", "2s", "3s", "1p", "2p", "3p")
 
@@ -93,15 +94,15 @@ _NEGATION = {'fr': 'ne',
              'ro': 'nu'}
 
 
-class Verbiste:
+class ConjugManager:
     """
-    This is the class handling the Verbiste xml files.
+        This is the class handling the mlconjug json files.
 
-    :param language: string.
-    | The language of the conjugator. The default value is fr for French.
-    | The allowed values are: fr, en, es, it, pt, ro.
+        :param language: string.
+        | The language of the conjugator. The default value is fr for French.
+        | The allowed values are: fr, en, es, it, pt, ro.
 
-    """
+        """
 
     def __init__(self, language='default'):
         if language not in _LANGUAGES:
@@ -115,7 +116,8 @@ class Verbiste:
         verbs_file = pkg_resources.resource_filename(_RESOURCE_PACKAGE, _VERBS_RESOURCE_PATH[self.language])
         self._load_verbs(verbs_file)
         self._allowed_endings = self._detect_allowed_endings()
-        conjugations_file = pkg_resources.resource_filename(_RESOURCE_PACKAGE, _CONJUGATIONS_RESOURCE_PATH[self.language])
+        conjugations_file = pkg_resources.resource_filename(_RESOURCE_PACKAGE,
+                                                            _CONJUGATIONS_RESOURCE_PATH[self.language])
         self._load_conjugations(conjugations_file)
         self.templates = sorted(self.conjugations.keys())
         return
@@ -125,34 +127,27 @@ class Verbiste:
 
     def _load_verbs(self, verbs_file):
         """
-        Load and parses the verbs from the xml file.
+        Load and parses the verbs from the json file.
 
         :param verbs_file: string or path object.
-            Path to the verbs xml file.
+            Path to the verbs json file.
 
         """
-        self.verbs = self._parse_verbs(verbs_file)
+        with open(verbs_file, 'r', encoding='utf-8') as file:
+            self.verbs = json.load(file)
         return
 
-    def _parse_verbs(self, file):
+    def _load_conjugations(self, conjugations_file):
         """
-        Parses the XML file.
+        Load and parses the conjugations from the xml file.
 
-        :param file: FileObject.
-            XML file containing the verbs.
-        :return: OrderedDict.
-            An OrderedDict containing the verb and its template for all verbs in the file.
+        :param conjugations_file: string or path object.
+            Path to the conjugation xml file.
 
         """
-        verbs_dic = {}
-        xml = ET.parse(file)
-        for verb in xml.findall("v"):
-            verb_name = verb.find("i").text
-            template = verb.find("t").text
-            index = - len(template[template.index(":") + 1:])
-            root = verb_name[:index]
-            verbs_dic[verb_name] = {"template": template, "root": root}
-        return verbs_dic
+        with open(conjugations_file, 'r', encoding='utf-8') as file:
+            self.conjugations = json.load(file)
+        return
 
     def _detect_allowed_endings(self):
         """
@@ -182,12 +177,87 @@ class Verbiste:
 
         """
         if self.language == 'en':
-            return True # LOL!
+            return True  # LOL!
         if verb[-2:] in self._allowed_endings:
             return True
         else:
             return False
 
+    def get_verb_info(self, verb):
+        """
+        Gets verb information and returns a VerbInfo instance.
+
+        :param verb: string.
+            Verb to conjugate.
+        :return: VerbInfo object or None.
+
+        """
+        if verb not in self.verbs.keys():
+            return None
+        else:
+            infinitive = verb
+            root = self.verbs[verb]['root']
+            template = self.verbs[verb]['template']
+            verb_info = VerbInfo(infinitive, root, template)
+            return verb_info
+
+    def get_conjug_info(self, template):
+        """
+        Gets conjugation information corresponding to the given template.
+
+        :param template: string.
+            Name of the verb ending pattern.
+        :return: OrderedDict or None.
+            OrderedDict containing the conjugated suffixes of the template.
+
+        """
+        if template not in self.conjugations.keys():
+            return None
+        else:
+            info = copy.deepcopy(self.conjugations[template])
+            return info
+
+
+class Verbiste(ConjugManager):
+    """
+    This is the class handling the Verbiste xml files.
+
+    :param language: string.
+    | The language of the conjugator. The default value is fr for French.
+    | The allowed values are: fr, en, es, it, pt, ro.
+
+    """
+
+    def _load_verbs(self, verbs_file):
+        """
+        Load and parses the verbs from the xml file.
+
+        :param verbs_file: string or path object.
+            Path to the verbs xml file.
+
+        """
+        self.verbs = self._parse_verbs(verbs_file.replace('json', 'xml'))
+        return
+
+    def _parse_verbs(self, file):
+        """
+        Parses the XML file.
+
+        :param file: FileObject.
+            XML file containing the verbs.
+        :return: OrderedDict.
+            An OrderedDict containing the verb and its template for all verbs in the file.
+
+        """
+        verbs_dic = {}
+        xml = ET.parse(file)
+        for verb in xml.findall("v"):
+            verb_name = verb.find("i").text
+            template = verb.find("t").text
+            index = - len(template[template.index(":") + 1:])
+            root = verb_name[:index]
+            verbs_dic[verb_name] = {"template": template, "root": root}
+        return verbs_dic
 
     def _load_conjugations(self, conjugations_file):
         """
@@ -197,7 +267,7 @@ class Verbiste:
             Path to the conjugation xml file.
 
         """
-        self.conjugations = self._parse_conjugations(conjugations_file)
+        self.conjugations = self._parse_conjugations(conjugations_file.replace('json', 'xml'))
         return
 
     def _parse_conjugations(self, file):
@@ -243,40 +313,6 @@ class Verbiste:
             conjug = [(pers, term.find("i").text if term.find("i") is not None else None)
                       for pers, term in enumerate(persons)]
         return conjug
-
-    def get_verb_info(self, verb):
-        """
-        Gets verb information and returns a VerbInfo instance.
-
-        :param verb: string.
-            Verb to conjugate.
-        :return: VerbInfo object or None.
-
-        """
-        if verb not in self.verbs.keys():
-            return None
-        else:
-            infinitive = verb
-            root = self.verbs[verb]['root']
-            template = self.verbs[verb]['template']
-            verb_info = VerbInfo(infinitive, root, template)
-            return verb_info
-
-    def get_conjug_info(self, template):
-        """
-        Gets conjugation information corresponding to the given template.
-
-        :param template: string.
-            Name of the verb ending pattern.
-        :return: OrderedDict or None.
-            OrderedDict containing the conjugated suffixes of the template.
-
-        """
-        if template not in self.conjugations.keys():
-            return None
-        else:
-            info = copy.deepcopy(self.conjugations[template])
-            return info
 
 
 class VerbInfo:

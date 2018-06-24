@@ -23,7 +23,7 @@ _Conjugations = Mapping[Text, _ConjugInfo]
 _PathLike = Union[Text, TextIO]
 
 
-class Verbiste:
+class ConjugManager:
     language: Text = ...
     verbs: Mapping[Text, Mapping[Text, Text]] = ...
     conjugations: _Conjugations = ...
@@ -39,15 +39,38 @@ class Verbiste:
                     verbs_file: _PathLike
                     ) -> None: ...
 
-    def _parse_verbs(self,
-                     file: _PathLike
-                     ) -> _PathLike: ...
-
     def _detect_allowed_endings(self) -> Set[Text]: ...
 
     def is_valid_verb(self,
                       verb: Text
                       ) -> bool: ...
+
+    def _load_conjugations(self,
+                           conjugations_file: _PathLike
+                           ) -> None: ...
+
+    def get_verb_info(self,
+                      verb: Text
+                      ) -> Optional[VerbInfo]: ...
+
+    def get_conjug_info(self,
+                        template: Text
+                        ) -> Optional[_ConjugInfo]: ...
+
+
+class Verbiste(ConjugManager):
+    language: Text = ...
+    verbs: Mapping[Text, Mapping[Text, Text]] = ...
+    conjugations: _Conjugations = ...
+    _allowed_endings: Set[Text] = ...
+    templates: Sequence[Text] = ...
+    def _load_verbs(self,
+                    verbs_file: _PathLike
+                    ) -> None: ...
+
+    def _parse_verbs(self,
+                     file: _PathLike
+                     ) -> _PathLike: ...
 
     def _load_conjugations(self,
                            conjugations_file: _PathLike
@@ -60,14 +83,6 @@ class Verbiste:
     def _load_tense(self,
                     tense: Text
                     ) -> _Tense: ...
-
-    def get_verb_info(self,
-                      verb: Text
-                      ) -> Optional[VerbInfo]: ...
-
-    def get_conjug_info(self,
-                        template: Text
-                        ) -> Optional[_ConjugInfo]: ...
 
 
 class VerbInfo:
