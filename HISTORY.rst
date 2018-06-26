@@ -3,6 +3,12 @@ History
 =======
 
 
+3.1.1 (2018-06-26)
+------------------
+
+* Minor Api enhancement (see `API documentation`_)
+
+
 3.1.0 (2018-06-24)
 ------------------
 
@@ -10,6 +16,7 @@ History
 * Internal changes to the format of the verbiste data from xml to json for better handling of unicode characters.
 * New class ConjugManager to more easily add new languages to mlconjug.
 * Minor Api enhancement (see `API documentation`_)
+
 
 3.0.1 (2018-06-22)
 ------------------
