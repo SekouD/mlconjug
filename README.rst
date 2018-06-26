@@ -1,3 +1,5 @@
+.. image:: https://raw.githubusercontent.com/zuuritaly/mlconjug/master/logo/logotype2%20mlconjug.png
+
 ========
 MLConjug
 ========
