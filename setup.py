@@ -37,6 +37,7 @@ test_requirements = [
     'pytest-cov',
     'Click>=6.0',
     'lxml',
+    'mypy',
 ]
 
 setup(
