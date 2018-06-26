@@ -129,7 +129,10 @@ class Conjugator:
                     _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
                 with content.open('trained_model-{0}-final.pickle'.format(self.language), 'r') as archive:
                     model = pickle.loads(archive.read())
-        self.model = model
+        if model:
+            self.set_model(model)
+        else:
+            self.model = model
         return
 
     def __repr__(self):
