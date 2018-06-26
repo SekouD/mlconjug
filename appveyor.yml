@@ -43,7 +43,7 @@ test_script:
   - "%PYTHON%\\python.exe -m pip install -r requirements_dev.txt"
   - "%PYTHON%\\Scripts\\py.test --cov=./mlconjug/"
   - "%PYTHON%\\Scripts\\codecov -f .coverage"
-  - "%PYTHON%\\python.exe -m mypy --strict --follow-imports silent ./mlconjug/stubs/mlconjug"
+  - "%PYTHON%\\python.exe -m mypy --strict --follow-imports silent ./mlconjug/"
   - "%PYTHON%\\python.exe setup.py check --restructuredtext -s"
 
 after_test:
