@@ -123,8 +123,7 @@ class Conjugator:
 
     def __init__(self, language='fr', model=None):
         self.language = language
-        self.data_set = DataSet(ConjugManager(language=language))
-        self.data_set.split_data(proportion=0.9)
+        self.conjug_manager = ConjugManager(language=language)
         if not model:
             with ZipFile(pkg_resources.resource_stream(
                     _RESOURCE_PACKAGE, _PRE_TRAINED_MODEL_PATH[language])) as content:
@@ -156,27 +155,27 @@ class Conjugator:
         """
         verb = verb.lower()
         prediction_score = 0
-        if not self.data_set.conjug_manager.is_valid_verb(verb):
+        if not self.conjug_manager.is_valid_verb(verb):
             raise ValueError(
                 _('The supplied word: {0} is not a valid verb in {1}.').format(verb, _LANGUAGE_FULL[self.language]))
-        if verb not in self.data_set.conjug_manager.verbs.keys():
+        if verb not in self.conjug_manager.verbs.keys():
             if self.model is None:
                 return None
             prediction = self.model.predict([verb])[0]
             prediction_score = self.model.pipeline.predict_proba([verb])[0][prediction]
             predicted = True
-            template = self.data_set.conjug_manager.templates[prediction]
+            template = self.conjug_manager.templates[prediction]
             index = - len(template[template.index(":") + 1:])
             root = verb[:index]
             verb_info = VerbInfo(verb, root, template)
-            conjug_info = self.data_set.conjug_manager.get_conjug_info(verb_info.template)
+            conjug_info = self.conjug_manager.get_conjug_info(verb_info.template)
         else:
             predicted = False
             infinitive = verb
-            verb_info = self.data_set.conjug_manager.get_verb_info(infinitive)
+            verb_info = self.conjug_manager.get_verb_info(infinitive)
             if verb_info is None:
                 return None
-            conjug_info = self.data_set.conjug_manager.get_conjug_info(verb_info.template)
+            conjug_info = self.conjug_manager.get_conjug_info(verb_info.template)
             if conjug_info is None:
                 return None
         if predicted:
@@ -205,15 +204,15 @@ class DataSet:
     | This class holds and manages the data set.
     | Defines helper functions for managing Machine Learning tasks like constructing a training and testing set.
 
-    :param VerbisteObj:
-        Instance of a Verbiste object.
+    :param verbs_dict:
+        A dictionary of verbs and their corresponding conjugation class.
 
     """
 
-    def __init__(self, conjug_manager):
-        self.conjug_manager = conjug_manager
-        self.verbs = self.conjug_manager.verbs.keys()
-        self.templates = sorted(self.conjug_manager.conjugations.keys())
+    def __init__(self, verbs_dict):
+        self.verbs_dict = verbs_dict
+        self.verbs = self.verbs_dict.keys()
+        self.templates = sorted(set([verb['template'] for verb in self.verbs_dict.values()]))
         self.verbs_list = []
         self.templates_list = []
         self.dict_conjug = {}
@@ -225,7 +224,7 @@ class DataSet:
         return
 
     def __repr__(self):
-        return '{0}.{1}({2})'.format(__name__, self.__class__.__name__, self.conjug_manager.__repr__)
+        return '{0}.{1}()'.format(__name__, self.__class__.__name__)
 
     def construct_dict_conjug(self):
         """
@@ -234,7 +233,7 @@ class DataSet:
 
         """
         conjug = defaultdict(list)
-        for verbe, info_verbe in self.conjug_manager.verbs.items():
+        for verbe, info_verbe in self.verbs_dict.items():
             self.verbs_list.append(verbe)
             self.templates_list.append(self.templates.index(info_verbe["template"]))
             conjug[info_verbe["template"]].append(verbe)

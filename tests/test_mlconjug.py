@@ -136,9 +136,10 @@ class TestConjugator:
 
 
 class TestDataSet:
-    data_set = DataSet(ConjugManager())
+    conjug_manager = ConjugManager()
+    data_set = DataSet(conjug_manager.verbs)
     def test_repr(self):
-        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet(<bound method ConjugManager.__repr__ of mlconjug.PyVerbiste.ConjugManager(language=fr)>)'
+        assert self.data_set.__repr__() == 'mlconjug.mlconjug.DataSet()'
 
     def test_construct_dict_conjug(self):
         self.data_set.construct_dict_conjug()
@@ -165,7 +166,7 @@ class TestModel:
     classifier = SGDClassifier(loss="log", penalty='elasticnet', alpha=1e-5, random_state=42)
     # Initialize Model
     model = Model(vectorizer, feature_reductor, classifier)
-    dataset = DataSet(Verbiste())
+    dataset = DataSet(Verbiste().verbs)
     dataset.construct_dict_conjug()
     dataset.split_data(proportion=0.9)
 
