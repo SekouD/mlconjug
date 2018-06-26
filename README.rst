@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/zuuritaly/mlconjug/master/logo/logotype2%20mlconjug.png
+.. image:: https://raw.githubusercontent.com/SekouD/mlconjug/master/logo/logotype2%20mlconjug.png
 
 ========
 MLConjug
@@ -80,6 +80,9 @@ Credits
 
 This package was created with the help of Verbiste_ and scikit-learn_.
 
+The logo was designed by Zuur_.
+
 .. _Verbiste: https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html
 .. _scikit-learn: http://scikit-learn.org/stable/index.html
+.. _Zuur: https://github.com/zuuritaly
 
