@@ -10,4 +10,6 @@ Development Lead
 Contributors
 ------------
 
-None yet. Why not be the first?
+* The logo was designed by Zuur_.
+
+.. _Zuur: https://github.com/zuuritaly
