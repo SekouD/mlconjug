@@ -54,9 +54,10 @@ setup(
             'mlconjug=mlconjug.cli:main'
         ]
     },
-    package_data={'verbiste_data': ['mlconjug/data/conjug_manager/*'],
+    package_data={'conjug_manager': ['mlconjug/data/conjug_manager/*'],
                   'trained_models': ['mlconjug/data/models/*'],
-                  'translations': ['mlconjug/locale/*']},
+                  'translations': ['mlconjug/locale/*'],
+                  'type_stubs': ['mlconjug/py.typed', 'mlconjug/*']},
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
