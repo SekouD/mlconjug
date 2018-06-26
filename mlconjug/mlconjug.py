@@ -116,7 +116,7 @@ class Conjugator:
 
     :param language: string.
         Language of the conjugator. The default language is 'fr' for french.
-    :param model: mlconjug.Model or scikit-learn Pipeline or Classifier implement the fit() and predict() methods.
+    :param model: mlconjug.Model or scikit-learn Pipeline or Classifier implementing the fit() and predict() methods.
         A user provided pipeline if the user has trained his own pipeline.
 
     """
@@ -202,7 +202,7 @@ class Conjugator:
 class DataSet:
     """
     | This class holds and manages the data set.
-    | Defines helper functions for managing Machine Learning tasks like constructing a training and testing set.
+    | Defines helper methodss for managing Machine Learning tasks like constructing a training and testing set.
 
     :param verbs_dict:
         A dictionary of verbs and their corresponding conjugation class.
