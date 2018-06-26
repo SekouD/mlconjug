@@ -194,12 +194,11 @@ class ConjugManager:
         """
         if verb not in self.verbs.keys():
             return None
-        else:
-            infinitive = verb
-            root = self.verbs[verb]['root']
-            template = self.verbs[verb]['template']
-            verb_info = VerbInfo(infinitive, root, template)
-            return verb_info
+        infinitive = verb
+        root = self.verbs[verb]['root']
+        template = self.verbs[verb]['template']
+        verb_info = VerbInfo(infinitive, root, template)
+        return verb_info
 
     def get_conjug_info(self, template):
         """
@@ -213,9 +212,8 @@ class ConjugManager:
         """
         if template not in self.conjugations.keys():
             return None
-        else:
-            info = copy.deepcopy(self.conjugations[template])
-            return info
+        info = copy.deepcopy(self.conjugations[template])
+        return info
 
 
 class Verbiste(ConjugManager):
@@ -303,12 +301,11 @@ class Verbiste(ConjugManager):
         """
         persons = list(tense)
         if not persons:
-            conjug = None
+            return None
         elif len(persons) == 1:
-            if persons[0].find("i") is not None:
-                conjug = persons[0].find("i").text
-            else:
-                conjug = None
+            if persons[0].find("i") is None:
+                return None
+            conjug = persons[0].find("i").text
         else:
             conjug = [(pers, term.find("i").text if term.find("i") is not None else None)
                       for pers, term in enumerate(persons)]
@@ -341,8 +338,7 @@ class VerbInfo:
     def __eq__(self, other):
         if not isinstance(other, VerbInfo):
             return NotImplemented
-        else:
-            return self.infinitive == other.infinitive and self.root == other.root and self.template == other.template
+        return self.infinitive == other.infinitive and self.root == other.root and self.template == other.template
 
 
 class Verb:
