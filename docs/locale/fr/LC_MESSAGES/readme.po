@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 11:51+0200\n"
-"PO-Revision-Date: 2018-06-27 13:42+0200\n"
+"PO-Revision-Date: 2018-06-27 14:02+0200\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -66,9 +66,7 @@ msgstr ""
 
 #: ../../../README.rst:52
 msgid "The training data for the french model is based on Verbiste https://perso.b2b2c.ca/~sarrazip/dev/verbiste.html ."
-msgstr ""
-"Les données d'entraînement pour le français sont basées sur Verbiste https://perso.b2b2c.ca/~sarrazip/dev/conjug_manager.html.\n"
-"Les données d'entraînement pour les autres langues ont été générées en utilisant l'apprentissage non supervisé une fois le modèle français a été optimisé."
+msgstr "Les données d'entraînement pour le français sont basées sur Verbiste https://perso.b2b2c.ca/~sarrazip/dev/conjug_manager.html."
 
 #: ../../../README.rst:54
 msgid ""
