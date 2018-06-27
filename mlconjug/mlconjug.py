@@ -143,7 +143,7 @@ class Conjugator:
         | This is the main method of this class.
         | It first checks to see if the verb is in Verbiste.
         | If it is not, and a pre-trained scikit-learn pipeline has been supplied, the method then calls the pipeline
-        to predict the conjugation class of the provided verb.
+         to predict the conjugation class of the provided verb.
 
         | Returns a Verb object or None.
 

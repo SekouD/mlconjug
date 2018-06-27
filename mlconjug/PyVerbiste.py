@@ -99,8 +99,8 @@ class ConjugManager:
         This is the class handling the mlconjug json files.
 
         :param language: string.
-        | The language of the conjugator. The default value is fr for French.
-        | The allowed values are: fr, en, es, it, pt, ro.
+            | The language of the conjugator. The default value is fr for French.
+            | The allowed values are: fr, en, es, it, pt, ro.
 
         """
 
@@ -221,8 +221,8 @@ class Verbiste(ConjugManager):
     This is the class handling the Verbiste xml files.
 
     :param language: string.
-    | The language of the conjugator. The default value is fr for French.
-    | The allowed values are: fr, en, es, it, pt, ro.
+        | The language of the conjugator. The default value is fr for French.
+        | The allowed values are: fr, en, es, it, pt, ro.
 
     """
 
