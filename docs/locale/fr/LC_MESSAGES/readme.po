@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 11:51+0200\n"
-"PO-Revision-Date: 2018-06-27 13:21+0200\n"
+"PO-Revision-Date: 2018-06-27 13:42+0200\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -100,7 +100,7 @@ msgstr "Anglais"
 
 #: ../../../README.rst:65
 msgid "Spanish"
-msgstr "Espanol"
+msgstr "Espagnol"
 
 #: ../../../README.rst:66
 msgid "Italian"

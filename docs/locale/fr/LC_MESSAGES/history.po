@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: MLConjug 2.1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 11:51+0200\n"
-"PO-Revision-Date: 2018-06-27 13:11+0200\n"
+"PO-Revision-Date: 2018-06-27 13:57+0200\n"
 "Last-Translator: SekouD <sekoud.python@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -29,9 +29,7 @@ msgstr "3.1.2 (2018-06-27)"
 
 #: ../../../HISTORY.rst:9
 msgid "Updated `Type annotations`_ to the whole library for PEP-561 compliance."
-msgstr ""
-"Mise à jour `Type annotations`_ à la bibliothèque entière pour la conformité "
-"PEP-561."
+msgstr "Mise à jour `Type annotations`_  pour conformité PEP-561."
 
 #: ../../../HISTORY.rst:13
 msgid "3.1.1 (2018-06-26)"
@@ -39,7 +37,7 @@ msgstr "3.1.1 (2018-06-26)"
 
 #: ../../../HISTORY.rst:15 ../../../HISTORY.rst:24
 msgid "Minor Api enhancement (see `API documentation`_)"
-msgstr "Amélioration de l'Api mineure (voir `API documentation`_)"
+msgstr "Amélioration mineure de l'Api (voir `documentation de l'API`_)"
 
 #: ../../../HISTORY.rst:19
 msgid "3.1.0 (2018-06-24)"
@@ -54,7 +52,7 @@ msgid ""
 "Internal changes to the format of the verbiste data from xml to json for better "
 "handling of unicode characters."
 msgstr ""
-"Changements internes au format des données verbistes de xml à json pour une "
+"Changements internes du format des données verbistes de xml à json pour une "
 "meilleure gestion des caractères Unicode."
 
 #: ../../../HISTORY.rst:23
@@ -69,7 +67,7 @@ msgstr "3.0.1 (2018-06-22)"
 
 #: ../../../HISTORY.rst:33
 msgid "Updated all provided pre-trained prediction models:"
-msgstr "Mise à jour de tous les modèles de prédiction pré-formés fournis:"
+msgstr "Mise à jour de tous les modèles de prédiction pré-entrainés fournis:"
 
 #: ../../../HISTORY.rst:31
 msgid "Implemented a new vectrorizer extracting more meaningful features."
@@ -82,7 +80,7 @@ msgid ""
 "As a result the performance of the models has gone through the roof in all "
 "languages."
 msgstr ""
-"En conséquence, les performances des modèles ont traversé le toit dans toutes les "
+"En conséquence, les performances des modèles ont nettement augmenté dans toutes les "
 "langues."
 
 #: ../../../HISTORY.rst:33
@@ -91,7 +89,7 @@ msgid ""
 "achieve a perfect score at both Recall and Precision."
 msgstr ""
 "Le rappel et la précision sont intimement proches de 100%. L'anglais étant le seul "
-"à atteindre un score parfait à la fois Recall et Precision."
+"à atteindre un score parfait à la fois en Recall et Precision."
 
 #: ../../../HISTORY.rst:42
 msgid "Major API changes:"
@@ -102,8 +100,8 @@ msgid ""
 "I removed the class EndingCustomVectorizer and refactored it's functionnality in a "
 "top level function called extract_verb_features()"
 msgstr ""
-"J'ai supprimé la classe EndingCustomVectorizer et refacturé sa fonctionnalité dans "
-"une fonction de niveau supérieur appelée extract_verb_features ()"
+"J'ai supprimé la classe EndingCustomVectorizer et refactorisé sa fonctionnalité "
+"dans une fonction de niveau supérieur appelée extract_verb_features ()"
 
 #: ../../../HISTORY.rst:37
 msgid ""
@@ -112,8 +110,8 @@ msgid ""
 "distribute with the package."
 msgstr ""
 "Le nouveau modèle amélioré fourni est maintenant compressé par zip avant la "
-"publication, car l'espace des fonctionnalités a tellement augmenté que leur taille "
-"les rendait peu pratiques à distribuer avec le paquet."
+"publication, car la taille des modèles a tellement augmenté que leur taille les "
+"rendait peu pratiques à distribuer avec le paquet."
 
 #: ../../../HISTORY.rst:38
 msgid "Renamed \"Model.model\" to \"Model.pipeline\""
@@ -130,16 +128,15 @@ msgstr ""
 
 #: ../../../HISTORY.rst:40
 msgid "Added the attributes \"predicted\" and \"confidence_score\" to the class Verb."
-msgstr ""
-"Ajout des attributs \"predicted\" et \"confidence_score\" au verbe de la classe."
+msgstr "Ajout des attributs \"predicted\" et \"confidence_score\" à la classe Verb."
 
 #: ../../../HISTORY.rst:41
 msgid ""
 "The whole package have been typed check. I will soon add mlconjug's type stubs to "
 "typeshed."
 msgstr ""
-"L'ensemble du paquet a été tapé vérifier. J'ajouterai bientôt les stubs de type "
-"mlconjug au typehed."
+"L'ensemble du package a été annoté avec les informations sur le type de tous les "
+"objets."
 
 #: ../../../HISTORY.rst:45
 msgid "2.1.11 (2018-06-21)"
@@ -147,7 +144,7 @@ msgstr "2.1.11 (2018-06-21)"
 
 #: ../../../HISTORY.rst:54
 msgid "Updated all provided pre-trained prediction models"
-msgstr "Mise à jour de tous les modèles de prédiction pré-formés fournis"
+msgstr "Mise à jour de tous les modèles de prédiction pré-entrainés fournis"
 
 #: ../../../HISTORY.rst:48
 #, python-format
@@ -240,16 +237,16 @@ msgid ""
 "the instance of the Verb object the Conjugator.conjugate(verb) returns."
 msgstr ""
 "Si le verbe à l'étude est inconnu dans Verbiste, la classe Conjugator définit "
-"maintenant l'attribut booléen 'prédit' et le score de confiance de l'attribut float "
-"à l'instance de l'objet Verb renvoyé par Conjugator.conjugate (verbe)."
+"maintenant l'attribut booléen 'predicted' et l'attribut float 'confidence_score' à "
+"l'instance de l'objet Verb renvoyé par Conjugator.conjugate (verbe)."
 
 #: ../../../HISTORY.rst:62
 msgid ""
 "Added `Type annotations`_ to the whole library for robustness and ease of scaling-"
 "out."
 msgstr ""
-"Ajout de `Type annotations`_ à la bibliothèque entière pour la robustesse et la "
-"facilité de la mise à l'échelle."
+"Ajout de `Type annotations`_ à la bibliothèque entière pour garantir la robustesse "
+"du programme."
 
 #: ../../../HISTORY.rst:63
 msgid ""
@@ -260,11 +257,9 @@ msgid ""
 "regularly you will see nice improvents in the 2.2 release."
 msgstr ""
 "La performance des modèles anglais et roumain s'est considérablement améliorée ces "
-"derniers temps. Je suppose que dans un peu plus d'itérations, ils seront à égalité "
-"avec le modèle français qui est le plus performant en ce moment car j'ai réglé ses "
-"paramètres pour un caouple d'année maintenant. Pas tellement avec les autres "
-"langues, mais si vous mettez à jour régulièrement, vous verrez de belles "
-"améliorations dans la version 2.2."
+"derniers temps. Je suppose que dans quelques itérations, ils seront à égalité avec "
+"le modèle français qui est le plus performant en ce moment car j'ai réglé ses "
+"paramètres depuis pas mal de temps maintenant. "
 
 #: ../../../HISTORY.rst:64
 msgid "Enhanced the localization of the program."
