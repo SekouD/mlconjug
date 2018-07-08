@@ -78,7 +78,7 @@ Features
 - Can be used as a command line tool.
 
 Credits
----------
+-------
 
 This package was created with the help of Verbiste_ and scikit-learn_.
 
