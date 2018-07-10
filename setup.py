@@ -55,6 +55,8 @@ setup(
         ]
     },
     package_data={'conjug_manager': ['mlconjug/data/conjug_manager/*'],
+                  'documentation': ['docs/*'],
+                  'tests': ['test/*'],
                   'trained_models': ['mlconjug/data/models/*'],
                   'translations': ['mlconjug/locale/*'],
                   'type_stubs': ['mlconjug/py.typed', 'mlconjug/*']},
