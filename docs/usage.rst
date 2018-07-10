@@ -44,16 +44,21 @@ To use MLConjug in a project and train a new model::
     # Feature reduction
     feature_reductor = SelectFromModel(LinearSVC(penalty="l1", max_iter=12000, dual=False, verbose=0))
 
-    #Prediction Classifier
+    # Prediction Classifier
     classifier = SGDClassifier(loss="log", penalty='elasticnet', l1_ratio=0.15, max_iter=4000, alpha=1e-5, random_state=42, verbose=0)
+
+    # Initialize Data Set
+    dataset = DataSet(Verbiste().verbs)
+    dataset.construct_dict_conjug()
+    dataset.split_data(proportion=0.9)
 
     # Initialize Conjugator
     model = mlconjug.Model(vectorizer, feature_reductor, classifier)
     conjugator = mlconjug.Conjugator(lang, model)
 
     #Training and prediction
-    conjugator.model.train(conjugator.data_set.train_input, conjugator.data_set.train_labels)
-    predicted = conjugator.model.predict(conjugator.data_set.test_input)
+    conjugator.model.train(data_set.train_input, data_set.train_labels)
+    predicted = conjugator.model.predict(data_set.test_input)
 
     # Assess the performance of the model's predictions
     score = len([a == b for a, b in zip(predicted, conjugator.data_set.templates_list) if a == b]) / len(predicted)
