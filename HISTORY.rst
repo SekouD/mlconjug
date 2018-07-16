@@ -2,6 +2,13 @@
 History
 =======
 
+3.1.3 (2018-07-10)
+------------------
+
+* Updated Documentation.
+* Added support for pipenv.
+* Included tests and documentation in the package distribution.
+
 
 3.1.2 (2018-06-27)
 ------------------
