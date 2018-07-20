@@ -3,11 +3,11 @@ bump2version==0.5.8
 wheel==0.31.1
 watchdog==0.8.3
 flake8==3.5.0
-tox==3.1.1
+tox==3.1.2
 coverage==4.5.1
 Sphinx==1.7.6
-cryptography==2.2.2
-PyYAML==3.13
+cryptography==2.3
+PyYAML==4.2b4
 pytest==3.6.3
 pytest-runner>=4.2
 cython==0.28.4
@@ -15,4 +15,4 @@ numpy==1.14.5
 scikit-learn>=0.19.1
 scipy==1.1.0
 click==6.7
-mypy==0.610
+mypy==0.620
