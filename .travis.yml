@@ -3,12 +3,14 @@ dist: trusty
 cache: pip
 language: python
 python:
+- 3.3
 - 3.6
 - 3.5
 - 3.4
 - 3.7-dev
 matrix:
   allow_failures:
+  - python: 3.3
   - python: 3.5
   - python: 3.7-dev
 branches:
