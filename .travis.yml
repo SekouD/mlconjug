@@ -8,8 +8,13 @@ python:
 - 3.5
 - 3.4
 - 3.7-dev
+#  PyPy versions
+- pypy2.7
+- pypy3.5
 matrix:
   allow_failures:
+  - python: pypy2.7
+  - python: pypy3.5
   - python: 3.3
   - python: 3.5
   - python: 3.7-dev
