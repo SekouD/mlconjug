@@ -39,13 +39,14 @@ _VERBS = {'fr': VerbFr,
           'ro': VerbRo,
           }
 
-_PRE_TRAINED_MODEL_PATH = {'fr': '/'.join(('data', 'models', 'trained_model-fr-final.zip')),
-                           'it': '/'.join(('data', 'models', 'trained_model-it-final.zip')),
-                           'es': '/'.join(('data', 'models', 'trained_model-es-final.zip')),
-                           'en': '/'.join(('data', 'models', 'trained_model-en-final.zip')),
-                           'pt': '/'.join(('data', 'models', 'trained_model-pt-final.zip')),
-                           'ro': '/'.join(('data', 'models', 'trained_model-ro-final.zip')),
-                           }
+_PRE_TRAINED_MODEL_PATH = {
+    'fr': '/'.join(('data', 'models', 'trained_model-fr-final.zip')),
+    'it': '/'.join(('data', 'models', 'trained_model-it-final.zip')),
+    'es': '/'.join(('data', 'models', 'trained_model-es-final.zip')),
+    'en': '/'.join(('data', 'models', 'trained_model-en-final.zip')),
+    'pt': '/'.join(('data', 'models', 'trained_model-pt-final.zip')),
+    'ro': '/'.join(('data', 'models', 'trained_model-ro-final.zip')),
+    }
 
 _ALPHABET = {'fr': {'vowels': 'aáàâeêéèiîïoôöœuûùy',
                     'consonants': 'bcçdfghjklmnpqrstvwxyz'},
@@ -93,7 +94,7 @@ def extract_verb_features(verb, lang, ngram_range):
     final_ngrams = ['END={0}'.format(verb[-n:]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
     initial_ngrams = ['START={0}'.format(verb[:n]) for n in range(min_n, min(max_n + 1, verb_len + 1))]
     if lang not in _ALPHABET:
-        lang = 'en' # We chose 'en' as the default alphabet because english is more standard, without accents or diactrics.
+        lang = 'en'  # We chose 'en' as the default alphabet because english is more standard, without accents or diactrics.
     vowels = sum(verb.count(c) for c in _ALPHABET[lang]['vowels'])
     vowels_number = 'VOW_NUM={0}'.format(vowels)
     consonants = sum(verb.count(c) for c in _ALPHABET[lang]['consonants'])
