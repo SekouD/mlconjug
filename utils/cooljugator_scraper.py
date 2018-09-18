@@ -297,8 +297,8 @@ class Cooljugator(ConjugProvider):
         Fetches the albums section in the supplied html page.
 
         :param raw_artist_page: Artist's raw html page.
-        :return: list.
-            List of BeautifulSoup objects.
+        :return: dict.
+            Conjugation Dict.
         """
         raw_html = self.get_verb_page(verb)
         if raw_html is None:
@@ -364,7 +364,6 @@ if __name__ == "__main__":
         conjug = pickle.load(f)
     #     TODO: Skip saved languagesSekouD <sekoud.pythonail.com>
     # 00150f22c5a6e5f9c928716
-
     for lang in all_languages:
         test_verbs = conjugator._get_all_verbs(lang)
         if len(test_verbs) == len(conjug[lang]):
@@ -373,38 +372,40 @@ if __name__ == "__main__":
         # test_verbs = conjugator._get_all_verbs(' Icelandic')
         print('Downloading all {0} verbs.'.format(lang))
         # verbs_list = test_verbs.keys()
-        # # Experimental async requests
-        # pool = Pool(25)  # Sets the worker pool for async requests.
+        # Experimental async requests
+        pool = Pool(25)  # Sets the worker pool for async requests.
         # 25 is a nice value to not annoy site owners ;)
-        # results = [pool.spawn(conjugator.get_conjug, verb)
-        #            for verb in test_verbs]
-        # pool.join()  # Gathers results from the pool
-        # verbs = [verb.value for verb in results]
-        last_verbs = []
-        for verb in test_verbs:
-            if verb not in conjug[lang]:
-                conjug[lang][verb] = conjugator.get_conjug(test_verbs[verb])
-                # print('The {0} verb {1} has been succesfully retrieved.'.format(
-                #     lang, verb))
-                last_verbs.append(verb)
-                if len(last_verbs) % 50 == 0:
-                    print('The last 50 {0} verbs have been downloaded.'.format(
-                        lang))
-            else:
-                pass
-            if len(last_verbs) == 500:
-                with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/'
-                          'utils/raw_data/cooljugator_dump.pickle', 'wb') as f:
-                    pickle.dump(conjug, f)
-                    last_verbs_string = ', '.join(last_verbs)
-                    print('The {0} verbs {1} have been saved.\n'.format(
-                        lang, last_verbs_string))
-                    print('{1} out of {2} {0} verbs have been saved so far.\n'
-                          ''.format(lang,
-                                    str(len(conjug[lang])),
-                                    str(len(test_verbs))))
-                    last_verbs = []
-            pass
+        results = [(verb, pool.spawn(conjugator.get_conjug, test_verbs[verb]))
+                   for verb in test_verbs]
+        pool.join()  # Gathers results from the pool
+        for verb, conjugation in results:
+            conjug[lang][verb] = conjugation.value
+        pass
+        # last_verbs = []
+        # for verb in test_verbs:
+        #     if verb not in conjug[lang]:
+        #         conjug[lang][verb] = conjugator.get_conjug(test_verbs[verb])
+        #         # print('The {0} verb {1} has been succesfully retrieved.'.format(
+        #         #     lang, verb))
+        #         last_verbs.append(verb)
+        #         if len(last_verbs) % 50 == 0:
+        #             print('The last 50 {0} verbs have been downloaded.'.format(
+        #                 lang))
+        #     else:
+        #         pass
+        #     if len(last_verbs) == 500:
+        #         with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/'
+        #                   'utils/raw_data/cooljugator_dump.pickle', 'wb') as f:
+        #             pickle.dump(conjug, f)
+        #             last_verbs_string = ', '.join(last_verbs)
+        #             print('The {0} verbs {1} have been saved.\n'.format(
+        #                 lang, last_verbs_string))
+        #             print('{1} out of {2} {0} verbs have been saved so far.\n'
+        #                   ''.format(lang,
+        #                             str(len(conjug[lang])),
+        #                             str(len(test_verbs))))
+        #             last_verbs = []
+        #     pass
         with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
                   '/raw_data/cooljugator_dump.pickle', 'wb') as f:
             pickle.dump(conjug, f)
