@@ -7,6 +7,7 @@ import certifi
 import random
 from collections import defaultdict
 import pickle
+import sys
 from bs4 import BeautifulSoup
 
 # We use gevent in order to make asynchronous http requests while downloading lyrics.
@@ -15,6 +16,13 @@ import gevent.monkey
 from gevent.pool import Pool
 
 # from utils.utils import TorController
+
+
+def chunks(l, n):
+    # For item i in a range that is a length of l,
+    for i in range(0, len(l), n):
+        # Create an index range for l of n items:
+        yield l[i:i+n]
 
 class ConjugProvider:
     """
@@ -286,7 +294,10 @@ class Cooljugator(ConjugProvider):
         """
         url = self._make_verb_url(verb)
         response = self.get_page(url)
-        raw_html = response.data
+        try:
+            raw_html = response.data
+        except AttributeError:
+            return None
         verb_page = BeautifulSoup(raw_html, 'lxml')
         if not verb_page.find("section", {'id': 'conjugations'}):
             return None
@@ -311,14 +322,16 @@ class Cooljugator(ConjugProvider):
                                             'conjugation-table collapsable'})]
         conjug = {}
         for mood in moods:
-            tenses_names = mood.find_all("div", {
-                'class': 'conjugation-cell conjugation-cell-four tense-title'})
+            tenses_names = mood.find_all("span", {
+                'class': 'tense-title-space'})
             tenses_conjug = mood.find_all("div", {
-                'class': 'conjugation-cell conjugation-cell-four'})
-            for tense, conjug_table in zip(tenses_names, tenses_conjug):
-                forms = conjug_table.find_all("div",
-                                              {'class': 'meta-form'})
-                conjug[tense.text] = [form.text for form in forms]
+                'class': 'meta-form'})
+            pronouns = mood.find_all("div", {
+                'class': 'ui ribbon label blue conjugation-pronoun'})
+            for tense, conjug_table in zip(tenses_names,
+                                           chunks(tenses_conjug, len(pronouns))):
+                conjug[tense.text] = [(pron.text, form.text) for pron, form in
+                                      zip(pronouns, conjug_table)]
                 pass
         return conjug
 
@@ -358,26 +371,30 @@ if __name__ == "__main__":
     conjugator = Cooljugator()
     all_languages = conjugator._get_all_languages()
     # lang = random.choice(list(all_languages.keys()))
-    # conjug = defaultdict(dict)
-    with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
-              '/raw_data/cooljugator_dump.pickle', 'rb') as f:
-        conjug = pickle.load(f)
+    conjug = defaultdict(dict)
+    # with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
+    #           '/raw_data/cooljugator_dump.pickle', 'rb') as f:
+    #     conjug = pickle.load(f)
     #     TODO: Skip saved languagesSekouD <sekoud.pythonail.com>
     # 00150f22c5a6e5f9c928716
     for lang in all_languages:
+        # if lang == 'Afrikaans':
+        #     continue
         test_verbs = conjugator._get_all_verbs(lang)
         if len(test_verbs) == len(conjug[lang]):
             print('Skipping {0} verbs as they have already been downloaded'.format(lang))
             continue
         # test_verbs = conjugator._get_all_verbs(' Icelandic')
-        print('Downloading all {0} verbs.'.format(lang))
+        print('Adding download tasks for {0} verbs to queue.'.format(lang))
         # verbs_list = test_verbs.keys()
         # Experimental async requests
         pool = Pool(25)  # Sets the worker pool for async requests.
         # 25 is a nice value to not annoy site owners ;)
         results = [(verb, pool.spawn(conjugator.get_conjug, test_verbs[verb]))
                    for verb in test_verbs]
+        print('Joining pool for all {0} verbs.'.format(lang))
         pool.join()  # Gathers results from the pool
+        print('Adding all {0} conjugation tables to dictionary.'.format(lang))
         for verb, conjugation in results:
             conjug[lang][verb] = conjugation.value
         pass
