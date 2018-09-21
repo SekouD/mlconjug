@@ -42,9 +42,13 @@ class ConjugProvider:
             gevent.monkey.patch_socket()
         self.tor_controller = tor_controller
         if not self.tor_controller:
+            retries = urllib3.Retry(10)
             user_agent = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
-            self.session = urllib3.PoolManager(maxsize=10, cert_reqs='CERT_REQUIRED', ca_certs=certifi.where(),
-                                               headers=user_agent)
+            self.session = urllib3.PoolManager(maxsize=10,
+                                               cert_reqs='CERT_REQUIRED',
+                                               ca_certs=certifi.where(),
+                                               headers=user_agent,
+                                               retries=retries)
         else:
             self.session = self.tor_controller.get_tor_session()
         self.__tor_status__()
@@ -371,37 +375,54 @@ if __name__ == "__main__":
     conjugator = Cooljugator()
     all_languages = conjugator._get_all_languages()
     # lang = random.choice(list(all_languages.keys()))
-    conjug = defaultdict(dict)
+    # conjug = defaultdict(dict)
     # with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
     #           '/raw_data/cooljugator_dump.pickle', 'rb') as f:
     #     conjug = pickle.load(f)
     #     TODO: Skip saved languagesSekouD <sekoud.pythonail.com>
     # 00150f22c5a6e5f9c928716
     for lang in all_languages:
-        # if lang == 'Afrikaans':
-        #     continue
+        conjug = {}
+        if lang in ('Afrikaans', 'Albanian', 'Arabic', 'Azeri', 'Basque',
+                    'Catalan', 'Danish', 'Dutch'):
+            continue
         test_verbs = conjugator._get_all_verbs(lang)
-        if len(test_verbs) == len(conjug[lang]):
+        if len(test_verbs) == len(conjug):
             print('Skipping {0} verbs as they have already been downloaded'.format(lang))
             continue
         # test_verbs = conjugator._get_all_verbs(' Icelandic')
         print('Adding download tasks for {0} verbs to queue.'.format(lang))
         # verbs_list = test_verbs.keys()
         # Experimental async requests
-        pool = Pool(25)  # Sets the worker pool for async requests.
+        pool = Pool(256)  # Sets the worker pool for async requests.
+
         # 25 is a nice value to not annoy site owners ;)
         results = [(verb, pool.spawn(conjugator.get_conjug, test_verbs[verb]))
                    for verb in test_verbs]
+        while True:
+            gevent.sleep()
+            percent = 0.0
+            for i in results:
+                if i[1].successful():
+                    percent += 100 / len(results)
+            sys.stdout.write(
+                ('=' * int(percent)) + ('' * (100 - int(percent))) + (
+                        "\r [ %d" % percent + "% ] "))
+            sys.stdout.flush()
+            if percent >= 99:
+                sys.stdout.write('\n')
+                sys.stdout.flush()
+                break
         print('Joining pool for all {0} verbs.'.format(lang))
         pool.join()  # Gathers results from the pool
         print('Adding all {0} conjugation tables to dictionary.'.format(lang))
         for verb, conjugation in results:
-            conjug[lang][verb] = conjugation.value
+            conjug[verb] = conjugation.value
         pass
         # last_verbs = []
         # for verb in test_verbs:
-        #     if verb not in conjug[lang]:
-        #         conjug[lang][verb] = conjugator.get_conjug(test_verbs[verb])
+        #     if verb not in conjug:
+        #         conjug[verb] = conjugator.get_conjug(test_verbs[verb])
         #         # print('The {0} verb {1} has been succesfully retrieved.'.format(
         #         #     lang, verb))
         #         last_verbs.append(verb)
@@ -419,17 +440,17 @@ if __name__ == "__main__":
         #                 lang, last_verbs_string))
         #             print('{1} out of {2} {0} verbs have been saved so far.\n'
         #                   ''.format(lang,
-        #                             str(len(conjug[lang])),
+        #                             str(len(conjug)),
         #                             str(len(test_verbs))))
         #             last_verbs = []
         #     pass
         with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
-                  '/raw_data/cooljugator_dump.pickle', 'wb') as f:
+                  '/raw_data/cooljugator_dump{0}.pickle'.format(lang), 'wb') as f:
             pickle.dump(conjug, f)
             print('All the {0} verbs have been saved.\n'.format(lang))
     print('OK.')
-    with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
-              '/raw_data/cooljugator_dump.pickle', 'wb') as f:
-        pickle.dump(conjug, f)
+    # with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
+    #           '/raw_data/cooljugator_dump.pickle', 'wb') as f:
+    #     pickle.dump(conjug, f)
     print('All the verbs for all languages have been saved.')
     pass
