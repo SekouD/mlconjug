@@ -12,7 +12,7 @@ pytest==3.8.2
 pytest-runner>=4.2
 cython==0.28.5
 numpy==1.15.2
-scikit-learn==0.19.1
+scikit-learn==0.20.0
 scipy==1.1.0
 click==7.0
 mypy==0.630
