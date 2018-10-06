@@ -22,7 +22,7 @@ requirements = [
     'Click>=6.0',
     'numpy',
     'scipy',
-    'scikit-learn',
+    'scikit-learn==0.19.1',
 ]
 
 setup_requirements = [
