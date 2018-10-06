@@ -8,7 +8,7 @@ coverage==4.5.1
 Sphinx==1.8.1
 cryptography==2.3.1
 PyYAML==4.2b4
-pytest==3.8.0
+pytest==3.8.2
 pytest-runner>=4.2
 cython==0.28.5
 numpy==1.15.2
