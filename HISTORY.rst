@@ -2,6 +2,12 @@
 History
 =======
 
+3.2.3 (2019-26-02)
+------------------
+
+* Updated Dependencies.
+* Fixed bug which prevented the installation of the pre-trained models.
+
 3.2.2 (2018-18-11)
 ------------------
 
