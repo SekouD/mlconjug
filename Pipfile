@@ -18,7 +18,7 @@ scipy = "==1.2.1"
 click = "==7.0"
 mypy = "==0.670"
 Sphinx = "==1.8.4"
-PyYAML = "==5.1b1"
+PyYAML = "==5.1b3"
 Cython = "==0.29.6"
 
 [packages]
