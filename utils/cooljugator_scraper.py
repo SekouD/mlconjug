@@ -42,9 +42,9 @@ class ConjugProvider:
             gevent.monkey.patch_socket()
         self.tor_controller = tor_controller
         if not self.tor_controller:
-            retries = urllib3.Retry(10)
+            retries = urllib3.Retry(35)
             user_agent = {'user-agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'}
-            self.session = urllib3.PoolManager(maxsize=10,
+            self.session = urllib3.PoolManager(maxsize=35,
                                                cert_reqs='CERT_REQUIRED',
                                                ca_certs=certifi.where(),
                                                headers=user_agent,
@@ -143,19 +143,6 @@ class ConjugProvider:
             print('Unable to download url ' + url)
         return req
 
-    @abstractmethod
-    def get_verb_infos(self, tag):
-        """
-        Must be implemented by children classes conforming to the LyricsMaster API.
-
-        Extracts the Album informations from the tag
-
-        :param tag: BeautifulSoup object.
-        :return: tuple(string, string).
-            Album title and release date.
-        """
-        pass
-
 
 class Cooljugator(ConjugProvider):
     """
@@ -168,9 +155,7 @@ class Cooljugator(ConjugProvider):
 
     def _get_all_languages(self):
         """
-        Must be implemented by children classes conforming to the LyricsMaster API.
-
-        Builds an url for the artist page of the lyrics provider.
+        Builds a list of urls of all languages.
 
         :param artist:
         :return: string or None.
@@ -186,19 +171,15 @@ class Cooljugator(ConjugProvider):
 
     def _get_all_verbs(self, language):
         """
-        Must be implemented by children classes conforming to the LyricsMaster API.
+        Builds a list of urls for all the verbs of the language.
 
-        Builds an url for the artist page of the lyrics provider.
-
-        :param artist:
+        :param language:
         :return: string or None.
         """
-        all_verbs_url = self.base_url + self.languages[language]['href'] + \
-                    '/list/all'
+        all_verbs_url = self.base_url + self.languages[language]['href'] + '/list/all'
         response = self.get_page(all_verbs_url)
         if b'Error 404' in response._body:
-            all_verbs_url = self.base_url + self.languages[language]['href'] + \
-                            '/list/index'
+            all_verbs_url = self.base_url + self.languages[language]['href'] + '/list/index'
             response = self.get_page(all_verbs_url)
         all_verbs_html = response.data
         all_verbs_page = BeautifulSoup(all_verbs_html, 'lxml')
@@ -214,7 +195,7 @@ class Cooljugator(ConjugProvider):
         """
         Builds an url for the artist page of the lyrics provider.
 
-        :param artist:
+        :param verb: string.
         :return: string.
         """
         url = self.base_url + quote(verb['href'])
@@ -222,12 +203,9 @@ class Cooljugator(ConjugProvider):
 
     def get_verb_page(self, verb):
         """
-        Fetches the album page for the supplied artist and album.
+        Fetches the verb's page.
 
-        :param artist: string.
-            Artist name.
-        :param album: string.
-            Album title.
+        :param verb: string.
         :return: string or None.
             Album's raw html page. None if the album page was not found.
         """
@@ -244,9 +222,9 @@ class Cooljugator(ConjugProvider):
 
     def get_conjug(self, verb):
         """
-        Fetches the albums section in the supplied html page.
+        Fetches the verb conjugation info.
 
-        :param raw_artist_page: Artist's raw html page.
+        :param verb: string.
         :return: dict.
             Conjugation Dict.
         """
@@ -274,24 +252,6 @@ class Cooljugator(ConjugProvider):
                 pass
         return conjug
 
-    def get_verb_infos(self, tag):
-        """
-        Extracts the Album informations from the tag
-
-        :param tag: BeautifulSoup object.
-        :return: tuple(string, string).
-            Album title and release date.
-        """
-        try:
-            i = tag.text.index(' (')
-            release_date = re.findall(r'\(([^()]+)\)', tag.text)[0]
-        except ValueError:
-            i = -1
-            release_date = 'Unknown'
-        album_title = tag.text[:i]
-
-        return album_title, release_date
-
     def _clean_string(self, text):
         """
         Cleans the supplied string and formats it to use in a url.
@@ -312,12 +272,7 @@ if __name__ == "__main__":
     for lang in all_languages:
         conjug = {}
         test_verbs = conjugator._get_all_verbs(lang)
-        if len(test_verbs) == len(conjug):
-            print('Skipping {0} verbs as they have already been downloaded'.format(lang))
-            continue
-        # test_verbs = conjugator._get_all_verbs(' Icelandic')
-        print('Adding download tasks for {0} verbs to queue.'.format(lang))
-        # verbs_list = test_verbs.keys()
+        print('Adding {0} download tasks for {1} verbs to queue.'.format(len(test_verbs), lang))
         # Experimental async requests
         pool = Pool(256)  # Sets the worker pool for async requests.
         results = [(verb, pool.spawn(conjugator.get_conjug, test_verbs[verb]))
