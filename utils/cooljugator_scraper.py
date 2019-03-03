@@ -11,11 +11,8 @@ import sys
 from bs4 import BeautifulSoup
 
 # We use gevent in order to make asynchronous http requests while downloading lyrics.
-# It is also used to patch the socket module to use SOCKS5 instead to interface with the Tor controller.
 import gevent.monkey
 from gevent.pool import Pool
-
-# from utils.utils import TorController
 
 
 def chunks(l, n):
@@ -23,6 +20,24 @@ def chunks(l, n):
     for i in range(0, len(l), n):
         # Create an index range for l of n items:
         yield l[i:i+n]
+
+
+def show_progress_indicator(queue):
+    while True:
+        gevent.sleep()
+        percent = 0.0
+        for i in queue:
+            if i[1].successful():
+                percent += 100 / len(queue)
+        sys.stdout.write(
+            ('=' * int(percent)) + ('' * (100 - int(percent))) + (
+                "\r [ %d" % percent + "% ] "))
+        sys.stdout.flush()
+        if percent >= 99:
+            sys.stdout.write('\n')
+            sys.stdout.flush()
+            break
+
 
 class ConjugProvider:
     """
@@ -270,6 +285,8 @@ if __name__ == "__main__":
     conjugator = Cooljugator()
     all_languages = conjugator._get_all_languages()
     for lang in all_languages:
+        if 'adjectives' in lang or 'nouns' in lang:
+            continue
         conjug = {}
         test_verbs = conjugator._get_all_verbs(lang)
         print('Adding {0} download tasks for {1} verbs to queue.'.format(len(test_verbs), lang))
@@ -277,20 +294,7 @@ if __name__ == "__main__":
         pool = Pool(256)  # Sets the worker pool for async requests.
         results = [(verb, pool.spawn(conjugator.get_conjug, test_verbs[verb]))
                    for verb in test_verbs]
-        while True:
-            gevent.sleep()
-            percent = 0.0
-            for i in results:
-                if i[1].successful():
-                    percent += 100 / len(results)
-            sys.stdout.write(
-                ('=' * int(percent)) + ('' * (100 - int(percent))) + (
-                        "\r [ %d" % percent + "% ] "))
-            sys.stdout.flush()
-            if percent >= 99:
-                sys.stdout.write('\n')
-                sys.stdout.flush()
-                break
+        show_progress_indicator(results)
         print('Joining pool for all {0} verbs.'.format(lang))
         pool.join()  # Gathers results from the pool
         print('Adding all {0} conjugation tables to dictionary.'.format(lang))
