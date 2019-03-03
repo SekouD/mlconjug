@@ -257,7 +257,7 @@ class DataSet:
             Must be between 0 and 1.
 
         """
-        if proportion <= 0 or proportion >= 1:
+        if proportion <= 0 or proportion > 1:
             raise ValueError(_('The split proportion must be between 0 and 1.'))
         self.min_threshold = threshold
         self.split_proportion = proportion
