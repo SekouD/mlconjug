@@ -237,10 +237,12 @@ class DataSet:
 
         """
         conjug = defaultdict(list)
-        for verbe, info_verbe in self.verbs_dict.items():
-            self.verbs_list.append(verbe)
-            self.templates_list.append(self.templates.index(info_verbe["template"]))
-            conjug[info_verbe["template"]].append(verbe)
+        verb_items = list(self.verbs_dict.items())
+        random.shuffle(verb_items)
+        for verb, info_verb in verb_items:
+            self.verbs_list.append(verb)
+            self.templates_list.append(self.templates.index(info_verb["template"]))
+            conjug[info_verb["template"]].append(verb)
         self.dict_conjug = conjug
         return
 
