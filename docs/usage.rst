@@ -10,7 +10,7 @@ To use MLConjug in a project with the provided pre-trained conjugation models::
     import mlconjug
 
     # To use mlconjug with the default parameters and a pre-trained conjugation model.
-    default_conjugator = mlconjug.Conjugator(language='fr)
+    default_conjugator = mlconjug.Conjugator(language='fr')
 
     # Verify that the model works
     test1 = default_conjugator.conjugate("manger").conjug_info['indicative']['simple-past']['1p']
