@@ -2,6 +2,12 @@
 History
 =======
 
+3.3 (2019-04-03)
+------------------
+
+* Updated Dependencies to use scikit-learn v 0.20.2 and higher.
+* Updated the pre-trained models to use scikit-learn v 0.20.2 and higher.
+
 3.2.3 (2019-26-02)
 ------------------
 

@@ -1,4 +1,6 @@
 import pickle
+from os import listdir
+from os.path import isfile, join
 from collections import OrderedDict, defaultdict
 
 
@@ -107,8 +109,15 @@ def construct_conjug_dict(hastable, verb_roots, all_verbs_conjugation):
 
 
 if __name__ == "__main__":
-    # conjug = defaultdict(dict)
-    with open('C:/Users/SekouD/Documents/Projets_Python/mlconjug/utils'
-              '/raw_data/cooljugator_dump_temp.pickle', 'rb') as f:
-        conjug = pickle.load(f)
-        print('ok.')
+    path = 'C:/Users/SDiao/PycharmProjects/mlconjug/utils/cooljugator'
+    files = [join(path, f) for f in listdir(path) if isfile(join(path, f))]
+    for file in files:
+        conjugation = {}
+        verbs = {}
+        lang = file.split('-')[1].split('.')[0]
+        with open(file, 'rb') as conjug_file:
+            conjug_data = pickle.load(conjug_file)
+            # Detect conjugation pattern by Identifying root and ending
+            # Populate 'conjugation' and 'verbs' dict
+            # Save data as json
+            pass
