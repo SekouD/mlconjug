@@ -58,15 +58,15 @@ _PRONOUNS = {'fr': {'abbrev': _ABBREVS,
                    'pronoun': ('eu', 'tu', 'el/ea', 'noi', 'voi', 'ei/ele')}
              }
 
-_IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s :", "1p :", "2p :"),
+_IMPERATIVE_PRONOUNS = {'fr': {'abbrev': ("2s", "1p", "2p"),
                               'pronoun': ("", "", "")},
                         'it': None,
-                        'es': {'abbrev': ("2s :", "3s :", "1p :", "2p :", "3p :"),
+                        'es': {'abbrev': ("2s", "3s", "1p", "2p", "3p"),
                               'pronoun': ('tú', 'él', 'nosotros', 'vosotros', 'ellos')},
-                        'en': {'abbrev': ("2s :", "1p :", "2p :"),
+                        'en': {'abbrev': ("2s", "1p", "2p"),
                               'pronoun': ("", "let's", "")},
                         'pt': None,
-                        'ro': {'abbrev': ("2s :", "2p :"),
+                        'ro': {'abbrev': ("2s", "2p"),
                               'pronoun': ("tu", "voi")},
                         }
 
@@ -78,7 +78,7 @@ _AUXILIARIES = {'fr':None,
                 'pt': 'não',
                 'ro': 'nu'}
 
-_GENDER = {'fr': {'abbrev': ("ms :", "mp :", "fs :", "fp :"),
+_GENDER = {'fr': {'abbrev': ("ms", "mp", "fs", "fp"),
                  'pronoun': ("masculin singulier", "masculin pluriel", "feminin singulier", "feminin pluriel")},
            'it': None,
            'es': None,
@@ -328,7 +328,10 @@ class VerbInfo:
 
     def __init__(self, infinitive, root, template):
         self.infinitive = infinitive
-        self.root = root
+        if not root:
+            self.root = infinitive
+        else:
+            self.root = root
         self.template = template
         return
 
