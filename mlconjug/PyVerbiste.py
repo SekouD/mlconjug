@@ -328,7 +328,10 @@ class VerbInfo:
 
     def __init__(self, infinitive, root, template):
         self.infinitive = infinitive
-        self.root = root
+        if not root:
+            self.root = infinitive
+        else:
+            self.root = root
         self.template = template
         return
 
