@@ -2,6 +2,12 @@
 History
 =======
 
+3.3.2 (2019-06-04)
+------------------
+
+* Corrected bug with regular english verbs not being properly regulated. Thanks to @vectomon
+* Updated Dependencies.
+
 3.3.1 (2019-02-04)
 ------------------
 
