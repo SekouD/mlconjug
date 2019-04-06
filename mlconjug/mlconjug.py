@@ -198,8 +198,11 @@ class Conjugator:
         :param model: scikit-learn Classifier or Pipeline.
 
         """
-        assert isinstance(model, Model), _('Please provide an instance of a mlconjug.mlconjug.Model')
-        self.model = model
+        if not isinstance(model, Model):
+            print(_('Please provide an instance of a mlconjug.mlconjug.Model'))
+            raise ValueError
+        else:
+            self.model = model
         return
 
 
