@@ -449,7 +449,7 @@ class VerbEn(Verb):
 
     language = 'en'
 
-    def _load_conjug(self):  # TODO: Check why english regular verbs are not properly populated
+    def _load_conjug(self):
         """
         | Populates the inflected forms of the verb.
         | Adds personal pronouns to the inflected verbs.
