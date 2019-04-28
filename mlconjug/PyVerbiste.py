@@ -347,6 +347,7 @@ class VerbInfo:
 class Verb:
     """
     This class defines the Verb Object.
+    TODO: Make the conjugated forms iterable by implementing the iterator protocol.
 
     :param verb_info: VerbInfo Object.
     :param conjug_info: OrderedDict.
