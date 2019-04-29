@@ -409,7 +409,10 @@ class Verb:
                         else:
                             key = ''
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -447,7 +450,10 @@ class VerbFr(Verb):
                         else:
                             key = term
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -487,7 +493,10 @@ class VerbEn(Verb):
                         else:
                             key = term
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -530,7 +539,10 @@ class VerbEs(Verb):
                         else:
                             key = ''
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -568,7 +580,10 @@ class VerbIt(Verb):
                         else:
                             key = ''
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -606,7 +621,10 @@ class VerbPt(Verb):
                         else:
                             key = ''
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
@@ -646,7 +664,10 @@ class VerbRo(Verb):
                         else:
                             key = ''
                         if term is not None:
-                            persons_dict[key] = self.verb_info.root + term
+                            if self.verb_info.root == self.verb_info.template[1:]:
+                                persons_dict[key] = term
+                            else:
+                                persons_dict[key] = self.verb_info.root + term
                         else:
                             persons_dict[key] = None
                     self.conjug_info[mood][tense_name] = persons_dict
