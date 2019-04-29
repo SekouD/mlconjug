@@ -2,6 +2,13 @@
 History
 =======
 
+3.4 (2019-29-04)
+------------------
+
+* Fixed bug when verbs with no common roots with their conjugated form get their root inserted as a prefix.
+* Added the method iterate() to the Verb Class as per @poolebu's feature request.
+* Updated Dependencies.
+
 3.3.2 (2019-06-04)
 ------------------
 

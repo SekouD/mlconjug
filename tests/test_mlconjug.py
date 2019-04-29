@@ -105,6 +105,16 @@ class TestVerb:
         test_verb = VerbFr(test_verb_info, test_conjug_info)
         assert test_verb.__repr__() == 'mlconjug.PyVerbiste.VerbFr(manger)'
 
+    def test_iterate(self):
+        verbiste = Verbiste(language='default')
+        test_verb_info = verbiste.get_verb_info(TEST_VERBS[verbiste.language][0])
+        test_conjug_info = verbiste.get_conjug_info(TEST_VERBS[verbiste.language][1])
+        test_verb = Verb(test_verb_info, test_conjug_info)
+        iteration_results = test_verb.iterate()
+        assert len(iteration_results) == 46
+        assert iteration_results[0] == ('Infinitif', 'Infinitif Présent', 'manger')
+        assert iteration_results[1] == ('Indicatif', 'Présent', '1s', 'mange')
+
 
 class TestEndingCountVectorizer:
     ngrange = (2, 7)

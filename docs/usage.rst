@@ -24,6 +24,11 @@ To use MLConjug in a project with the provided pre-trained conjugation models::
     print(test4)
     print(test5)
 
+    # You can now iterate over all conjugated forms of a verb by using the newly added Verb.iterate() method.
+    default_conjugator = mlconjug.Conjugator(language='en')
+    test_verb = default_conjugator.conjugate("be")
+    all_conjugated_forms = test_verb.iterate()
+    print(all_conjugated_forms)
 
 To use MLConjug in a project and train a new model::
 

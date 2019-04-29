@@ -19,6 +19,7 @@ environment:
 matrix:
     allow_failures:
         - PYTHON: "C:\\Python34-x64"
+        - PYTHON: "C:\\Python34"
 
 cache:
   - C:\Users\appveyor\pip\wheels -> appveyor.yml
@@ -45,7 +46,6 @@ test_script:
   - "%PYTHON%\\python.exe -m pip install -r requirements_dev.txt"
   - "%PYTHON%\\Scripts\\py.test --cov=./mlconjug/"
   - "%PYTHON%\\Scripts\\codecov -f .coverage"
-  - "%PYTHON%\\python.exe -m mypy --strict --follow-imports silent ./mlconjug/"
   - "%PYTHON%\\python.exe setup.py check --restructuredtext -s"
 
 after_test:
