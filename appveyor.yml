@@ -19,6 +19,7 @@ environment:
 matrix:
     allow_failures:
         - PYTHON: "C:\\Python34-x64"
+        - PYTHON: "C:\\Python34"
 
 cache:
   - C:\Users\appveyor\pip\wheels -> appveyor.yml
