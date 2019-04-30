@@ -418,10 +418,18 @@ class Verb:
         return
 
     def conjugate_person(self, key, persons_dict, term):
+        """
+        Creates the conjugated form of the person specified by the key argument.
+        :param key: string.
+        :param persons_dict: OrderedDict
+        :param term: string.
+        :return:
+        """
         if self.verb_info.root == self.verb_info.template[1:]:
             persons_dict[key] = term
         else:
             persons_dict[key] = self.verb_info.root + term
+        return
 
 
 class VerbFr(Verb):
