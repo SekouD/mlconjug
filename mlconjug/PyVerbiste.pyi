@@ -119,6 +119,12 @@ class Verb:
 
     def iterate(self) -> Sequence[Tuple[Text]]: ...
 
+    def conjugate_person(self,
+                         key: Text,
+                         persons_dict: Mapping[Text, Text],
+                         term: Text
+                         ) -> None: ...
+
 
 class VerbFr(Verb):
     def _load_conjug(self) -> None: ...
