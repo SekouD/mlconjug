@@ -422,7 +422,7 @@ class Verb:
         :param key: string.
         :param persons_dict: OrderedDict
         :param term: string.
-        :return:
+        :return: None.
         """
         if self.verb_info.root == self.verb_info.template[1:]:
             persons_dict[key] = term
