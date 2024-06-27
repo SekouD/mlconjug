@@ -14,5 +14,5 @@ cython==0.29.7
 numpy==1.16.3
 scikit-learn==0.20.3
 scipy==1.2.1
-click==7.0
+click==8.1.7
 mypy==0.701
