@@ -1,4 +1,4 @@
-cython
+cython==3.0.10
 numpy
 scikit-learn>=0.20.2
 scipy
