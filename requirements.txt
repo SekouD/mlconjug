@@ -2,4 +2,4 @@ cython
 numpy
 scikit-learn>=0.20.2
 scipy
-click
+click==8.1.7
