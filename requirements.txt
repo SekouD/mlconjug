@@ -1,5 +1,5 @@
 cython
 numpy
 scikit-learn>=0.20.2
-scipy
+scipy==1.14.0
 click
